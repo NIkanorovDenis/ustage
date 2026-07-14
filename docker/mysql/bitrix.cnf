@@ -1,0 +1,5 @@
+[mysqld]
+innodb_buffer_pool_size=512M
+max_allowed_packet=1024M
+table_open_cache=4096
+transaction_isolation=READ-COMMITTED

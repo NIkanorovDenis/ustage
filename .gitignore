@@ -1,0 +1,22 @@
+# Local secrets
+.env
+config-backup/
+
+# Database dumps and imported data
+import/
+*.sql
+*.sql.gz
+
+# The migrated production tree is intentionally not part of the first commit.
+# Application code will be split from runtime data before CI/CD is enabled.
+www/
+
+# OS and IDE files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+*.log.*
