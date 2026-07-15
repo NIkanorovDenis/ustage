@@ -1,0 +1,30 @@
+.bx_login_block  {
+    display: inline;
+}
+#login-line:before {
+    padding-right: 5px;
+}
+a.bx_login_top_inline_link{
+    text-decoration: none;
+    font-size: 0.9286em;
+    margin: 0 5px;
+}
+a.bx_login_top_inline_link:last-child{
+    margin-right: 1.5rem;
+}
+a.bx_login_top_inline_link:hover{
+    text-decoration: underline
+}
+.bx_login_popup_form {
+    margin: 20px 0;
+    min-width: 380px
+}
+.bx_auth_popup_form, .containter input {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-collapse: collapse;
+    border: none;
+}

@@ -1,0 +1,18 @@
+.bxr-breadcrumb{
+    line-height: 1em;    
+    background: #fff;
+    display: table;
+    width: 100%;    
+}
+.bxr-breadcrumb .bxr-breadcrumb-item{
+    display: inline-block;
+    color: #7c7c7c;
+    font-size: 1em;
+    line-height: 1em;
+    max-height: 13px
+}
+.bxr-breadcrumb i.fa {
+    margin-left: .9em;
+    margin-right: .9em;
+    font-size: .8571em;
+}

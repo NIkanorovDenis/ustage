@@ -1,0 +1,58 @@
+.navigation-pages {
+    display: inline-block;
+    position: relative;
+    margin: 20px 0 20px 0;
+}
+
+.bxr-top-pager .navigation-pages {
+    margin-top: 0px;
+}
+
+.navigation-pages :first-child, .navigation-pages .first-current-page {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.navigation-pages :last-child, .navigation-pages .last-current-page {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.navigation-pages .nav-current-page {
+    display: inline-block;
+    font-size: 14px;
+    width: 42px;
+    padding: 5px 0;
+    text-align: center;
+    display: block;
+    float: left;
+}
+
+.navigation-page-other, .navigation-pages a {
+    display: block;
+    float: left;
+    font-size: 14px;
+    width: 42px;
+    padding: 5px 0;
+    text-align: center;
+    color: #797979;
+    border: 1px solid #e0e0e0;
+}
+
+.navigation-pages a:not(:last-child), .navigation-page-other {
+    border-right: 0;
+}
+
+.navigation-page-all:hover, .navigation-pages a:hover, .navigation-page-all:active, .navigation-pages a:active, .navigation-page-all:visited, .navigation-pages a:visited {
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .navigation {
+        text-align: center;
+    }
+
+    .navigation-page-other
+    , .navigation-pages a
+    , .navigation-pages .nav-current-page {
+        width: 26px;
+    }
+}

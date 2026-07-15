@@ -1,0 +1,1 @@
+USTAGE GROUP&nbsp;- поставщик шоу-техники&nbsp;© 2019-<?=date('Y')?>

@@ -1,0 +1,1 @@
+<div class="bxr-section-seo"><?=$seoText?></div>

@@ -1,0 +1,33 @@
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*!
+ * Generated using the Bootstrap Customizer (http://bootstrap-3.ru/customize.php?id=b02da3ea73b19de3f21a)
+ * Config saved to config.json and https://gist.github.com/b02da3ea73b19de3f21a
+ */
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 400px !important;
+    }
+}
+.close {
+    opacity: .9;
+    color: #555;
+}
+
+.modal .modal-header {
+    background: #F8F8F8 !important;
+    color: #555 !important;
+    border-bottom: 3px solid #DDD;
+    padding: 20px 15px 15px 15px;
+}

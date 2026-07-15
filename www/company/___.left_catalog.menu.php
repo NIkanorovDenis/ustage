@@ -1,0 +1,74 @@
+<?
+$aMenuLinks = Array(
+Array(
+		"Новости", 
+		"/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Статьи", 
+		"/articles/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Акции", 
+		"/actions/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Услуги", 
+		"/services/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Сотрудники", 
+		"/company/employees/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Бренды", 
+		"/brands/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Лицензии и сертификаты", 
+		"/company/licenses/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Реквизиты", 
+		"/company/requisites/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/company/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Вакансии", 
+		"/vacancies/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

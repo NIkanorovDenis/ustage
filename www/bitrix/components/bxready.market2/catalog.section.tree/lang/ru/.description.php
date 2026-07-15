@@ -1,0 +1,7 @@
+<?
+$MESS["T_IBLOCK_DESC_CATALOG"] = "Каталог";
+$MESS["IBLOCK_SECTIONS_TREE_TEMPLATE_NAME"] = "Структура разделов";
+$MESS["IBLOCK_SECTIONS_TREE_TEMPLATE_DESCRIPTION"] = "Выводит структуру разделов инфоблока с количеством элементов в каждом разделе";
+$MESS ['T_IBLOCK_DESC_CATALOG'] = "Каталог";
+$MESS ['MARKET2_SECTION_DESCRIPTION'] = "BXReady:Market 2";
+?>

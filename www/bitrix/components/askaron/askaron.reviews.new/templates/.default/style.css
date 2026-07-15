@@ -1,0 +1,146 @@
+.askaron-reviews-new  {
+	font-family: Arial,​Helvetica,​sans-serif;
+	font-size: 14px;
+	color: #000;
+}
+
+.askaron-reviews-new h3{
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 24px;
+	margin: 0 0 10px 0;
+	color: #000;
+}
+
+.askaron-reviews-new .ask-error
+{
+    color:red; 
+	margin-bottom: 10px;
+}
+
+.askaron-reviews-new .ask-ok
+{
+    color:green;
+	margin-bottom: 10px;
+}
+
+.askaron-reviews-new .ask-note
+{
+    color:#333;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.askaron-reviews-new .ask-grade
+{	
+	margin-bottom: 15px;
+}
+
+.askaron-reviews-new .ask-grade input
+{
+	margin-left: 5px;
+	margin-right: 3px;
+}
+
+.askaron-reviews-new .ask-field
+{	
+	margin-bottom: 15px;
+}
+
+.askaron-reviews-new .ask-field div
+{	
+	margin-bottom: 2px;
+}
+
+.askaron-reviews-new .ask-field textarea
+{
+	width: 350px;
+	height: 55px;
+}
+
+.askaron-reviews-new .ask-field textarea.ask-textarea-big
+{
+	width: 350px;
+	height: 90px;
+}
+
+
+.askaron-reviews-new .ask-field input[type="text"], input[type="email"]
+{
+	width: 300px;
+	height: 20px;
+}
+
+
+.askaron-reviews-new .ask-captcha
+{
+	margin-bottom: 15px;
+}
+
+.askaron-reviews-new .ask-captcha div
+{
+	margin-bottom: 5px;
+}
+
+.askaron-reviews-new .ask-captcha img 
+{
+	margin-right: 5px;	
+	float: left;
+}
+
+
+.askaron-reviews-new .ask-captcha input[type="text"]
+{
+	height: 36px;
+	width: 165px;
+	font-size: 28px;
+}
+
+
+
+.askaron-reviews-new .ask-button
+{
+	margin-bottom: 10px;
+}
+
+.askaron-reviews-new .ask-button input[type="submit"]
+{
+	font-size: 18px;
+	padding: 5px 20px;
+}
+
+
+.ask-grade.stars {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+  }
+  .ask-grade-stars {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-left: 15px;
+  }
+  .ask-grade.stars input[type=radio] {
+    display: none;
+  }
+  .ask-grade.stars input[type=radio]:checked ~ label:before {
+    content: '\2605';
+    color: #FD4;
+  }
+  .ask-grade.stars label {
+    font-size: 0;
+    transition: transform .33s
+  }
+  .ask-grade.stars label:before {
+    content: '\2605';
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+  }
+  .ask-grade.stars label:hover {
+    transform: scale(1.3);
+  }

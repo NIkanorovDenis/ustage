@@ -1,0 +1,17 @@
+.bxr-header-panel .bxr-upper-part
+,.bxr-header-panel .bxr-dark-flat #top-panel-phone-link .bxr-phone-block > li:first-child > div:hover {
+    background: transparent; 
+}
+
+.bxr-header-panel .gift-catalog-sort-panel__text-sity > li > div:hover{
+    background: transparent !important; 
+}
+
+.bxr-header-panel .bxr-dark-flat .bxr-upper-part ul.bxr-topline-menu > li > a
+,.bxr-header-panel .bxr-dark-flat .bxr-phone-block > li > div > a
+,.bxr-header-panel .bxr-dark-flat .bxr-upper-part ul.bxr-topline-menu > li.bxr-children:after
+,.bxr-header-panel .bxr-dark-flat .bxr-upper-part .bx_login_block
+,.bxr-header-panel .bxr-dark-flat .bxr-upper-part .bx_login_block a
+,.bxr-header-panel .gift-catalog-sort-panel__text-sity{
+    color: #fff;
+}

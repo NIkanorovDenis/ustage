@@ -1,0 +1,68 @@
+.bxr-include-with-btn {
+    float: left;
+    line-height: 33px;
+}
+
+.bxr-include-with-link {
+    line-height: 24px;
+    margin-bottom: -2px;
+}
+
+.bxr-phone-number {
+    font-size: 24px;
+    display: inline-block;
+    text-align: right;
+}
+
+.bxr-phone-number.pull-left {
+    text-align: left;
+}
+
+.bxr-phone-number.pull-center {
+    text-align: center;
+}
+
+.open-answer-form {
+    float: right;
+    margin-left: 16px;
+    top: 0px;
+    background-color: #ccc;
+    color: #fff;
+    /*padding: 5px 8px;*/
+    padding: 8px 10px;
+    font-size: 17px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.open-answer-form:hover {
+    background-color: #ddd;
+}
+
+.bxr-inverse .bxr-recall-btn {
+    border: 1px solid #fff;
+}
+
+.bxr-inverse .bxr-include-with-btn {
+    line-height: 38px;
+}
+
+.bxr-recall-link {
+    text-decoration: underline;
+    font-size: 14px;
+    line-height: 14px;
+    background: transparent !important;
+    padding: 5px 0px;
+}
+
+.bxr-recall-link:hover {
+    text-decoration: none;
+}

@@ -1,0 +1,15 @@
+body{
+    font-family: 'Lato', Arial;
+}
+.bold{
+    font-family: 'LatoBold', Arial;
+}
+header.menu-open div.scroll-wrap ul.main-menu-nav > li > a{
+    top: 3px;
+}
+.open-box span.desc-empty, .open-box span.desc-no-empty{
+	padding: 5px 14px 4px;
+}
+header.menu-scroll-open div.scroll-wrap ul.main-menu-nav-slide > li > a{
+	padding: 4px 20px 0;
+}

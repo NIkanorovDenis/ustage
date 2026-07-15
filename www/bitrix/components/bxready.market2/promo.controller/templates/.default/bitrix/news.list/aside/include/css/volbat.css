@@ -1,0 +1,103 @@
+figure.effect-volbat {
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+}
+
+figure.effect-volbat .bxr-promo-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    
+    position: relative;
+    display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+figure.effect-volbat figcaption, 
+figure.effect-volbat figcaption > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+figure.effect-volbat figcaption {
+    padding: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+figure.effect-volbat figcaption > a {
+    z-index: 10;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+
+figure.effect-volbat .bxr-promo-image
+, figure.effect-volbat h2
+, figure.effect-volbat .h2 {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+        font-size: 14px;
+}
+
+figure.effect-volbat h2
+, figure.effect-volbat .h2
+, figure.effect-volbat p {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+}
+
+figure.effect-volbat h2
+, figure.effect-volbat .h2 {
+    	padding: 15px;
+}
+
+figure.effect-volbat p {
+	padding: 20px 15px;
+	text-transform: none;
+	font-size: 12px;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,50px,0);
+	transform: translate3d(0,50px,0);
+        color: #fff;
+        width: 100%;
+        text-align: left;
+        margin: 0 0 -20px 0;
+}
+
+figure.effect-volbat:hover .bxr-promo-image {
+	/*-webkit-transform: translate3d(0,-80px,0);
+	transform: translate3d(0,-80px,0);*/
+}
+
+figure.effect-volbat:hover h2
+, figure.effect-volbat:hover .h2 {
+	-webkit-transform: translate3d(0,-80px,0);
+	transform: translate3d(0,-80px,0);
+}
+
+figure.effect-volbat:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+        background: rgba(0, 0, 0, 0.7);
+}

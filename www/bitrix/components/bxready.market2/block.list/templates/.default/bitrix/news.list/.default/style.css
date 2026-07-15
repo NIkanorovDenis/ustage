@@ -1,0 +1,14 @@
+.bxr-list .slick-track{
+    display: flex;
+}
+.bxr-list .slick-list .bxr-trigger-v2{
+    height: 100%;
+}
+.bxr-list .slick-list .bxr-element-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.bxr-trigger-v2 .bxr-element-image img{
+    max-height: 70px;
+}

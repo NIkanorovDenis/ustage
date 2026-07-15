@@ -1,0 +1,86 @@
+.primary,
+.button-def.primary:active,
+.button-def.primary:focus{
+    background-color: #358a69;
+    color: #fff !important;
+}
+.button-def.primary:hover{
+    color: #fff;
+    background-color: #28674e;
+    border: 0px;
+}
+.button-def.primary:hover i{
+    color: #fff;
+}
+
+.secondary,
+.button-def.secondary:active,
+.button-def.secondary:focus{
+    background-color: rgba(241, 241, 241, 0.7);
+    color: #555555;
+}
+.button-def.secondary:hover{
+    color: #fff;
+    background-color: #358a69;
+    border: 0px;
+}
+.button-def.secondary:hover i{
+    color: #fff;
+}
+
+
+div.descriptive div.descriptive-tabs-wrap ul.tabs li.active.mainColor{
+    background-color: #358a69;
+    color: #fff;
+}
+@media (min-width: 1200px){
+    div.gallery-block div.gallery-img:hover div.corner-line.mainColor{
+        border-color: #358a69;
+    }
+
+    div.news div.slider-news.mainColor .slick-prev:hover,
+    div.news div.slider-news.mainColor .slick-next:hover{
+        background-color: #28674e;
+    }
+}
+@media (max-width: 767px){
+    header div.scroll-wrap div.header-table div.header-cell div.number.mainColor{
+        background-color: #358a69;
+    }
+}
+
+
+div.news div.slider-news.mainColor .slick-prev,
+div.news div.slider-news.mainColor .slick-next{
+    background-color: #358a69;
+}
+
+div.catalog-body div.content div.images-content div.image-dots div.image-wrap-dot.active div.image-dot div.image-child.mainColor{
+    border: 1px solid #358a69;
+}
+
+div.catalog-body div.content div.tabs-content div.price-radio label.active.mainColor{
+   border: 2px solid #358a69;
+}
+
+
+div.switcher ul.switcher-tab.left li.active{
+    background: #358a69;
+}
+div.switcher ul.switcher-tab.left li span{
+    border-bottom: 1px dashed #358a69;
+}
+
+div.info-num div.info-num-element.dark div.title,
+div.info-num div.info-num-element div.title{
+    color: #358a69;
+}
+
+div.slider-advantages .slick-dots li.slick-active {
+  background: #358a69;
+  color: #fff;
+}
+
+div.form-block div.form-table div.form-cell div.text-wrap div.line{
+    background: #358a69;
+}

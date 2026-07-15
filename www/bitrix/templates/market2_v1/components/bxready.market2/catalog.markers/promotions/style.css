@@ -1,0 +1,135 @@
+#bxr-markers {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#bxr-markers-container {
+    padding-bottom: 30px;
+    min-height: 300px;
+    background: #fdfdfd;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    margin-top: 0;
+}
+
+.bxr-markers-group {
+    display: block;
+    float: left;
+    padding: 12px 30px;
+    cursor: pointer;
+    margin-right: 12px;
+    border: 2px solid #FFF;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.bxr-markers-group-active {
+    background: #F00;
+    color: #FFF;
+}
+
+#bxr-markers-container .bxr-marker-mobile-names {
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+#bxr-marker-container h2
+, #bxr-marker-container .h2 {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+}
+
+/********markers********/
+#marc_tabSPECIALOFFER {
+    border: 1px solid #EA1100;
+    background: #FFF;
+    color: #EA1100;
+}
+
+#marc_tabSPECIALOFFER:hover
+,#marc_tabSPECIALOFFER.bxr-markers-group-active
+,#bxr-mobile-name-SPECIALOFFER {
+    border: 1px solid #EA1100;
+    background: #EA1100;
+    color: #FFF;
+}
+
+#marc_tabNEWPRODUCT {
+    border: 1px solid #0F7EDA;
+    background: #FFF;
+    color: #0F7EDA;
+}
+
+#marc_tabNEWPRODUCT:hover
+,#marc_tabNEWPRODUCT.bxr-markers-group-active
+,#bxr-mobile-name-NEWPRODUCT {
+    border: 1px solid #0F7EDA;
+    background: #0F7EDA;
+    color: #FFF;
+}
+
+
+#marc_tabRECOMMENDED {
+    border: 1px solid #0BA72A;
+    background: #FFF;
+    color: #0BA72A;
+}
+
+#marc_tabRECOMMENDED:hover
+,#marc_tabRECOMMENDED.bxr-markers-group-active
+,#bxr-mobile-name-RECOMMENDED {
+    border: 1px solid #0BA72A;
+    background: #0BA72A;
+    color: #FFF;
+}
+
+#marc_tabSALELEADER {
+    border: 1px solid #FCBD00;
+    background: #FFF;
+    color: #FCBD00;
+}
+
+#marc_tabSALELEADER:hover
+,#marc_tabSALELEADER.bxr-markers-group-active
+,#bxr-mobile-name-SALELEADER {
+    border: 1px solid #FCBD00;
+    background: #FCBD00;
+    color: #FFF;
+}
+
+#bxr-markers-container .bxr-font-color .fa {
+    font-size: 16px;
+    margin-right: 7px;
+    top: -1px;
+    position: relative;
+}
+
+.bxr-markers-list .bxr-slick-section .slick-next {
+    right: 7px;
+}
+
+@media (max-width: 1239px) {
+    .bxr-markers-list .bxr-slick-section .slick-next {
+        right: 12px;
+    }
+    .bxr-bestseller-list .bxr-slick-section .slick-prev {
+        left: 15px;
+    }
+}
+
+@media (max-width: 1198px) {
+    .bxr-markers-list .bxr-slick-section .slick-next {
+        right: 15px;
+    }
+}

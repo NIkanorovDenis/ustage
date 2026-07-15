@@ -1,0 +1,15 @@
+body{
+    font-family: 'Roboto', sans-serif, Arial;
+    font-weight: 300;
+}
+ 
+.bold{
+	font-family: 'Roboto', sans-serif, Arial;
+    font-weight: 700;
+}
+.open-box span.count{
+    line-height: 20px;
+}
+.open-box span.desc-empty, .open-box span.desc-no-empty{
+	padding: 5px 14px;
+}

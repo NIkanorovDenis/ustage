@@ -1,22 +1,108 @@
-# Local secrets
+# Local secrets and backups
 .env
 config-backup/
+www/bitrix/.settings.php
+www/bitrix/.settings_extra.php
+www/bitrix/php_interface/dbconn.php
+www/bitrix/php_interface/crest.php
+www/bitrix/php_interface/crm_var1.php
+www/bitrix/php_interface/settings.php
+www/bitrix/php_interface/test.php
 
-# Database dumps and imported data
+# Database dumps
 import/
 *.sql
 *.sql.gz
 
-# The migrated production tree is intentionally not part of the first commit.
-# Application code will be split from runtime data before CI/CD is enabled.
-www/
+# Production runtime data
+www/upload/
+www/bitrix/backup/
+www/bitrix/cache/
+www/bitrix/managed_cache/
+www/bitrix/stack_cache/
+www/bitrix/html_pages/
+www/bitrix/tmp/
+www/bitrix/updates/
+www/import/*
+!www/import/*.php
+www/cron/logs/
+www/cron/old/
+www/cron/*.txt
+www/cron/crest.php
+www/cron/crm.php
+www/cron/settings.php
+www/handler.php
+www/sitemap*.xml
+*.log
+*.log.*
+*.csv
+*.xls
+*.xlsx
+*.zip
 
-# OS and IDE files
+# Bitrix core is installed on target hosts and is not deployed from Git.
+www/bitrix/**
+
+# Project bootstrap and event handlers.
+!www/bitrix/php_interface/
+!www/bitrix/php_interface/**
+www/bitrix/php_interface/dbconn.php
+www/bitrix/php_interface/crest.php
+www/bitrix/php_interface/crm_var1.php
+www/bitrix/php_interface/settings.php
+www/bitrix/php_interface/test.php
+www/test/index1.php
+
+# Customized site templates.
+!www/bitrix/templates/
+www/bitrix/templates/*
+!www/bitrix/templates/market2_v1/
+!www/bitrix/templates/market2_v1/**
+!www/bitrix/templates/concept_hameleon/
+!www/bitrix/templates/concept_hameleon/**
+
+# Non-core component namespaces used by the project.
+!www/bitrix/components/
+www/bitrix/components/*
+!www/bitrix/components/arturgolubev/
+!www/bitrix/components/arturgolubev/**
+!www/bitrix/components/askaron/
+!www/bitrix/components/askaron/**
+!www/bitrix/components/bxready.market2/
+!www/bitrix/components/bxready.market2/**
+!www/bitrix/components/bxready2/
+!www/bitrix/components/bxready2/**
+!www/bitrix/components/bxready24/
+!www/bitrix/components/bxready24/**
+!www/bitrix/components/concept/
+!www/bitrix/components/concept/**
+!www/bitrix/components/kuznica/
+!www/bitrix/components/kuznica/**
+!www/bitrix/components/skyweb24/
+!www/bitrix/components/skyweb24/**
+!www/bitrix/components/visualteam/
+!www/bitrix/components/visualteam/**
+!www/bitrix/components/zaiv/
+!www/bitrix/components/zaiv/**
+
+# In-house modules. Marketplace and Bitrix modules remain server-managed.
+!www/bitrix/modules/
+www/bitrix/modules/*
+!www/bitrix/modules/energosoft.discounts/
+!www/bitrix/modules/energosoft.discounts/**
+!www/bitrix/modules/energosoft.utils/
+!www/bitrix/modules/energosoft.utils/**
+www/bitrix/modules/energosoft.utils/options/errors-page
+www/bitrix/modules/energosoft.utils/options/status
+www/bitrix/modules/energosoft.utils/options/status-run
+www/bitrix/modules/energosoft.utils/options/status_*
+www/bitrix/modules/energosoft.utils/tmp/
+www/bitrix/modules/energosoft.utils/classes/general/*.csv
+www/bitrix/modules/energosoft.utils/classes/general/*.xls
+www/bitrix/modules/energosoft.utils/classes/general/*.xlsx
+
+# IDE and OS files
 .DS_Store
 .idea/
 .vscode/
 *.swp
-
-# Logs
-*.log
-*.log.*

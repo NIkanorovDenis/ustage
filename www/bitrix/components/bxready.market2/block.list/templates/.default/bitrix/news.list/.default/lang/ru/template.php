@@ -1,0 +1,2 @@
+<?
+$MESS["BXR_SHOW_ALL"] = "Все #CATEGORIES#";

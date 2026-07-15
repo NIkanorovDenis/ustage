@@ -1,0 +1,42 @@
+.bxr-promo-ribbon  {
+    margin: -10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.bxr-promo-ribbon .bxr-promo-element {
+    height: 250px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.bxr-promo-ribbon.bxr-promo-block .bxr-promo-element {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bxr-promo-ribbon.bxr-promo-mono {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.bxr-promo-ribbon.bxr-promo-mono .bxr-promo-element {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bxr-promo-ribbon .bxr-promo-element figure {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
+    border: 1px solid #fff;
+}
+
+.bxr-promo-ribbon:not(.bxr-promo-mono) .bxr-promo-element figure
+.bxr-promo-ribbon:not(.bxr-promo-mono) .bxr-promo-element figure .bxr-promo-image {
+    border-radius: 4px;
+}
+
+.bxr-promo-ribbon.bxr-promo-mono .bxr-promo-element figure {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
+    border: 1px solid #fff;
+}

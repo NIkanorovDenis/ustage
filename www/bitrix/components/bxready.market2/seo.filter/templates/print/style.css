@@ -1,0 +1,19 @@
+.bxr-smart-filter-map{
+    background: #FFF;
+    padding: 20px;
+    border: 1px solid #c5cdd1;
+}
+
+.bxr-smart-filter-map .title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.bxr-smart-filter-map .box{
+    padding: 10px 0;
+}
+
+.bxr-smart-filter-map .box .name {
+    font-weight: bold;
+}

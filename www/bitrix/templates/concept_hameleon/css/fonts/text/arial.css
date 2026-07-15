@@ -1,0 +1,9 @@
+body{
+    font-family: Arial;
+}
+.bold{
+    font-weight: bold;
+}
+.open-box span.desc-empty, .open-box span.desc-no-empty{
+	padding: 5px 14px;
+}

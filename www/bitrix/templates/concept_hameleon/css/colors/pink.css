@@ -1,0 +1,82 @@
+.primary,
+.button-def.primary:active,
+.button-def.primary:focus{
+    background-color: #ff00ae;
+    color: #fff !important;
+}
+.button-def.primary:hover{
+    color: #fff;
+    background-color: #d0028e;
+    border: 0px;
+}
+.button-def.primary:hover i{
+    color: #fff;
+}
+
+
+.secondary,
+.button-def.secondary:active,
+.button-def.secondary:focus{
+    background-color: rgba(241, 241, 241, 0.7);
+    color: #555555;
+}
+.button-def.secondary:hover{
+    color: #fff;
+    background-color: #ff00ae;
+    border: 0px;
+}
+.button-def.secondary:hover i{
+    color: #fff;
+}
+
+
+div.descriptive div.descriptive-tabs-wrap ul.tabs li.active.mainColor{
+    background-color: #ff00ae;
+    color: #fff;
+}
+@media (min-width: 1200px){
+    div.gallery-block div.gallery-img:hover div.corner-line.mainColor{
+        border-color: #ff00ae;
+    }
+
+    div.news div.slider-news.mainColor .slick-prev:hover,
+    div.news div.slider-news.mainColor .slick-next:hover{
+        background-color: #d0028e;
+    }
+}
+@media (max-width: 767px){
+    header div.scroll-wrap div.header-table div.header-cell div.number.mainColor{
+        background-color: #ff00ae;
+    }
+}
+
+
+div.news div.slider-news.mainColor .slick-prev,
+div.news div.slider-news.mainColor .slick-next{
+    background-color: #ff00ae;
+}
+
+div.catalog-body div.content div.images-content div.image-dots div.image-wrap-dot.active div.image-dot div.image-child.mainColor{
+    border: 1px solid #ff00ae;
+}
+
+div.catalog-body div.content div.tabs-content div.price-radio label.active.mainColor{
+   border: 2px solid #ff00ae;
+}
+
+div.switcher ul.switcher-tab.left li.active{
+    background: #ff00ae;
+}
+div.switcher ul.switcher-tab.left li span{
+    border-bottom: 1px dashed #ff00ae;
+}
+
+div.info-num div.info-num-element.dark div.title,
+div.info-num div.info-num-element div.title{
+    color: #ff00ae;
+}
+
+div.slider-advantages .slick-dots li.slick-active {
+  background: #ff00ae;
+  color: #fff;
+}

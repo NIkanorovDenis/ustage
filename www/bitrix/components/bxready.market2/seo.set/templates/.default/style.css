@@ -1,0 +1,77 @@
+.bxr-hidden{
+    display:none !important;
+}
+
+#bxr-seo-set{
+   /* background: url(images/cc.jpg) no-repeat;
+    background-position: -512px -64px;
+*/
+}
+
+#cond_seoset {
+    margin-top: 15px;
+}
+
+#seo_set_info{
+   /* opacity: 0.8;*/
+}
+
+.radio-filter {
+    padding: 0 0 20px;;
+}
+
+.body-selector {
+    border-bottom: #CCC solid 1px;
+    margin-bottom: 20px;
+}
+
+.work-mode{
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+#bxr-seo-filter-panel .filter-button {
+    margin-bottom: 20px;
+}
+
+.filter-type-radio{
+    padding: 15px 0;
+}
+
+.filter-type-radio label {
+    cursor: pointer;
+}
+
+#bxr-seo-set{
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.bxr-control-panel {
+    margin-top: 20px;
+}
+
+.bxr-control-panel.bxr-control-panel-wh{
+    background: #FFF;
+    display: block;
+    border: 1px solid #dbe7ed;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.bxr-seo-set-body{
+    display: none;
+}
+
+.bxr-seo-set-body.active {
+    display: block;
+}

@@ -1,0 +1,285 @@
+/*********input vars*********/
+/*********calculate vars*****/
+/*.lightmix(@image) when (@use_percent = 0) {
+  color: @light;
+  background-image: @image;
+}
+
+.lightmix(@image) when (@use_percent = 1) {
+  color: lighten(@base, @steplight);
+  background-image: @image;
+}
+
+.darkmix  when (@use_percent = 0) {
+  color: @dark;
+}
+
+.darkmix  when (@use_percent = 1)  {
+  color: lighten(@base, @stepdark);
+}*/
+/*********end vars********/
+body {
+  font-family: Open Sans, sans-serif;
+  font-size: 13px;
+}
+.color-light {
+  color: #f8877f;
+}
+.color-dark {
+  color: #d2190b;
+}
+.bxr-color,
+.bxr-color-hover:hover,
+.bxr-detail-smart-links li.active,
+.bxr-detail-smart-links-top li.active {
+  background: #d29b0a;
+  color: #ffffff;
+}
+.bxr-color-light,
+.bxr-color-light-hover:hover,
+.main-user-consent-request-popup-buttons .main-user-consent-request-popup-button-acc:hover {
+  background-color: #f8877f;
+  color: #ffffff;
+}
+.bxr-color-dark,
+.bxr-color-dark-hover:hover,
+.bxr-indicator-item-active:hover,
+.bxr-counter-active,
+.bxr-counter-compare-active:hover,
+.bxr-detail-torg-btn .bxr-indicator-item-active:hover,
+.bxr-detail-torg-btn .bxr-counter-compare-active:hover {
+  background-color: #d2190b;
+}
+.bxr-color-button,
+div.bx-auth-service-form .button,
+#bx-soa-order.bx-blue .btn.btn-default,
+.main-user-consent-request-popup-buttons .main-user-consent-request-popup-button-rej:hover,
+.main-user-consent-request-popup-buttons .main-user-consent-request-popup-button-acc {
+  background: #d29b0a;
+  color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.bxr-border-color-button {
+  border-radius: 4px;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-collapse: collapse;
+  border: none;
+}
+.bxr-border-color-button {
+  color: #d29b0a;
+  text-decoration: none;
+  border: 1px solid #d29b0a;
+}
+a.bxr-border-color-button {
+  display: inline-block;
+  text-decoration: none;
+}
+.bxr-color-button:hover,
+div.bx-auth-service-form .button:hover,
+.bx_auth_popup_form,
+.containter input[type="submit"]:hover,
+.authorize-submit-cell input[type="submit"]:hover,
+.bx-registration-table input[type="submit"]:hover,
+.bxr-border-color-button:hover {
+  background: #d29b0a;
+  color: #ffffff;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(169, 134, 134, 0.5);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(169, 134, 134, 0.5);
+  box-shadow: 1px 1px 2px 0px rgba(169, 134, 134, 0.5);
+}
+.bxr-color-button:active,
+div.bx-auth-service-form .button:active,
+.bxr-border-color-button:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.bxr-color-button:hover,
+.bxr-color-button-hover:hover {
+  background-color: #d2190b;
+  color: #FFF;
+}
+.bxr-indicator-item-active,
+.bxr-counter-active,
+.bxr-counter-compare-active,
+.bxr-detail-torg-btn .bxr-indicator-item-active,
+.bxr-detail-torg-btn .bxr-counter-compare-active,
+.fast-view-modal .bxr-indicator-item-active,
+.fast-view-modal .bxr-counter-active,
+.fast-view-modal .bxr-counter-compare-active,
+.fast-view-modal .bxr-detail-torg-btn .bxr-indicator-item-active,
+.fast-view-modal .bxr-detail-torg-btn .bxr-counter-compare-active {
+  background: #d29b0a;
+  color: #ffffff;
+}
+.bxr-border-color,
+.bxr-border-color-hover:hover,
+.form-control:focus,
+.bx_profile .form-group .form-control:focus,
+.sale-profile-detail-form .form-group .form-control:focus,
+.sale-profile-detail-form .bx-sls .dropdown-block:focus,
+.bxr-bottom-detail-col .bxr-detail-tabs .bxr-detail-tab-div:hover,
+.bxr-detail-tabs .bxr-detail-tab-div.active,
+.bx_item_detail_scu .bx_scu ul li:hover .cnt,
+.bx_item_detail_size ul li:hover .cnt,
+.bxr-element-slider-nav .slick-list .slick-track .slick-slide.bxr-border-color,
+.fast-view-modal .bxr-element-slider-nav .slick-list .slick-track .slick-slide.bxr-border-color,
+.bxr-element-slider-nav .slick-list .slick-track .slick-slide.bxr-border-color,
+.sale-acountpay-pp-company.bx-selected > .sale-acountpay-pp-company-graf-container,
+.sale-order-payment-change-pp-company:hover .sale-order-payment-change-pp-company-graf-container,
+.bx_filter .bx_filter_parameters_box_container .bx_filter_input_container input:focus,
+#bx-soa-order .bx-soa-pp-company.bx-selected .bx-soa-pp-company-graf-container,
+#bx-soa-order .form-group .form-control:focus,
+#bx-soa-order .bx-soa-coupon-input input[type=text].form-control:focus,
+.main-user-consent-request-popup-buttons .main-user-consent-request-popup-button-rej,
+.bxr-border-color-focus:focus {
+  border: 1px solid #d29b0a;
+  border-color: #d29b0a;
+}
+.menu-arrow-top {
+  border-top-color: #d29b0a !important;
+}
+.menu-arrow-top:before {
+  border-bottom-color: #d29b0a !important;
+}
+.bxr-border-bottom-top {
+  border-top: 1px solid #d29b0a;
+  border-color: #d29b0a;
+}
+.bxr-border-bottom-color,
+.main-user-consent-request-popup-header {
+  border-bottom: 1px solid #d29b0a;
+  border-color: #d29b0a;
+}
+.bxr-border-color-dark,
+.bxr-border-color-dark-hover:hover {
+  border: 1px solid #d2190b;
+  border-color: #d2190b;
+}
+.active.prop-img-wrap,
+.active.prop-text-wrap,
+.fancybox-thumbs > ul > li:before,
+.bx_item_detail_scu .bx_scu ul li:active .cnt,
+.bx_item_detail_scu .bx_scu ul li.bx_active .cnt,
+.bx_item_detail_size ul li:active .cnt,
+.bx_item_detail_size ul li.bx_active .cnt,
+.fast-view-modal .active.prop-img-wrap,
+.fast-view-modal .active.prop-text-wrap,
+.fast-view-modal .bx_item_detail_scu .bx_scu ul li:active .cnt,
+.fast-view-modal .bx_item_detail_scu .bx_scu ul li.bx_active .cnt,
+.fast-view-modal .bx_item_detail_size ul li:active .cnt,
+.fast-view-modal .bx_item_detail_size ul li.bx_active .cnt {
+  border: 2px solid #d29b0a;
+}
+a,
+a:focus,
+.bxr-font-color,
+.bxr-font-color-hover:hover,
+.bxr-basket-action button.bxr-one-click-buy:hover,
+.bxr-detail-tabs .bxr-detail-tab-div.active,
+.bxr-sku-select-item:hover .bxr-offer-props-name,
+.fast-view-modal .bxr-sku-select-item:hover .bxr-offer-props-name,
+.bxr-breadcrumb .bxr-breadcrumb-item a:hover,
+.main-user-consent-request-popup-buttons .main-user-consent-request-popup-button-rej:not(:hover) {
+  color: #d29b0a;
+}
+a:hover,
+.bxr-font-color-light {
+  color: #f8877f;
+}
+/*a:visited:not(.bxr-color-button) 
+, a:active:not(.bxr-color-button) 
+, */
+.bxr-font-color-dark {
+  color: #d2190b;
+}
+.bxr-color-button.slick-prev {
+  background: url("images/buttons/arrow_prev.png") no-repeat center center, #a8a8a8;
+}
+.bxr-color-button.slick-prev:hover {
+  background: #d29b0a;
+  background: url("images/buttons/arrow_prev.png") no-repeat center center, #d29b0a;
+}
+.bxr-color-button.slick-next {
+  background: url("images/buttons/arrow_next.png") no-repeat center center, #a8a8a8;
+}
+.bxr-color-button.slick-next:hover {
+  background: #d29b0a;
+  background: url("images/buttons/arrow_next.png") no-repeat center center, #d29b0a;
+}
+.bxr-color-button.slick-prev.slick-arrow-slim {
+  background: url("images/buttons/arrow_prev.png") no-repeat center center, #a8a8a8;
+}
+.bxr-color-button.slick-prev.slick-arrow-slim:hover {
+  background: #d29b0a;
+  background: url("images/buttons/arrow_prev.png") no-repeat center center, #d29b0a;
+}
+.bxr-color-button.slick-next.slick-arrow-slim {
+  background: url("images/buttons/arrow_next.png") no-repeat center center, #a8a8a8;
+}
+.bxr-color-button.slick-next.slick-arrow-slim:hover {
+  background: #d29b0a;
+  background: url("images/buttons/arrow_next.png") no-repeat center center, #d29b0a;
+}
+blockquote {
+  border-left: 5px solid #d29b0a;
+}
+/*background flat*/
+.bxr-dark-flat {
+  background-color: #424f60;
+  color: #fff;
+}
+.bxr-dark-light-flat {
+  background-color: #61748d;
+  color: #fff;
+}
+.bxr-dark-dark-flat {
+  background-color: #232a33;
+  color: #fff;
+}
+.bxr-color-flat,
+.sp-replacer .fa-chevron-down,
+.sp-container button,
+.sp-container button:hover {
+  background-color: #d29b0a;
+  color: #ffffff;
+}
+.bxr-color-dark-flat {
+  background-color: #d2190b;
+  color: #ffffff;
+}
+.bxr-bg-hover-flat:hover {
+  background-color: #d29b0a;
+}
+.bxr-bg-hover-light-flat:hover {
+  background-color: #f8877f;
+}
+.bxr-bg-hover-dark-flat:hover {
+  background-color: #d2190b;
+}
+/*end background flat*/
+.bxr-children-color > a,
+.bxr-children-color .bxr-children-color-children {
+  color: #d29b0a !important;
+}
+.bxr-children-color-hover:hover > a {
+  color: #d29b0a !important;
+}
+.bxr-m2-ecommerce-small-v1 .bxr-hover-btn:not(.bxr-indicator-item-active):hover {
+  color: #d29b0a;
+  border-color: #d29b0a;
+}
+.bxr-product-block-title,
+.h3 {
+  border-bottom: 2px solid #d29b0a;
+}
+.bxr-color-before:before {
+  background-color: #d29b0a;
+}
+.bxr-color-after:after {
+  background-color: #d29b0a;
+}

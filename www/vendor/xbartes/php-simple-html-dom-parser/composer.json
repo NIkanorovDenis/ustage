@@ -1,0 +1,39 @@
+{
+    "name": "xbartes/php-simple-html-dom-parser",
+    "type": "library",
+    "description": "Composer adaptation of A PHP Simple HTML DOM Parser.",
+    "keywords": ["html", "dom", "parser"],
+    "homepage": "https://github.com/xbartes/php-simple-html-dom-parser",
+    "license": "MIT",
+    "authors": [
+        {   
+            "name": "S.C. Chen",
+            "homepage": "http://sourceforge.net/projects/simplehtmldom/"
+        },
+        {
+            "name": "John Schlick"
+        },
+        {
+            "name": "Rus Carroll"
+        },
+        {
+            "name": "Sunra",
+            "email": "sunra@yandex.ru",
+            "homepage": "https://github.com/sunra"
+        },
+        {
+            "name": "Jan Bartes",
+            "email": "mail@janbartes.cz",
+            "homepage": "https://github.com/xbartes"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Xbartes\\PhpSimple\\HtmlDomParser": "Src/"
+        }
+    }    
+}

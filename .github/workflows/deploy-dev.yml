@@ -1,0 +1,45 @@
+name: Deploy to development
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-development
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: development
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          DEV_SSH_KEY: ${{ secrets.DEV_SSH_KEY }}
+          DEV_KNOWN_HOSTS: ${{ secrets.DEV_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEV_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$DEV_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy tracked site files
+        env:
+          DEV_HOST: ${{ secrets.DEV_HOST }}
+          DEV_PORT: ${{ secrets.DEV_PORT }}
+          DEV_USER: ${{ secrets.DEV_USER }}
+          DEV_PATH: ${{ secrets.DEV_PATH }}
+        run: |
+          test -n "$DEV_HOST"
+          test -n "$DEV_USER"
+          test -n "$DEV_PATH"
+          DEV_PORT="${DEV_PORT:-22}"
+          rsync -az --checksum \
+            -e "ssh -p $DEV_PORT" \
+            www/ "$DEV_USER@$DEV_HOST:$DEV_PATH/"

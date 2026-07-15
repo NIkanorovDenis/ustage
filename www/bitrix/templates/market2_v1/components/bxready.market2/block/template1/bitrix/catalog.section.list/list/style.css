@@ -1,0 +1,29 @@
+.bxr-catalog-section-list{
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.bxr-catalog-section-list ul{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.bxr-catalog-section-list li {
+    list-style-type: none;
+    font-size: 1em;
+    display: block;
+    float: left;
+    margin: 0px 20px 10px 0px;
+    font-weight: bold;
+}
+
+.bxr-catalog-section-list li a{
+    padding: 0.2rem 0 2.0rem 0;
+    margin: 0;
+}
+
+.bxr-catalog-section-list li span {
+    font-size: 0.8571em;
+    color: rgb(24, 24, 24);
+}

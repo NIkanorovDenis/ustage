@@ -1,0 +1,15 @@
+body{
+    font-family: 'Fira Sans Condensed', sans-serif, Arial;
+    font-weight: 300;
+}
+.bold{
+    font-family: 'Fira Sans Condensed', sans-serif, Arial;
+    font-weight: 700;
+}
+
+div.switcher ul.switcher-tab.left li{
+    padding: 22px 30px 15px 15px;
+}
+.open-box span.count{
+	line-height: 20px;
+}

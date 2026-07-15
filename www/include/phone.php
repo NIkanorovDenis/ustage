@@ -1,0 +1,1 @@
+<div><a href="tel:+7000000000"><i class="fa fa-phone bxr-bg-hover-light-flat"></i>+7 (000) <b>00-00-00</b></a></div>

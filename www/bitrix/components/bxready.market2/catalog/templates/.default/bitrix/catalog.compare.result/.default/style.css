@@ -1,0 +1,208 @@
+.bxr-compare-list {
+    margin-top: 20px;
+}
+
+.bxr-compare-list .bxr-color-button {
+    /*margin-right: 20px;*/
+}
+
+.bxr-compare-list table {
+    margin-top: 30px;
+}
+
+.bxr-compare-list table td {
+    border: 1px solid #FFF;
+    text-align: center;
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+.bxr-compare-list table tr:hover td {
+    background: #F8F8F8;
+}
+
+.bxr-compare-list table td .color-button {
+    display: inline-block;
+}
+
+.bxr-compare-list table td.property-name {
+    text-align: right;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.bxr-compare-list table td.name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.image-icon-200 {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.image-icon-200 > img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+}
+
+.bxr-no-button {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-collapse: collapse;
+    border: none;
+    background: #f7f7f7;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/*start mobile styles*/
+.bxr-compare-product {
+    position: relative;
+    text-align: center;
+}
+
+.bxr-compare-slider .bxr-product-compare-img {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 20px 20px;
+}
+
+.bxr-compare-slider .bxr-product-compare-img img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 150px;
+    border: 0;
+}
+
+.bxr-product-compare-name {
+    display: block;
+    font-size: 14px;
+    color: #181818;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bxr-product-compare-delete {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 22px;
+    text-align: center;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    color: #888888;
+}
+
+.bxr-compare-dots {
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.bxr-compare-slick-button {
+    display: inline-block;
+    width: 30px;
+    height: 36px;
+    line-height: 34px;
+    border: 1px solid #dfdfdf;
+    background: #fff;
+    color: #666666;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bxr-compare-slick-button-prev {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.bxr-compare-slick-button-next {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.bxr-compare-count {
+    display: inline-block;
+    width: 50px;
+    height: 36px;
+    line-height: 34px;
+    border: 1px solid #dfdfdf;
+    border-left: none;
+    border-right: none;
+    color: #666666;
+    background: #f7f7f9;
+    text-align: center;
+}
+
+.bxr-compare-slider .slick-arrow {
+    display: none !important;
+}
+
+.bxr-compare-props-table {
+    width: 100%;
+}
+
+.bxr-compare-property-name {
+    font-weight: lighter;
+    color: #888888;
+    text-align: left;
+    padding: 25px 0px 15px;
+}
+
+.bxr-compare-property-value {
+    display: none;
+}
+
+.bxr-compare-property-value-tr td.bxr-compare-property-value-td {
+    width: 50%;
+    border: 1px solid #e8e8e8;
+    border-left: none;
+    border-right: none;
+    padding: 20px 0px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.bxr-compare-property-value-tr td.bxr-compare-property-value-td.bxr-compare-property-value-td-left {
+    border-right: 1px solid #e8e8e8;
+}
+
+.bxr-compare-property-value-tr td.bxr-compare-property-value-td.bxr-compare-property-value-td-one {
+    width: 100%;
+}
+
+.bxr-compare-difference-wrap {
+    border: 1px solid #e8e8e8;
+    border-left: none;
+    border-right: none;
+    padding: 20px 0px;
+}
+
+.bxr-compare-checkbox {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border: 1px solid #cacaca;
+    border-radius: 2px;
+    display: block;
+    float: left;
+    position: relative;
+    margin-right: 14px;
+    margin-top: 2px;
+}
+
+.bxr-product-compare-link {
+    display: inline-block;
+}
+/*end mobile styles*/

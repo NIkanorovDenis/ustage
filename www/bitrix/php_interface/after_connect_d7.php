@@ -1,0 +1,5 @@
+<?
+$this->queryExecute("SET NAMES 'utf8mb4'");
+$this->queryExecute('SET collation_connection = "utf8mb4_unicode_ci"');
+$this->queryExecute('SET wait_timeout=28800');
+?>

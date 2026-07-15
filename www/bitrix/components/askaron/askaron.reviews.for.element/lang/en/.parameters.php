@@ -1,0 +1,7 @@
+<?
+$MESS ['ASKARON_REVIEWS_ELEMENT_ID'] = "Element ID";
+$MESS ['ASKARON_REVIEWS_PAGER_TEMPLATE'] = "Page navigation template";
+
+$MESS ['ASKARON_REVIEWS_PAGE_ELEMENT_COUNT'] = "Eelements count";
+$MESS ['ASKARON_REVIEWS_PAGE_NAVIGATION_NAME'] = "Reviews";
+?>

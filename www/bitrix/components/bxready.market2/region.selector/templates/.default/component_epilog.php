@@ -1,0 +1,1 @@
+<?//$APPLICATION->AddHeadScript('/bitrix/components/bitrix/search.title/script.js');?>

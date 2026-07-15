@@ -1,0 +1,26 @@
+body{
+    font-family: 'El Messiri', sans-serif, Arial;
+}
+.bold{
+	font-family: 'El Messiri', sans-serif, Arial;
+    font-weight: 700;
+}
+
+header div.scroll-wrap div.header-table div.header-cell td.descript div.main-desciption.backdrop{
+    padding-top: 14px;
+}
+
+header.menu-open div.scroll-wrap ul.main-menu-nav > li > a{
+    top: 3px;
+}
+
+header div.scroll-wrap div.header-table div.header-cell.right table.right-inner div.list-contacts table td div.email a{
+    border-bottom: 0;
+    text-decoration: underline;
+}
+header div.scroll-wrap div.header-table div.header-cell.right table.right-inner div.list-contacts table td div.email a:hover{
+    text-decoration: none;
+}
+.open-box span.desc-empty, .open-box span.desc-no-empty{
+    padding: 5px 14px 3px;
+}

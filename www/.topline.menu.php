@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Доставка", 
+		"/delivery/", 
+		Array(), 
+		Array("ico"=>"temp"), 
+		"CSite::InGroup(array(1))" 
+	),
+	Array(
+		"Гарантия", 
+		"/guarantee/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1))" 
+	),
+	Array(
+		"Магазин", 
+		"/company/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1))" 
+	),
+	Array(
+		"Вопрос-ответ", 
+		"/faq/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1))" 
+	)
+);
+?>

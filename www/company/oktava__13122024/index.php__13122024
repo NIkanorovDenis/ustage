@@ -1,0 +1,39 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Основная информация о нашей компании");
+$APPLICATION->SetTitle("USTAGE GROUP — официальный дистрибьютор ООО «Октава ДМ»!");
+?>
+
+<div class="page-poster">
+  <img src="/images/oktava.jpg" alt="Компания USTAGE GROUP - официальный дистрибьютор культовых микрофонов «Октава»" class="page-poster__img">
+</div>
+
+<b>&laquo;Октава&raquo;</b>&nbsp;&mdash; легендарный бренд электроакустического оборудования, соединивший в&nbsp;себе лучшие практики советской инженерной школы и&nbsp;новейшие технологические решения. &laquo;Октава&raquo;&nbsp;&mdash; это бренд, известный по&nbsp;всему миру.<br><br>
+
+<div class="page-certificate-container">
+  <div class="page-certificate">
+    <img src="/upload/iblock/a21/a21aad70bf1615c68a88a3f716f0e339.jpeg" alt="Сертификат дистрибьютора OOO «Октава ДМ»" class="page-certificate__img">
+  </div>
+</div>
+
+<h5><b>Компания USTAGE GROUP приглашает к&nbsp;сотрудничеству:</b></h5>
+&bull; <b>Дилеров</b><br>
+&bull; <b>Интернет-магазины</b><br>
+&bull; <b>Системных интеграторов</b><br>
+&bull; <b>Студии звукозаписи</b><br><br>
+
+<h5><b>Что мы&nbsp;предлагаем?</b></h5>
+&bull; Узнаваемый бренд<br>
+&bull; Авторизация<br>
+&bull; Скидки для партнеров<br>
+&bull; Наличие продукции на&nbsp;складе<br>
+&bull; Сервисная и&nbsp;информационная поддержка<br>
+&bull; Бесплатная доставка*<br>
+<br>
+
+Мы&nbsp;уверены в&nbsp;том, что сотрудничество с&nbsp;нами будет выгодным для Вас. Мы&nbsp;предлагаем оригинальное сертифицированное оборудование от&nbsp;всемирно известного производителя.<br>
+<br>
+
+Оставить заявку на&nbsp;сотрудничество можно, заполнив <a href="#bxr-phone-popup" data-toggle="modal" data-target="#bxr-phone-popup">форму обратной связи</a>, или связаться с&nbsp;нами по&nbsp;телефону: <a href="tel:+78124094991">+7&nbsp;(812)&nbsp;409-49-91</a><br>
+
+<br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

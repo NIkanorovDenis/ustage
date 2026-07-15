@@ -1,0 +1,9 @@
+.bxr-header-panel > div > .bxr-border-color {
+    border-width: 0 0 3px 0;
+}
+
+#top-panel-phone-link .bxr-phone-block ul li:first-child
+,.bxr-header-panel .gift-catalog-sort-panel__text-sity li:first-child
+,.bxr-topline-menu .bxr-children ul li:first-child{
+    border-top-width: 4px;
+}

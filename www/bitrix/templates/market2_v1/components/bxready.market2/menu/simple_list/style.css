@@ -1,0 +1,16 @@
+.content-child {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    width: auto !important;
+    left: 0;
+    padding: 0;
+    padding-left: 15px;
+    list-style: none;
+    margin-right: 0;
+    flex-grow: 1;
+}
+
+[data-depth="1"] > .content-child {
+    padding-left: 22px;
+}

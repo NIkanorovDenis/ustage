@@ -1,0 +1,44 @@
+.bxr-share-social {
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    position: absolute;    
+    top: -50px;
+    left: 116px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 6px 6px 2px 2px;
+    background: #fff;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.bxr-share-icon {
+    float: right;
+    display: block;
+    margin-left: 4px;
+    margin-bottom: 4px;
+    height: 22px;
+    width: 22px;
+}
+.bxr-share-icon a,
+.bxr-share-icon a:link,
+.bxr-share-icon a:visited,
+.bxr-share-icon a:active {
+    color: #fff;
+    padding-top: 4px;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    height: 22px;
+    width: 22px;
+    border-radius: 3px;
+}
+.bxr-share-group {
+    position: relative;
+}

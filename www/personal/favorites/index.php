@@ -1,0 +1,80 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Избранное");
+?>
+
+<?
+$APPLICATION->IncludeComponent(
+	"bxready.market2:catalog.favorites", 
+	".default", 
+	array(
+		"IBLOCK_TYPE" => "catalog_new",
+		"IBLOCK_ID" => "32",
+		"OFFERS_PROPERTY_CODE" => array(
+			0 => "SIZE",
+			1 => "COLOR",
+		),
+		"ELEMENT_SORT_FIELD" => "sort",
+		"HIDE_NOT_AVAILABLE" => "N",
+		"PAGE_ELEMENT_COUNT" => "12",
+		"CACHE_TYPE" => "N",
+		"CACHE_TIME" => "36000000",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_FILTER" => "N",
+		"BXREADY_LIST_PAGE_BLOCK_TITLE" => "",
+		"PRICE_CODE" => array(
+			0 => "BASE",
+		),
+		"USE_PRICE_COUNT" => "N",
+		"SHOW_PRICE_COUNT" => "1",
+		"PRICE_VAT_INCLUDE" => "Y",
+		"CONVERT_CURRENCY" => "N",
+		"PRODUCT_ID_VARIABLE" => "id",
+		"USE_PRODUCT_QUANTITY" => "Y",
+		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+		"ADD_PROPERTIES_TO_BASKET" => "Y",
+		"PRODUCT_PROPS_VARIABLE" => "prop",
+		"PARTIAL_PRODUCT_PROPERTIES" => "N",
+		"PRODUCT_PROPERTIES" => array(
+		),
+		"PAGER_TEMPLATE" => ".default",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"PAGER_TITLE" => "Товары",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"BXREADY_LIST_XLG_CNT_LISTPAGE" => "3",
+		"BXREADY_LIST_LG_CNT_LISTPAGE" => "4",
+		"BXREADY_LIST_MD_CNT_LISTPAGE" => "4",
+		"BXREADY_LIST_SM_CNT_LISTPAGE" => "6",
+		"BXREADY_LIST_XS_CNT_LISTPAGE" => "12",
+		"BXREADY_ELEMENT_ADDCLASS_LISTPAGE" => "",
+		"BXREADY_USE_ELEMENTCLASS_LISTPAGE" => "Y",
+		"BXREADY_VERTICAL_ALIGN_LISTPAGE" => "Y",
+		"BXREADY_ELEMENT_EXT_PARAMS_LISTPAGE" => "arrExtParams",
+		"BXREADY_USER_TYPES_LISTPAGE" => "N",
+		"BXREADY_ELEMENT_DRAW_LISTPAGE" => "ecommerce.m2.v1",
+		"BXR_PRODUCT_BLOCKS_ORDER_LISTPAGE" => "picture,name,rating,avail,article,price,buttons,action_timer,props",
+		"BXR_SHOW_RATING_LISTPAGE" => "avg",
+		"BXR_SHOW_ACTION_TIMER_LISTPAGE" => "N",
+		"BXR_SKU_PROPS_SHOW_TYPE_LISTPAGE" => "square",
+		"BXR_TILE_SHOW_PROPERTIES_LISTPAGE" => "N",
+		"BXREADY_LIST_MARKER_TYPE_LISTPAGE" => "ribbon.vertical",
+		"BXREADY_LIST_OWN_MARKER_USE_LISTPAGE" => "N",
+		"BXR_SHOW_ARTICLE_LISTPAGE" => "Y",
+		"BXR_SHOW_SLIDER_LISTPAGE" => "Y",
+		"BXR_SLIDER_INTERVAL_LISTPAGE" => "3000",
+		"BXR_USE_FAST_VIEW_LISTPAGE" => "Y",
+		"MESS_BTN_FAST_VIEW_LISTPAGE" => "Быстрый просмотр",
+		"BXR_IMG_MAX_WIDTH_LISTPAGE" => "275",
+		"BXR_IMG_MAX_HEIGHT_LISTPAGE" => "275",
+		"BXREADY_LIST_SLIDER_LISTPAGE" => "N",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);
+?>
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

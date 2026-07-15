@@ -1,0 +1,62 @@
+.sale-personal-account-wallet-container{
+    width:100%;
+    max-width:430px;
+    margin-bottom:20px;
+}
+.sale-personal-account-wallet-title{
+    color: #fff;
+    font-weight: bold;
+    font-size:15px;
+    padding:11px 17px;
+    border-radius: 4px 4px 0 0;
+}
+.sale-personal-account-wallet-list-container{
+    background-color: #F5A623;
+    color: #fff;
+    border-radius: 0 0 3px 3px;
+}
+.sale-personal-account-wallet-list{}
+.sale-personal-account-wallet-list-item{
+    position: relative;
+    padding:14px 17px 12px 17px;
+    font-size:15px;
+    overflow: hidden;
+    border-bottom: 1px solid #E39A20;
+}
+.sale-personal-account-wallet-list .sale-personal-account-wallet-list-item:last-child{
+    border-bottom: none;
+}
+
+.sale-personal-account-wallet-currency {
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+    line-height:22px;
+    vertical-align: middle;
+}
+
+.sale-personal-account-wallet-currency-item {
+    font: bold 15px/17px "Roboto", sans-serif;
+    color: #414141;
+}
+
+.sale-personal-account-wallet-currency-item + .sale-personal-account-wallet-currency-item {
+    font: 14px/20px "Roboto", sans-serif;
+}
+
+.sale-personal-account-wallet-sum {
+    display: inline-block;
+    float: right;
+    white-space: nowrap;
+    font-weight: bold;
+    font: bold 15px/17px "Roboto", sans-serif;
+    vertical-align: top;
+    color: #414141;
+}
+
+.sale-personal-account-wallet-container .sale-personal-account-wallet-list-container {
+    background: #faf9f9;
+    border: 1px solid #efefef;
+    border-radius: 0 0 4px 4px;
+}
+/*end personal account*/

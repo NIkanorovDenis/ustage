@@ -1,0 +1,20 @@
+<?
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+
+if(!CModule::IncludeModule("iblock"))
+	return;
+
+$arComponentParameters = array(
+	"GROUPS" => array(
+		
+	),
+	"PARAMETERS" => array(
+		"BUFFER_NAME"=>array(
+			"PARENT" => "BASE",
+			"NAME" => GetMessage("BUFFER_NAME"),
+			"TYPE" => "STRING",
+		),
+	),
+);
+
+?>

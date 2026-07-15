@@ -1,0 +1,85 @@
+<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();?>
+<div class="bxr-detail bxr-collections" data-scroll="DETAIL">
+
+	<?
+	$arRecommendedParams = array(
+
+		"ID" => $arResult['ID'],
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"COMPONENT_TEMPLATE" => "bxready.market2",
+		"CROSS_TYPE" => "E",
+		"IBLOCK_TYPE" => "catalog",
+		"OFFERS_PROPERTY_CODE" => array(
+		),
+		"ELEMENT_SORT_FIELD" => "sort",
+		"HIDE_NOT_AVAILABLE" => "N",
+		"PAGE_ELEMENT_COUNT" => "30",
+		"BLOCK_TITLE" => '',
+		"BXR_SHOW_MAX_QUANTITY" => "N",
+		"PRICE_CODE" => $arParams['PRICE_CODE'],
+		"USE_PRICE_COUNT" => "N",
+		"SHOW_PRICE_COUNT" => "1",
+		"PRICE_VAT_INCLUDE" => "Y",
+		"CONVERT_CURRENCY" => "N",
+		"PRODUCT_ID_VARIABLE" => "id",
+		"USE_PRODUCT_QUANTITY" => "N",
+		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+		"ADD_PROPERTIES_TO_BASKET" => "Y",
+		"PRODUCT_PROPS_VARIABLE" => "prop",
+		"PARTIAL_PRODUCT_PROPERTIES" => "N",
+		"PRODUCT_PROPERTIES" => array(
+		),
+		"BXREADY_LIST_XLG_CNT_LISTPAGE" => "3",
+		"BXREADY_LIST_LG_CNT_LISTPAGE" => "4",
+		"BXREADY_LIST_MD_CNT_LISTPAGE" => "4",
+		"BXREADY_LIST_SM_CNT_LISTPAGE" => "6",
+		"BXREADY_LIST_XS_CNT_LISTPAGE" => "12",
+		"BXREADY_ELEMENT_ADDCLASS_LISTPAGE" => "",
+		"BXREADY_USE_ELEMENTCLASS_LISTPAGE" => "Y",
+		"BXREADY_VERTICAL_ALIGN_LISTPAGE" => "Y",
+		"BXREADY_ELEMENT_EXT_PARAMS_LISTPAGE" => "arrExtParams",
+		"BXREADY_USER_TYPES_LISTPAGE" => "N",
+		"BXREADY_ELEMENT_DRAW_LISTPAGE" => "ecommerce.m2.v1",
+		"BXR_SHOW_RATING_LISTPAGE" => "avg",
+		"BXR_SHOW_ACTION_TIMER_LISTPAGE" => "N",
+		"BXR_SKU_PROPS_SHOW_TYPE_LISTPAGE" => "square",
+		"BXR_TILE_SHOW_PROPERTIES_LISTPAGE" => "N",
+		"BXREADY_LIST_MARKER_TYPE_LISTPAGE" => "circle.horizontal",
+		"BXREADY_LIST_OWN_MARKER_USE_LISTPAGE" => "N",
+		"BXR_SHOW_ARTICLE_LISTPAGE" => "Y",
+		"BXR_SHOW_SLIDER_LISTPAGE" => "Y",
+		"BXR_USE_FAST_VIEW_LISTPAGE" => "Y",
+		"BXR_IMG_MAX_WIDTH_LISTPAGE" => "180",
+		"BXR_IMG_MAX_HEIGHT_LISTPAGE" => "180",
+		"BXREADY_LIST_SLIDER_LISTPAGE" => "Y",
+		"BXREADY_LIST_VERTICAL_SLIDER_MODE_LISTPAGE" => "N",
+		"BXREADY_LIST_HIDE_SLIDER_ARROWS_LISTPAGE" => "Y",
+		"BXREADY_LIST_SLIDER_MARKERS_LISTPAGE" => "Y",
+		"BXREADY_LIST_HIDE_MOBILE_SLIDER_ARROWS_LISTPAGE" => "N",
+		"BXREADY_LIST_SLIDER_AUTOSCROLL_LISTPAGE" => "N",
+		"BXR_SLIDER_INTERVAL_LISTPAGE" => "0",
+		"BXREADY_LIST_SLIDER_SCROLLSPEED_LISTPAGE" => "300",
+		"BXREADY_LIST_SLIDER_AUTOPLAY_SPEEDD_LISTPAGE" => "2500",
+		"BXREADY_COLLECTION" => "Y",
+		'MERGE_TYPE' => $arParams['BXR_USE_CROSS_SELL_MERGE_MODE'],
+		"BXR_LAZY_LOAD" => "N",
+	);
+
+	$arRecommendedParams["BXR_AJAX_REGION_INFO"] = $arParams["BXR_AJAX_REGION_INFO"];
+	$arRecommendedParams["USE_BXR_STORES"] = $arParams["USE_BXR_STORES"];
+	$arRecommendedParams["STORES"] = $arParams["STORES"];
+	$arRecommendedParams["CROSS_TYPE"] = 'E';
+	$arRecommendedParams["ELEMENT_COUNT"] = 50;
+	$arRecommendedParams["PAGE_ELEMENT_COUNT"] = 50;
+	$arRecommendedParams['LIST_MODE'] = "Y";
+	$arRecommendedParams['BXREADY_LIST_SLIDER_LISTPAGE'] = 'N';?>
+
+	<?$APPLICATION->IncludeComponent(
+		"alexkova.sets:cross.list",
+		'bxready.market2',
+		$arRecommendedParams,
+		$component,
+		array("HIDE_ICONS" => "Y")
+	);?>
+
+</div>

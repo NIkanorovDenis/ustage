@@ -1,0 +1,40 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Заказ в 1 клик");
+
+function processing($value) {
+    $value = trim($value);
+    $value = stripslashes($value);
+    $value = strip_tags($value);
+    $value = htmlspecialchars($value);
+    $value = intval($value);
+    return $value;
+}
+
+
+
+$orderId = $_REQUEST["orderId"] ?? 0;
+if (empty($orderId)) {
+    $orderId = $_REQUEST["ORDER_ID"] ?? 0;
+}
+$orderId = processing($orderId);
+
+?>
+<?$APPLICATION->IncludeComponent(
+    "bxready.market2:one.click.order.basket.success",
+    ".default",
+    array(
+        "ORDER_ID" => intval($orderId),
+        "ERROR_CODE" => htmlspecialchars($_REQUEST["error"])
+    ),
+    false
+);?>
+
+
+<script>
+//top.location.href = '/personal/order/make/?ORDER_ID='+<?= $orderId ?>;
+</script>
+
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+

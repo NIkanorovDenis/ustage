@@ -1,0 +1,54 @@
+
+.bxr-header-panel .bxr-upper-part {
+    line-height: 1;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.bxr-header-panel .bxr-upper-part .bxr-topline-menu {
+   padding-right: 2rem !important; 
+}
+
+.bxr-header-panel .bxr-upper-part .bxr-topline-menu li
+,.bxr-header-panel .bxr-upper-part .bxr-phone-block li
+,.bxr-header-panel .bxr-upper-part .bxr-login-container {
+    line-height: 44px;
+}
+
+.bxr-header-panel .bxr-upper-part .bxr-phone-block li li{
+    line-height: 1.4;
+}
+
+#top-panel-phone-link
+,#top-panel-menu-link
+,#top-panel-region-link {
+    margin-right: 2rem;
+    cursor: default;
+    color: #181818;
+    font-size: 1em;
+    display: inline-block;
+    float: right;
+}
+
+#top-panel-menu-link {
+    margin-right: 0;
+}
+
+#top-panel-phone-link > div
+,#top-panel-menu-link > div
+,#top-panel-region-link > div {
+    display: inline-block;
+}
+
+.bxr-header-panel .bxr-upper-part{
+    background: #fff;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bxr-header-panel .bxr-upper-part > .row > div {
+    line-height: 0;
+}
+
+.bxr-header-panel .bxr-upper-part .bxr-login-container {
+    padding-left: 2rem;
+}

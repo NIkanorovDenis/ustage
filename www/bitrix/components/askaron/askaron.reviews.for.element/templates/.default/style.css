@@ -1,0 +1,94 @@
+.askaron-reviews-for-element  {
+	font-family: Arial,​Helvetica,​sans-serif;
+	font-size: 13px;
+}
+
+.askaron-reviews-for-element .ask-add {
+	margin-bottom:20px;	
+}
+
+.askaron-reviews-for-element .ask-add a {
+	text-decoration:none;
+	color:#000;
+	border-bottom:1px dotted;
+	font-size:20px;
+}
+
+.askaron-reviews-for-element .ask-add a:hover {
+	color: #EA0000;
+}
+
+.askaron-reviews-for-element .ask-not-active {	
+	background:#DEFFE6
+}
+
+.askaron-reviews-for-element .ask-review {	
+	margin-bottom: 30px;
+	color:#000;
+}
+
+.askaron-reviews-for-element .ask-review .ask-name {
+	font-size: 18px;
+	display: inline-block;
+	color: #2b2b2b;	
+}
+
+
+.askaron-reviews-for-element .ask-review .ask-name span {
+	font-size:12px;
+	color:#666;
+	margin-left:9px;
+}
+
+.askaron-reviews-for-element .ask-review .ask-edit-link-block
+{
+	font-size:12px;
+	display: inline-block;
+}
+
+.askaron-reviews-for-element .ask-review .ask-edit-link-block a
+{
+	text-decoration: underline;
+	margin-left:9px;
+	color: #000;
+}
+
+.askaron-reviews-for-element .ask-review .ask-review-item {
+	margin-bottom: 10px;
+}
+
+.askaron-reviews-for-element .ask-review .ask-review-item .ask-title {
+	vertical-align: top;
+	font-weight: bold;
+	display: inline-block;
+	margin-right: 5px; 
+	margin-bottom: 4px;
+}
+
+.askaron-reviews-for-element .ask-review .ask-review-item .ask-text {
+	display: inline-block;
+	color: #666;
+	line-height: 18px;
+}
+
+.askaron-reviews-for-element .ask-review .ask-stars {
+	margin:8px 0 7px;
+}
+
+.askaron-reviews-for-element .ask-review .ask-stars img {
+	border: 0;
+	vertical-align: bottom;
+}
+
+.askaron-reviews-for-element .ask-review .ask-stars span {
+	font-size: 13px;
+	line-height: 13px;	
+	margin-left: 8px;		
+	color: #999;
+	vertical-align: bottom;
+}
+
+.askaron-reviews-for-element .ask-new-interval {
+	height: 30px;
+	display: block;
+}

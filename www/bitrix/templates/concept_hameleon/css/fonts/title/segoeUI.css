@@ -1,0 +1,9 @@
+.main1, h1, h2, h3, h4, h5, h6{
+    font-family: 'SegoeUILight', Arial;
+}
+.main2{
+    font-family: 'SegoeUIRegular', Arial;
+}
+div.catalog-block div.catalog-content-wrap div.element div.price-table div.price-cell.price span.main1{
+	font-family: 'SegoeUIBold', Arial;
+}

@@ -1,0 +1,11 @@
+#bxr-top-fixed-panel:not(.bxr-top-fixed-panel-show) {
+    display:none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1005;
+}
+
+#bxr-top-fixed-panel.bxr-top-fixed-panel-show {
+    margin-bottom: 20px;
+}

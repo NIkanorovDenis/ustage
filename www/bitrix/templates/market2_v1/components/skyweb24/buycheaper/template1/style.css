@@ -1,0 +1,7 @@
+.popup_form_buycheaper{padding:10px;}
+.popup_form_buycheaper label{width:400px; display:block; margin-top:10px;}
+.popup_form_buycheaper label span{width:100%;}
+.popup_form_buycheaper label span.required:after{content:'*'; display:inline-block; margin-left:5px; color:#f00;}
+.popup_form_buycheaper label input, .popup_form_buycheaper label textarea{width:100%; box-sizing:border-box; padding:0 5px; line-height:30px;}
+.popup_form_buycheaper label input[type=submit]{width:auto;}
+.popup_form_buycheaper label textarea{height:5em; min-height:5em; display:inline-block;}

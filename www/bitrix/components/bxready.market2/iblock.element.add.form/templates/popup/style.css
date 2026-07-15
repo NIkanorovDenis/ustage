@@ -1,0 +1,25 @@
+span.error{
+    position: absolute;
+    font-size: 11px;
+    line-height: 12px;
+    color: #a94442;
+    right:0;
+}
+.bxr-form-body{
+    position: relative;
+}
+.bxr-personal-accept{
+    position: relative;
+}
+.bxr-personal-accept span.error{
+    bottom:-14px;
+}
+.bxr-form-body .form-control.error{
+    border: 1px solid rgba(255, 20, 0, 0.13);
+    background: #f2dede;
+}
+@media (max-width:500px){
+    span.error{
+        font-size: 9px;
+    }
+}

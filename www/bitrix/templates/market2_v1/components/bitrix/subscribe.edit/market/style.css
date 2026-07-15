@@ -1,0 +1,152 @@
+/* Subscription */
+div.subscription { /*width: 80%;*/ margin: 0 0 2em;}
+div.subscription-title-inner { font-weight: bold; padding: 20px 20px; overflow: hidden; zoom: 1;}
+/*div.subscription-title .r2, div.subscription-title .r0 { border-left: 1px solid; border-right: 1px solid;}*/
+div.subscription-form { padding: 17px 11px 0; margin: 0 0 1.5em;}
+table.subscription-layout { width: 100%; }
+table.subscription-layout td { vertical-align: top; padding: 0 0 20px;}
+table.subscription-layout td.field-name { width: 70px; text-align: right; padding-right: 7px;}
+table.subscription-layout td.field-form {  }
+input.subscription-email { width: 150px;}
+input.subscription-textbox {
+    padding:9px !important;
+    width: 230px;
+}
+.bxr-subscription .subscription-layout td.subscription-format-td {
+    vertical-align: top;
+    padding-top: 2px;
+}
+div.subscription-format {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+div.subscription-format input {
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+div.subscription-format label {
+    margin: 0 20px 0;
+    line-height: 25px;
+    display: inline-block;
+}
+div.subscription-format span {
+    display:block;
+    margin-top: 0.25em;
+    margin-top: -6px;
+    margin-left: 20px;
+    font-size: 0.85em;
+    font-weight: lighter;
+}
+div.subscription-rubric {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+div.subscription-rubric input {
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+div.subscription-rubric label {
+    margin-left: 20px;
+    margin-top: 0px;
+    line-height: 25px;
+    display: inline-block;
+}
+div.subscription-rubric span {
+    display:block;
+    margin-top: 0.25em;
+    margin-top: -6px;
+    margin-left: 20px;
+    font-size: 0.85em;
+    font-weight: lighter;
+}
+div.subscription-notes { margin: 0;}
+div.subscription-utility p { font-size: 0.85em;}
+div.subscription-buttons { margin-top: 1em;}
+
+/* Subscription colors*/
+div.subscription-title b, div.subscription-title-inner {
+    background: #faf9f9;
+}
+div.subscription-title .r2, div.subscription-title .r0 {border-color:#FAFAFA;}
+div.subscription-rubric span, div.subscription-format span, div.subscription-utility p {
+    color: #787878;
+    font-weight: lighter;
+}
+
+
+
+div.subscribe-edit .red {
+	color:red;
+}
+div.subscribe-edit .green {
+	color:green;
+}
+div.subscribe-edit .errorcolor {
+	color:red;
+}
+div.subscribe-edit .successcolor {
+	color:green;
+}
+
+.bxr-subscription .subscription-layout tr td:first-child {
+    width: 130px;
+    padding-right: 10px;
+}
+
+.bxr-subscription .subscription-layout td {
+    vertical-align: middle;
+}
+
+.subscription-title
+, .subscription-form {
+    border: 1px solid #efefef;
+    border-radius: 0 0 4px 4px;
+}
+
+.subscription-title {
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.subscription-layout input[type=text]
+, input[type=text].subscription-textbox {
+    height: 40px;
+    background: #faf9f9;
+    border-radius: 4px;
+    box-shadow: none;
+    font-size: 13px;
+}
+
+.subscription-layout input[type=text]:not:focus
+, input[type=text].subscription-textbox:not:focus {
+    border: 1px solid #efefef;
+}
+
+.subscription-layout input[type=text]:focus
+, input[type=text].subscription-textbox:focus {
+    background: #fff;
+}
+
+input[type=text].subscription-textbox {
+    margin-left: -15px;
+}
+
+.subscription-layout input[type=radio] {
+    margin-right: 6px;
+}
+
+.bxr-submit {
+    margin-left: -20px;
+}
+
+.bxr-subscription .subscription-layout td.field-rubric {
+    vertical-align: top;
+    padding-top: 2px;
+}

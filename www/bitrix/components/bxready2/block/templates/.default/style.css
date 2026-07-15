@@ -1,0 +1,32 @@
+.bxr-catalog-top-b{
+    padding-bottom: 20px;
+}
+
+.bxr-catalog-bottom-b{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.bxr-section-picture {
+    float: left;
+    margin: 0 15px 10px 0;
+}
+
+.bxr-section-desc {
+    margin-bottom: 15px;
+}
+
+.bxr-section .bxr-section-desc{
+    padding-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.bxr-section .bxr-catalog-section-list{
+    padding-top: 0;
+}
+
+.bxr-404-message{
+    padding: 20px 40px;
+    background: #0ba72a;
+    color: #FFF;
+}

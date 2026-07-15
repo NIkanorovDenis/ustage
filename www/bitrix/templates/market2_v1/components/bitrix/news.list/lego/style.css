@@ -1,0 +1,152 @@
+.ustage-lego{
+	margin-bottom: 50px;
+}
+.ustage-lego img {
+	max-width: 100%;
+}
+.ustage-lego_banner {
+	width: 100%;
+	height: 600px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	background-position: center;
+}
+.ustage-lego_banner-text {
+	background: rgba(255,255,255,0.7);
+    padding: 20px;
+    width: auto;
+    max-width: 60%;
+    margin: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    height: auto;	
+}
+.ustage-lego_banner-text p {
+	padding: 0 0 10px 0;
+	font-size: 18px;
+}
+.ustage-lego .bxr-color-button {
+	display: inline-block;
+}
+.ustage-lego_item {
+	width: 100%;
+}
+.ustage-lego_item {
+	margin-top: 40px;
+}
+.ustage-lego_item p{
+	font-size: 16px;
+}
+.ustage-lego_citata {
+	display: flex;
+    justify-content: flex-start;
+	align-items: center;
+    gap: 20px;
+    height: 100%;
+	margin: 40px 0;
+}
+.ustage-lego_citata blockquote {
+	margin: 0;
+}
+.ustage-lego_citata-img svg{
+	width:130px;
+	max-width: 100%;
+}
+.ustage-lego_photo {
+	margin-top: 40px;
+}
+.ustage-lego_photo .pr-item-img{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+.ustage-lego .pr-items {
+	display: flex;
+	gap: 20px;
+}
+.ustage-lego .pr-item {
+	width: 31%;
+	margin: 0;
+}
+.ustage-lego .pr-item-info {
+	display: block;
+    margin-top: 15px;
+    padding-bottom: 20px;
+	font-size: 16px;
+}
+.ustage-lego .col-md-4, 
+.ustage-lego .col-sm-6 {
+	padding: 0;
+}
+.ustage-lego .project-slider .slick-prev {
+	left: -7px;
+}
+.ustage-lego .project-slider .slick-next {
+	right: 0;
+}
+@media (max-width: 781px) {
+	.ustage-lego .pr-items {
+		justify-content: space-between;
+	}	
+	.ustage-lego .pr-item {
+		width: 47%;
+	}
+	.ustage-lego_citata blockquote {
+		font-size: 14px;
+	}
+	.ustage-lego .pr-item-info {
+		margin-top: 0;
+	}
+}
+@media (max-width:550px){
+	.ustage-lego_banner-text {
+		max-width: calc(100% - 40px);
+	}
+	.ustage-lego_banner-text a{
+		width:fit-content;
+	}
+}
+@media (max-width: 480px) {
+	.ustage-lego .pr-item {
+		width: 100%;
+	}	
+}
+.ustage-lego .project-slider img {
+    width: 100%;
+}
+.ustage-lego  .project-slider .item {
+	padding: 0;
+}
+
+.ustage-lego  .project-slider .item+.item {
+	margin-left: 10px;
+}
+
+.ustage-lego_item-cols {
+	display: flex;
+    gap: 10px;
+    width: 100%;
+	margin-top: 40px;
+}
+.ustage-lego_item-cols .ustage-lego_item-col:first-child {
+	 width: 30%;
+}
+.ustage-lego_item-cols .ustage-lego_item-col:last-child {
+	 width: 70%;
+}
+.ustage-lego .services-form {
+	margin-top: 40px;
+}
+
+@media (max-width:771px){
+	.ustage-lego_item-cols .ustage-lego_item-col,
+	.ustage-lego_item-cols .ustage-lego_item-col:first-child,
+	.ustage-lego_item-cols .ustage-lego_item-col:last-child {
+		width:100%;
+	}
+	.ustage-lego_item-cols {
+		flex-wrap: wrap;
+	}
+}

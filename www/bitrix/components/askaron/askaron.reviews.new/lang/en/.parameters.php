@@ -1,0 +1,3 @@
+<?
+$MESS ['ASKARON_REVIEWS_ELEMENT_ID'] = "Element ID";
+?>

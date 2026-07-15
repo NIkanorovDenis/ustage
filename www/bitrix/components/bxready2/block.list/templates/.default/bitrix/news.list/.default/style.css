@@ -1,0 +1,5 @@
+@media (max-width: 1200px) {
+    .bxr-list__mobile_hidden {
+        display: none;
+    }
+}

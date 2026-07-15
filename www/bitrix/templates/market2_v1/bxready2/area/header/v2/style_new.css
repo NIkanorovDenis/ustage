@@ -1,0 +1,74 @@
+.sticky-mobile-header { 
+    position: sticky;
+    top: 0;
+    z-index: 22;
+}
+
+.header__second .bxr-bg-container {
+    padding-top: 20px
+}
+
+@media (min-width: 992px) {
+    .header {
+        position: sticky;
+        z-index: 2000;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        transition-delay: .5s;
+    }
+    
+    .header .bxr-logo img {
+        object-fit: cover;
+        object-position: top;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
+        transition: .2s;
+        transition-delay: .3s;
+    }
+    
+    .header.sticky .bxr-logo img {
+        height: 85px;
+        width: 115px;
+    }
+    
+    .header__second {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+    }
+    
+    .header__menu {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+    
+    .bxr-detail-smart-links {
+        z-index: 222;
+    }
+    
+    .bxr-header-panel .bxr-lower-part .bxr-element-row-middle {
+        min-height: 90px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    
+    .header__menu br {
+        display: none;
+    }
+    
+    .start-body-container > .bxr-bg-container {
+        padding-top: 30px;
+    }
+    
+    .bxr-left-column-js.isHidden {
+        top: 0;
+    
+    }
+    
+    .bxr-is-header .bxr-left-column-js.isHidden {
+        margin-top: 0 !important
+    }
+    
+} 

@@ -1,0 +1,96 @@
+.catalog-section-header{
+    font-size:14px;
+    font-weight: bold;
+    text-align: left;
+    margin:5px 0;
+    padding:5px 15px;
+    border-bottom: 2px solid #d9dee6;
+    color: #000;
+}
+
+.bxr-list-show-more {
+    clear: both;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+/*slick slider start*/
+.bxr-slick-section {
+    text-align: center;
+    height: 300px;
+    overflow: hidden;
+}
+
+.bxr-slick-section .slick-dots {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+}
+
+.bxr-slick-section .slick-dots li {
+    float: left;
+    margin-right: 4px;
+}
+
+.bxr-slick-section .slick-dots li:last-child {
+    margin-right: 0px;
+}
+
+.bxr-slick-section .slick-dots li button {
+    cursor: pointer;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border: none;
+    color: transparent;
+    border-radius: 50%;
+    font-size: 0;
+    background: #dddddd;
+}
+
+.bxr-slick-section .slick-dots li.slick-active button {
+    background: #a3a3a3;
+}
+
+.bxr-slick-section .slick-arrow {
+    display: none;
+    position: absolute;
+    height: 50px;
+    opacity: .4;
+    top: 50%;
+    margin-top: -55px;
+    -webkit-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+.bxr-slick-section .slick-arrow.hidden-arrow {
+    opacity: 0;
+}
+
+.bxr-slick-section:hover > .slick-arrow  {
+    opacity: .4;
+    box-shadow: none;
+}
+.bxr-slick-section .slick-next {
+    right: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-radius: 4px 0px 0px 4px;
+    padding: 12px 20px;
+}
+.bxr-slick-section .slick-prev  {
+    left: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-radius: 0px 4px 4px 0px;
+    padding: 12px 20px;
+}
+
+.bxr-slick-section:hover > .slick-arrow:hover {
+    opacity: .8;
+}
+/*slick slider end*/
+
+.bxr-slider .slick-dots {left: 50%;     left: 0px;
+    margin-left: 0px; }

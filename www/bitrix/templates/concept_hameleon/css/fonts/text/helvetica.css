@@ -1,0 +1,20 @@
+body{
+    font-family: 'HelveticaRegular', Arial;
+}
+.bold{
+	font-family: 'HelveticaBold', Arial;
+}
+
+header.menu-open div.scroll-wrap ul.main-menu-nav > li > a{
+    top: 1px;
+}
+
+div.switcher ul.switcher-tab.left li{
+    padding: 22px 30px 15px 15px;
+}
+.open-box span.desc-empty, .open-box span.desc-no-empty{
+    padding: 5px 14px 5px;
+}
+.open-box span.count{
+    line-height: 20px;
+}

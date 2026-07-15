@@ -1,0 +1,60 @@
+.bxr-faq {
+    margin-top: 0px;
+}
+
+.bxr-faq .bxr-faq-accordion {
+    border: 1px solid #e5e5e5;
+}
+
+.bxr-faq .bxr-faq-section-name {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.bxr-faq a.bxr-faq-section-name {
+    display: block;
+    text-decoration: underline;
+}
+
+.bxr-faq .bxr-faq-accordion h3,
+.bxr-faq .bxr-faq-accordion .ui-accordion-content{
+    font-family: "Open Sans";
+    font-size: 14px;
+    border-radius: 0;
+    margin-top: 0;
+    border: 0;
+    background: none;
+}
+
+.bxr-faq .bxr-faq-accordion h3 {
+    padding: 18px 26px;
+    font-weight: bold;
+    color: #0a6ebd;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.bxr-faq .bxr-faq-accordion h3.ui-state-active {
+    border: none;
+}
+
+.bxr-faq .bxr-faq-accordion h3.ui-state-active,
+.bxr-faq .bxr-faq-accordion .ui-accordion-content.ui-accordion-content-active{
+    background-color: #f7f7f7;
+}
+
+.bxr-faq .bxr-faq-accordion .ui-accordion-content{
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 12px;
+}
+
+.bxr-faq .bxr-faq-accordion .ui-accordion-content:last-of-type,
+.bxr-faq .bxr-faq-accordion h3:last-of-type{
+    border: none;
+}
+
+.bxr-faq-show-all-q {
+    text-align: right;
+    text-decoration: underline;
+    margin-top: 10px;
+}

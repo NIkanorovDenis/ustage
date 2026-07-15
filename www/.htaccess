@@ -1,0 +1,104 @@
+Order Allow,Deny
+Allow from all
+
+Deny from 141.8.195.62
+Deny from 219.75.76.173
+Deny from 20.198.83.136
+Deny from 34.148.249.187
+Deny from 82.24.64.32
+
+Options -Indexes
+ErrorDocument 404 /404.php
+
+php_value memory_limit 512M
+
+#php_value mbstring.func_overload 2
+#php_value mbstring.internal_encoding UTF-8
+
+# PHP error handling for development servers
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+php_flag log_errors on
+php_flag ignore_repeated_errors off
+php_flag ignore_repeated_source off
+php_flag report_memleaks on
+php_flag track_errors on
+php_value docref_root 0
+php_value docref_ext 0
+php_value error_log /home/bitrix/PHP_errors.log
+php_value error_reporting -1
+php_value log_errors_max_len 0
+
+php_value max_execution_time 600
+
+<IfModule mod_php5.c>
+	php_flag allow_call_time_pass_reference 1
+	php_flag session.use_trans_sid off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+	
+	RewriteCond %{HTTP_USER_AGENT} ^.*(keys-so-bot|DuckDuckBot|SERankingBacklinksBot|Amazonbot|Baiduspider-image|OAI-SearchBot|GPTBot|ClaudeBot|DataForSeoBot|Baiduspider|meta-externalagent|PerplexityBot|cc_bot|Applebot|TextMediaSiteBot|GeedoProductSearch|bingbot|PetalBot|Blackbox|BacklinksExtendedBot|MauiBot|AwarioBot|RepoLookoutBot|SeekportBot|Timpibot|keys-so-bot|Pinterestbot|statdom|Scripting|python|CCBot|curl|SemrushBot|MJ12bot|AhrefsBot|DotBot|Bytespider|Photon|GPTBot|ImagesiftBot|BLEXBot).*$ [NC]
+	RewriteRule .* - [F,L] 	
+	
+	RewriteCond %{REQUEST_FILENAME} sitemap-(tags|brands).xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-new.php -f
+	RewriteRule ^(.*)$ /sitemap-new.php?type=%1 [L]  	
+
+	RewriteRule ^brands/product/perchatki\-dirty\-rigger\-comfort\-fit\-0\-5/$ /brands/? [L,R=301]
+	RewriteRule ^catalog/stsenicheskoe\-oborudovanie/$ /catalog/sceniceskoe\-oborudovanie/? [L,R=301]
+	
+	Redirect 301 /articles/stati/ https://ustage-group.ru/articles/
+	Redirect 301 /articles/obzory/ https://ustage-group.ru/articles/
+	Redirect 301 /articles/obzory/epson-lightscene-ev-100/ https://ustage-group.ru/articles/epson-lightscene-ev-100/
+	Redirect 301 /articles/stati/kak-zvukovoe-oborudovanie-dlya-magazina-vliyaet-na-obem-prodazh/ https://ustage-group.ru/articles/kak-zvukovoe-oborudovanie-dlya-magazina-vliyaet-na-obem-prodazh/
+	Redirect 301 /articles/stati/sovremennoe-professionalnoe-svetovoe-oborudovanie/ https://ustage-group.ru/articles/sovremennoe-professionalnoe-svetovoe-oborudovanie/
+	Redirect 301 /articles/obzory/allen-heath-predstavlyaet-sq-7/ https://ustage-group.ru/articles/allen-heath-predstavlyaet-sq-7/
+	Redirect 301 /product/galogennaya-lampa-ge-4515-par36-30w-6-4v-100h-5-176-x5-176-screw-terminals-/ https://ustage-group.ru/product/galogennaya-lampa-ge-4515-par36-30w-6-4v-100h-5-176-x5-176-screw-terminals/
+	Redirect 301 /catalog/aksessuary2/ https://ustage-group.ru/catalog/aksessuary_DR/
+	Redirect 301 /catalog/mikshernye-pulty1/ https://ustage-group.ru/catalog/mikshernye-pulty-forDJ/
+	Redirect 301 /catalog/usiliteli-moshchnosti/ https://ustage-group.ru/catalog/usiliteli-translational/
+	Redirect 301 /catalog/aksessuary-i-komplektuyushchie/ https://ustage-group.ru/catalog/aksessuary_zvuk/
+	Redirect 301 /catalog/aksessuary-i-komplektuyushchie1/ https://ustage-group.ru/catalog/aksessuary-micro-radio/
+	Redirect 301 /catalog/verevki-stropy/ https://ustage-group.ru/catalog/verevki-i_spansety/
+	Redirect 301 /catalog/spansety/ https://ustage-group.ru/catalog/verevki-i_spansety/
+	Redirect 301 /catalog/vrasausiesa-golovy/ https://ustage-group.ru/catalog/vrashchayushchiesya_golovy/
+	Redirect 301 /catalog/akusticeskie-sistemy/ https://ustage-group.ru/catalog/akusticheskie-sistemy-anzhee/
+	Redirect 301 /company/telephones.php https://ustage-group.ru/company/contacts/	
+	Redirect 301 /brands/echotone/ https://ustage-group.ru/catalog/echoton/ 
+	
+	Redirect 301 /catalog/sabvufery-studinoe-oborudovanie/ https://ustage-group.ru/catalog/sabvufery/
+	Redirect 301 /catalog/kontrollery-studijnyh-monitorov/ https://ustage-group.ru/catalog/studiynye-monitory-studinoe-oborudovanie/
+	Redirect 301 /catalog/dmx-pulty_kontrollery/  https://ustage-group.ru/catalog/kontrollery-i-sistemy-upravleniya/
+
+	RewriteCond %{HTTP_HOST} ^www.(.*)$
+	RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+	#RewriteCond %{HTTPS} off
+	#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	RewriteCond %{THE_REQUEST} /(.*)index.php.*$
+	RewriteCond %{THE_REQUEST} !bitrix/admin/
+	RewriteRule .* /%1 [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+	DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresByType image/jpeg "access plus 3 day"
+	ExpiresByType image/gif "access plus 3 day"
+</IfModule>

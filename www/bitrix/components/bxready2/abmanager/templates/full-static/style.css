@@ -1,0 +1,21 @@
+.rk-fullwidth{
+    overflow: hidden;
+    width: 100%;
+    margin: 0px auto;
+    display: block;
+}
+
+.rk-fullwidth-canvas{
+    text-align: center;
+    position: relative;
+}
+
+.rk-fullwidth-static .rk-fullwidth-canvas{
+    opacity: 0;
+}
+
+.rk-fullwidth-canvas.responsive img{
+    max-width: 100%;
+    height: auto;
+
+}

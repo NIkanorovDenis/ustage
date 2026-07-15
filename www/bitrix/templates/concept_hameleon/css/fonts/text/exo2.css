@@ -1,0 +1,23 @@
+body{
+    font-family: 'Exo 2', sans-serif, Arial;
+}
+.bold{
+	font-family: 'Exo 2', sans-serif, Arial;
+    font-weight: 700;
+}
+
+header div.scroll-wrap div.header-table div.header-cell td.descript div.main-desciption.backdrop{
+    padding-bottom: 12px;
+}
+
+
+div.switcher ul.switcher-tab.left li{
+    padding: 25px 30px 20px 15px;
+}
+.open-box span.desc-empty,
+.open-box span.desc-no-empty{
+    padding: 5px 14px 8px;
+}
+.open-box span.count{
+    line-height: 20px;
+}

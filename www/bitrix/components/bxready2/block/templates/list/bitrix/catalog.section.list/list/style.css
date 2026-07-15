@@ -1,0 +1,26 @@
+.bxr-catalog-section-list{
+    padding: 10px 0 20px 0;
+}
+
+.bxr-catalog-section-list ul{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.bxr-catalog-section-list li {
+    list-style-type: none;
+    font-size: 13px;
+    display: block;
+    float: left;
+    margin: 10px 40px 10px 0;
+}
+.bxr-catalog-section-list  li:before {
+    content: "\2022";
+    font-size: 200%;
+    line-height: 80%;
+    display: block;
+    float: left;
+    margin-right: 3px;
+    opacity: 0.6;
+}

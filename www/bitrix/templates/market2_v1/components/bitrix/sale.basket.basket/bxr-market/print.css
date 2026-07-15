@@ -1,0 +1,36 @@
+#coupons_block
+,.bx_ordercart_order_pay_center
+,.bx_sort_container{
+    opacity: 0;
+}
+
+.bxr-quantity-button-minus-big-basket
+,.bxr-quantity-button-plus-big-basket {
+    display: none;
+}
+
+input[type=text].bxr-quantity-text-big-basket {
+    border: none;
+    background: none;
+    text-align: right;
+}
+
+.bx_ordercart_itemtitle {
+    font-size: 12px;
+}
+
+#basket_items .item {
+    min-width: 150px;
+}
+
+.bxr-quantity-text-big-basket {
+    float: right;
+}
+
+.custom .centered {
+    margin-top: 5px;
+}
+
+#basket_items .control {
+    display: none;
+}

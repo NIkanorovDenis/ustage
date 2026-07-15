@@ -1,0 +1,1 @@
+<img width="130" src="/logo-white.svg" height="40" alt="Логотип компании USTAGE GROUP">
