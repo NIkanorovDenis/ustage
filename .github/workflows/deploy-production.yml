@@ -59,3 +59,12 @@ jobs:
             --exclude='/bitrix/tmp/' \
             -e "ssh -p $PROD_PORT" \
             www/ "$PROD_USER@$PROD_HOST:$PROD_PATH/"
+
+      - name: Run database migrations
+        env:
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_PORT: ${{ secrets.PROD_PORT }}
+          PROD_USER: ${{ secrets.PROD_USER }}
+        run: |
+          PROD_PORT="${PROD_PORT:-22}"
+          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" migrate
