@@ -1,6 +1,9 @@
 name: Deploy to development
 
 on:
+  push:
+    branches:
+      - develop
   workflow_dispatch:
 
 concurrency:
@@ -41,5 +44,16 @@ jobs:
           test -n "$DEV_PATH"
           DEV_PORT="${DEV_PORT:-22}"
           rsync -az --checksum \
+            --no-perms \
+            --omit-dir-times \
+            --exclude='/upload/' \
+            --exclude='/bitrix/.settings.php' \
+            --exclude='/bitrix/.settings_extra.php' \
+            --exclude='/bitrix/php_interface/dbconn.php' \
+            --exclude='/bitrix/cache/' \
+            --exclude='/bitrix/managed_cache/' \
+            --exclude='/bitrix/stack_cache/' \
+            --exclude='/bitrix/backup/' \
+            --exclude='/bitrix/tmp/' \
             -e "ssh -p $DEV_PORT" \
             www/ "$DEV_USER@$DEV_HOST:$DEV_PATH/"
