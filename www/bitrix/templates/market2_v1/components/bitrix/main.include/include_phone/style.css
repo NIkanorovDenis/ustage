@@ -187,7 +187,7 @@
 .phone_mini {font-size: 14px;
     padding-right: 10px;
     line-height: 12px;
-    @media(max-width: 1400px) {
+    @media(max-width: 1780px) {
         font-size: 13px;
     }
 }
