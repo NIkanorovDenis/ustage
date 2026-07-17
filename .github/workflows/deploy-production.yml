@@ -1,19 +1,20 @@
-name: Deploy to development
+name: Deploy to production
 
 on:
   push:
     branches:
-      - develop
+      - main
   workflow_dispatch:
 
 concurrency:
-  group: deploy-development
+  group: deploy-production
   cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: development
+    timeout-minutes: 20
+    environment: production
     permissions:
       contents: read
 
@@ -23,29 +24,30 @@ jobs:
 
       - name: Configure SSH
         env:
-          DEV_SSH_KEY: ${{ secrets.DEV_SSH_KEY }}
-          DEV_KNOWN_HOSTS: ${{ secrets.DEV_KNOWN_HOSTS }}
+          PROD_SSH_KEY: ${{ secrets.PROD_SSH_KEY }}
+          PROD_KNOWN_HOSTS: ${{ secrets.PROD_KNOWN_HOSTS }}
         run: |
           install -m 700 -d ~/.ssh
-          printf '%s\n' "$DEV_SSH_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$PROD_SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          printf '%s\n' "$DEV_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf '%s\n' "$PROD_KNOWN_HOSTS" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
       - name: Deploy tracked site files
         env:
-          DEV_HOST: ${{ secrets.DEV_HOST }}
-          DEV_PORT: ${{ secrets.DEV_PORT }}
-          DEV_USER: ${{ secrets.DEV_USER }}
-          DEV_PATH: ${{ secrets.DEV_PATH }}
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_PORT: ${{ secrets.PROD_PORT }}
+          PROD_USER: ${{ secrets.PROD_USER }}
+          PROD_PATH: ${{ secrets.PROD_PATH }}
         run: |
-          test -n "$DEV_HOST"
-          test -n "$DEV_USER"
-          test -n "$DEV_PATH"
-          DEV_PORT="${DEV_PORT:-22}"
+          test -n "$PROD_HOST"
+          test -n "$PROD_USER"
+          test -n "$PROD_PATH"
+          PROD_PORT="${PROD_PORT:-22}"
           rsync -az --checksum \
             --no-perms \
             --omit-dir-times \
+            --delay-updates \
             --exclude='/upload/' \
             --exclude='/bitrix/.settings.php' \
             --exclude='/bitrix/.settings_extra.php' \
@@ -55,5 +57,5 @@ jobs:
             --exclude='/bitrix/stack_cache/' \
             --exclude='/bitrix/backup/' \
             --exclude='/bitrix/tmp/' \
-            -e "ssh -p $DEV_PORT" \
-            www/ "$DEV_USER@$DEV_HOST:$DEV_PATH/"
+            -e "ssh -p $PROD_PORT" \
+            www/ "$PROD_USER@$PROD_HOST:$PROD_PATH/"
