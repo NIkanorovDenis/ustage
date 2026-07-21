@@ -48,9 +48,9 @@ CJSCore::Init(array("popup"));
 	<div id="bx_auth_popup_form" style="display:none;" class="bx_login_popup_form">
 	<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "popup_auth",
 		array(
-			"BACKURL" => $arResult["BACKURL"],
-			"AUTH_FORGOT_PASSWORD_URL" => $arResult["AUTH_FORGOT_PASSWORD_URL"],
-                        "AUTH_REGISTER_URL" => $arResult["AUTH_REGISTER_URL"],
+				"BACKURL" => $arResult["~BACKURL"],
+				"AUTH_FORGOT_PASSWORD_URL" => $arResult["~AUTH_FORGOT_PASSWORD_URL"],
+						"AUTH_REGISTER_URL" => $arResult["~AUTH_REGISTER_URL"],
 		),
 		false
 	);
