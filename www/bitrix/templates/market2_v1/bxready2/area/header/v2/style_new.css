@@ -17,6 +17,11 @@
         transition: .3s;
         transition-delay: .5s;
     }
+
+    /* Keep Bitrix edit and SEO popups above the storefront header. */
+    body:has(#bx-panel) .header {
+        z-index: 900;
+    }
     
     .header .bxr-logo img {
         object-fit: cover;

@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+use Bitrix\Main\DB\Connection;
+use Bitrix\Main\Loader;
+
+return static function (Connection $connection): void {
+    if (!Loader::includeModule('iblock')) {
+        throw new RuntimeException('The iblock module is not available.');
+    }
+
+    $iblockId = 12;
+    $code = 'CUSTOM_PROPERTY';
+
+    $existing = CIBlockProperty::GetList([], [
+        'IBLOCK_ID' => $iblockId,
+        'CODE' => $code,
+    ])->Fetch();
+
+    if ($existing) {
+        return;
+    }
+
+    $property = new CIBlockProperty();
+    $propertyId = $property->Add([
+        'IBLOCK_ID' => $iblockId,
+        'NAME' => 'Новое свойство',
+        'ACTIVE' => 'Y',
+        'SORT' => 500,
+        'CODE' => $code,
+        'PROPERTY_TYPE' => 'S',
+    ]);
+
+    if (!$propertyId) {
+        throw new RuntimeException($property->LAST_ERROR ?: 'Cannot create the property.');
+    }
+};
