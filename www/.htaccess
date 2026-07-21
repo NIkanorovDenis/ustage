@@ -81,9 +81,9 @@ php_value max_execution_time 600
 	#RewriteCond %{HTTP:X-Forwarded-Proto} !https
 	#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-	RewriteCond %{THE_REQUEST} /(.*)index.php.*$
-	RewriteCond %{THE_REQUEST} !bitrix/admin/
-	RewriteRule .* /%1 [R=301,L]
+	RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.php(?:[?\s]) [NC]
+	RewriteCond %{THE_REQUEST} !\s/+bitrix/admin/ [NC]
+	RewriteRule ^(.*/)?index\.php$ /$1 [R=301,L]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-l

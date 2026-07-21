@@ -48,9 +48,9 @@ CJSCore::Init(array("popup"));
 	<div id="bx_auth_popup_form" style="display:none;" class="bx_login_popup_form">
 	<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "popup_auth",
 		array(
-			"BACKURL" => $arResult["BACKURL"],
-			"AUTH_FORGOT_PASSWORD_URL" => $arResult["AUTH_FORGOT_PASSWORD_URL"],
-                        "AUTH_REGISTER_URL" => $arResult["AUTH_REGISTER_URL"],
+				"BACKURL" => $arResult["~BACKURL"],
+				"AUTH_FORGOT_PASSWORD_URL" => $arResult["~AUTH_FORGOT_PASSWORD_URL"],
+						"AUTH_REGISTER_URL" => $arResult["~AUTH_REGISTER_URL"],
 		),
 		false
 	);
@@ -68,7 +68,11 @@ CJSCore::Init(array("popup"));
 			?>
 			var authPopup = BX.PopupWindowManager.create("AuthorizePopup", null, {
 				autoHide: true,
-				//	zIndex: 0,
+				zIndex: 100000,
+				zIndexOptions: {
+					alwaysOnTop: 100000,
+					overlayGap: -5
+				},
 				offsetLeft: 0,
 				offsetTop: 0,
 				overlay : true,
@@ -81,6 +85,16 @@ CJSCore::Init(array("popup"));
 					onAfterPopupShow: function()
 					{
 						this.setContent(BX("bx_auth_popup_form"));
+
+						// Keep the site header below this popup and its overlay.
+						var popupNode = BX("AuthorizePopup");
+						var overlayNode = BX("popup-window-overlay-AuthorizePopup");
+
+						if (popupNode)
+							popupNode.style.setProperty("z-index", "100000", "important");
+
+						if (overlayNode)
+							overlayNode.style.setProperty("z-index", "99995", "important");
 					}
 				}
 			});
