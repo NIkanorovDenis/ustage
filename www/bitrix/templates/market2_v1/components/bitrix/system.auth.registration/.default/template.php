@@ -36,7 +36,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<p><?echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></p>
 <?endif?>
 <noindex>
-<form class="bxr-form-body" id="bxr-form-register" method="post" action="<?=SITE_DIR?>auth/" name="bform" enctype="multipart/form-data">
+<form class="bxr-form-body" id="bxr-form-register" method="post" action="<?=SITE_DIR?>auth/?register=yes" name="bform" enctype="multipart/form-data">
 <?
 if (strlen($arResult["BACKURL"]) > 0)
 {
