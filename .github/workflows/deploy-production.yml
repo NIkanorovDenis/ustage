@@ -46,6 +46,7 @@ jobs:
           PROD_PORT="${PROD_PORT:-22}"
           rsync -az --checksum \
             --no-perms \
+            --no-times \
             --omit-dir-times \
             --delay-updates \
             --exclude='/upload/' \
