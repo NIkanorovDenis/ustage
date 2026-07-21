@@ -68,7 +68,7 @@ CJSCore::Init(array("popup"));
 			?>
 			var authPopup = BX.PopupWindowManager.create("AuthorizePopup", null, {
 				autoHide: true,
-				//	zIndex: 0,
+				zIndex: 3000,
 				offsetLeft: 0,
 				offsetTop: 0,
 				overlay : true,
