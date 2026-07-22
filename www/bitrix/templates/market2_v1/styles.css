@@ -111,39 +111,44 @@ background-color: #d29b0a;
   bottom: 0;
 }
 
-button.close-panel:active, button.close-panel:focus {
+.cookie-consent-button:active, .cookie-consent-button:focus {
   outline: none;
 }
-button.close-panel::-moz-focus-inner {
+.cookie-consent-button::-moz-focus-inner {
   border: 0;
 }
 
-.close-panel{
-  display: block;
-    border-radius: 0;
-   text-align: center;
-font-size: 16px;
-  background: transparent;
-margin: 0 auto;
-  border: none;
-
-  font-weight: 400;
-
-  min-width: 50px;
- padding: 4px;
-  cursor: pointer;
+.info-panel-actions {
+  display: inline-flex;
+  gap: 10px;
   vertical-align: middle;
- color: #fff;
-   text-decoration: underline;
 }
 
-.close-panel:hover {
-color: #fff;
+.cookie-consent-button {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  min-width: 120px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color .2s, color .2s;
 }
 
-.close-panel:active {
-color: #fff;
+.cookie-consent-accept {
+  color: #8b6500;
+  background: #fff;
+}
 
+.cookie-consent-reject {
+  color: #fff;
+  background: transparent;
+}
+
+.cookie-consent-button:hover,
+.cookie-consent-button:active {
+  color: #8b6500;
+  background: #fff;
 }
 .bxr-phone-block.phone-big li, .bxr-phone-block.phone-big li > div, .bxr-phone-block.phone-big li a {
 
@@ -159,6 +164,29 @@ color: #fff;
     text-align: left;
    margin: 0 60px 0 0;
   }
+
+@media only screen and (max-width: 767px) {
+  .info-panel {
+    padding: 14px 15px;
+  }
+
+  .info-panel p {
+    display: block;
+    margin: 0 0 12px;
+    text-align: center;
+  }
+
+  .info-panel-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cookie-consent-button {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 180px;
+  }
+}
 .bxr-container-catalog-section>div.clearfix {padding:0;}
 h1.catalog_title{padding-top: 20px;padding-left: 15px; border-top: 1px solid #ededed;}
 
