@@ -898,18 +898,92 @@ $(document).ready(function(){
         $('.header_phone_line').toggleClass('open');
     });
 
- 	
-    if (localStorage.getItem('infopanel') != 1) {
-		$('.info-panel').show();
-	}
-    $('.close-panel').click(function () {
-        localStorage.setItem('infopanel', 1);
-        infopanelGet = localStorage.getItem('infopanel');
+
+    var consentStorageKey = 'ustage_cookie_consent_v1';
+    var consentIdStorageKey = 'ustage_cookie_consent_id';
+
+    function getStoredValue(key) {
+        try {
+            return window.localStorage.getItem(key);
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function setStoredValue(key, value) {
+        try {
+            window.localStorage.setItem(key, value);
+        } catch (error) {
+            // The server log remains best-effort when browser storage is blocked.
+        }
+    }
+
+    function getConsentId() {
+        var consentId = getStoredValue(consentIdStorageKey);
+        if (consentId) {
+            return consentId;
+        }
+
+        if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+            consentId = window.crypto.randomUUID();
+        } else {
+            consentId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (character) {
+                var random = Math.random() * 16 | 0;
+                var value = character === 'x' ? random : (random & 0x3 | 0x8);
+                return value.toString(16);
+            });
+        }
+
+        setStoredValue(consentIdStorageKey, consentId);
+        return consentId;
+    }
+
+    function logCookieConsent(decision) {
+        var payload = new URLSearchParams();
+        payload.set('consent_id', getConsentId());
+        payload.set('decision', decision);
+        payload.set('page', window.location.pathname);
+
+        window.fetch('/local/ajax/cookie-consent.php', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: payload.toString(),
+            keepalive: true
+        }).catch(function () {
+            // The visitor's local choice still applies if audit logging is unavailable.
+        });
+    }
+
+    var cookieConsent = getStoredValue(consentStorageKey);
+    if (cookieConsent !== 'accepted' && cookieConsent !== 'rejected') {
+        $('.info-panel').show();
+    } else if (cookieConsent === 'accepted' && typeof window.ustageLoadOptionalCookies === 'function') {
+        window.ustageLoadOptionalCookies();
+    }
+
+    $('.cookie-consent-button').on('click', function () {
+        var decision = $(this).data('cookie-consent');
+        if (decision !== 'accepted' && decision !== 'rejected') {
+            return;
+        }
+
+        setStoredValue(consentStorageKey, decision);
         $('.info-panel').hide();
-    });   
+        logCookieConsent(decision);
+
+        if (decision === 'accepted' && typeof window.ustageLoadOptionalCookies === 'function') {
+            window.ustageLoadOptionalCookies();
+        }
+    });
 	
 	$('body').on('submit', '.modal .bxr-form-body', function () {
-        ym(80012047, 'reachGoal', 'formy-os');
+        if (typeof window.ym === 'function') {
+            window.ym(80012047, 'reachGoal', 'formy-os');
+        }
     });
 
     /*

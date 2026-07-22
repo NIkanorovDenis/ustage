@@ -1,5 +1,7 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/cookie_consent.php';
+
 include $_SERVER["DOCUMENT_ROOT"] . "/bitrix/php_interface/include/b24/b24.php";
 
 /* AddEventHandler("main", "OnEndBufferContent", "ChangeMyContent");
