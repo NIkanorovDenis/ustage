@@ -764,22 +764,6 @@ h1.catalog_title{padding-top: 20px;padding-left: 15px; border-top: 1px solid #ed
   display: flex;
   align-items: center;
 }
-.altera{
-  align-items: baseline;
-  gap: 6px;
-  line-height: 1.2;
-  display: flex;
-  float: left;
-  margin-top: 10px;
-  margin-left: 20px;
-}
-.altera a{
-  color: inherit;
-}
-.altera__logo{
-  position: relative;
-  top: 1px;
-}
 .tg-widget-wrapper{
         display: none;
         z-index: 999;

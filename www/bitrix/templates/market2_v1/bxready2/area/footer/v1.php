@@ -208,13 +208,6 @@ $bxmarket = \Alexkova\Market2\Bxmarket::getInstance();
                                                         <? /*
                                                         <a data-toggle="modal" data-target="#bxr-may-popup" data-session="<?= !empty($_SESSION['popup_febrary1']) ? 1 : 0 ?>">Информация о февральских праздниках</a>
                                                         */ ?>
-
-
-                                <div class="altera">
-                                    <a href="https://www.altera-media.com?utm_source=clnt" target="_blank">SEO продвижение сайта</a> - 
-                                    <img class="altera__logo" width="90" height="20" src="https://www.altera-media.com/images/altera/altera_black.png" alt="Альтера - создание и продвижение сайтов в СПб" title="Альтера - создание и продвижение сайтов в СПб">
-                                </div>
-                            
                             </div>
                         </div>
                 </div>
