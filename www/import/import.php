@@ -87,6 +87,11 @@ class parserUS {
 				mkdir($this->location, 0755, True);
 			}
 
+			$parserLogsLocation = $this->location .'/'. $this->parser;
+			if (!is_dir($parserLogsLocation)) {
+				mkdir($parserLogsLocation, 0755, true);
+			}
+
 			$this->logs = $this->location .'/'. $this->parser .'/'. $this->type .'_'. date('Ymd') .'.txt';
 			$this->logsError = $this->location .'/'. $this->parser .'/error_'. date('Ymd') .'.txt';
 
@@ -140,8 +145,7 @@ class parserUS {
 	/*Edsy*/
 	private function edsy() {
 
-		$this->productsFromCatalog = $this->getProductsFromCatalog();
-		$this->productsFromParser  = $this->edsyGetProductsFromSource();
+		$this->edsyGetProductsFromSource();
 
 	}
 
@@ -149,20 +153,25 @@ class parserUS {
 
 		$items = [];
 
-		//$filenameEdsy = 'https://edsy.ru/upload/export.xml';
-		$filenameEdsy = 'https://ustage-group.ru/import/edsy_ostatki.xml';
+		$filenameEdsy = 'https://edsy.ru/upload/export.xml';
 		$edsyData = $this->getDataCurl($filenameEdsy);
 
 		if ($edsyData) {
 
 			$filename = $this->parser .'_ostatki.xml';
-			$this->toFile(__DIR__ .'/'. $filename, $edsyData);
+			$localFilename = __DIR__ .'/'. $filename;
+			$this->toFile($localFilename, $edsyData);
 
-			if ($xmlObj = $this->getsrcfileToObject($filenameEdsy)) {
+			$xmlObj = $this->getsrcfileToObject($localFilename);
+			if (!$xmlObj || empty($xmlObj->catalog->products->product)) {
+				$this->tolog($this->logsError, 'EDSy import aborted: XML contains no products;', true);
+				return $items;
+			}
 
-				$el = new CIBlockElement;
+			$this->productsFromCatalog = $this->getProductsFromCatalog();
+			$el = new CIBlockElement;
 
-				foreach ($xmlObj->catalog->products->product as $item) {
+			foreach ($xmlObj->catalog->products->product as $item) {
 
 					$properties = [];
 					$noused_props = ['CML2_ARTICLE', 'CML2_TRAITS', 'CML2_BASE_UNIT', 'CML2_TAXES'];
@@ -241,10 +250,10 @@ class parserUS {
 
 					}
 
-				}
-
 			}
 
+		} else {
+			$this->tolog($this->logsError, 'EDSy import aborted: XML was not received;', true);
 		}
 
 		return $items;
