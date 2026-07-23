@@ -15,6 +15,7 @@ import/
 *.sql.gz
 
 # Production runtime data
+!www/import/
 www/upload/
 www/bitrix/backup/
 www/bitrix/cache/
@@ -24,7 +25,7 @@ www/bitrix/html_pages/
 www/bitrix/tmp/
 www/bitrix/updates/
 www/import/*
-!www/import/*.php
+!www/import/import.php
 www/cron/logs/
 www/cron/old/
 www/cron/*.txt
