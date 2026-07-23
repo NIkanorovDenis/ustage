@@ -622,8 +622,13 @@ class parserUS {
 	/*ltm*/
 	private function ltm() {
 
+		$this->productsFromParser = $this->ltmGetPricelistFromLtm();
+		if (empty($this->productsFromParser)) {
+			$this->tolog($this->logsError, 'LTM import aborted: source contains no products;', true);
+			return;
+		}
+
 		$this->productsFromCatalog = $this->getProductsFromCatalog();
-		$this->productsFromParser  = $this->ltmGetPricelistFromLtm();
 
 		$el = new CIBlockElement;
 
@@ -1792,9 +1797,18 @@ class parserUS {
 
 		$this->apitoken = $this->imlightGetToken();
 		$imlightPrice = $this->imlightGetPrice();
+		if (empty($imlightPrice)) {
+			$this->tolog($this->logsError, 'Imlight import aborted: price file was not received;', true);
+			return;
+		}
+
+		$this->productsFromParser = $this->imlightGetProductsFromSource($imlightPrice);
+		if (empty($this->productsFromParser)) {
+			$this->tolog($this->logsError, 'Imlight import aborted: price file contains no products;', true);
+			return;
+		}
 
 		$this->productsFromCatalog = $this->getProductsFromCatalog();
-		$this->productsFromParser = $this->imlightGetProductsFromSource($imlightPrice);
 
 		$el = new CIBlockElement;
 		$newProducts = [];
