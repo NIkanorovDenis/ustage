@@ -87,6 +87,11 @@ class parserUS {
 				mkdir($this->location, 0755, True);
 			}
 
+			$parserLogsLocation = $this->location .'/'. $this->parser;
+			if (!is_dir($parserLogsLocation)) {
+				mkdir($parserLogsLocation, 0755, true);
+			}
+
 			$this->logs = $this->location .'/'. $this->parser .'/'. $this->type .'_'. date('Ymd') .'.txt';
 			$this->logsError = $this->location .'/'. $this->parser .'/error_'. date('Ymd') .'.txt';
 
