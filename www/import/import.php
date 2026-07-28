@@ -170,6 +170,7 @@ class parserUS {
 
 			$this->productsFromCatalog = $this->getProductsFromCatalog();
 			$el = new CIBlockElement;
+			$edsStatistics = [];
 
 			foreach ($xmlObj->catalog->products->product as $item) {
 
@@ -218,13 +219,32 @@ class parserUS {
 									"XML_ID" => (string)$item->xml_id
 								];
 
+								$previewPicture = $this->getExternalImage((string)$item->preview_picture);
+								$detailPicture = $this->getExternalImage((string)$item->detail_picture);
+								if ($previewPicture) {
+									$arLoadProductArray['PREVIEW_PICTURE'] = $previewPicture;
+								}
+								if ($detailPicture) {
+									$arLoadProductArray['DETAIL_PICTURE'] = $detailPicture;
+								}
+
 								$productID = $el->Add($arLoadProductArray);
 
 								if ($productID) {
 
+									$morePhotos = [];
+									foreach ($item->more_photos->photo as $photoUrl) {
+										$photo = $this->getExternalImage((string)$photoUrl);
+										if ($photo) {
+											$morePhotos[] = $photo;
+										}
+									}
+
 									CIBlockElement::SetPropertyValuesEx($productID, self::IBLOCK_ID, [
 										'UPLOADED_FROM_PAGE' => $this->domen . $item->url,
 										'CML2_ARTICLE' => $article,
+										'MORE_PHOTO' => $morePhotos,
+										'UPLOADED_PHOTO' => (string)$item->detail_picture,
 									]);
 									$this->tolog($this->logs, 'Add product - '. $productID .';', true);
 
@@ -239,12 +259,39 @@ class parserUS {
 						} else {
 
 							$productID = $this->productsFromCatalog[$article]['ID'];
+							$pictureFields = [];
+
+							if (empty($this->productsFromCatalog[$article]['PREVIEW_PICTURE'])) {
+								$previewPicture = $this->getExternalImage((string)$item->preview_picture);
+								if ($previewPicture) {
+									$pictureFields['PREVIEW_PICTURE'] = $previewPicture;
+								}
+							}
+
+							if (empty($this->productsFromCatalog[$article]['DETAIL_PICTURE'])) {
+								$detailPicture = $this->getExternalImage((string)$item->detail_picture);
+								if ($detailPicture) {
+									$pictureFields['DETAIL_PICTURE'] = $detailPicture;
+								}
+							}
+
+							if ($pictureFields) {
+								$el->Update($productID, $pictureFields);
+								$this->tolog($this->logs, 'Add missing pictures - '. $productID .';', true);
+							}
 
 						}
 
 						if (!empty($productID)) {
 
 							$this->updatePriceStore($productID, $article, $item->quantity, $item->price);
+							$edsStatistics[] = [
+								'DATE' => time(),
+								'URL' => $this->domen . $item->url,
+								'HTTP_CODE' => 200,
+								'STATUS' => 'Q:'. (int)$item->quantity .', P:'. (float)$item->price,
+								'OFFERS' => [],
+							];
 
 						}
 
@@ -252,11 +299,48 @@ class parserUS {
 
 			}
 
+			$this->saveEdsStatistics($edsStatistics);
+
 		} else {
 			$this->tolog($this->logsError, 'EDSy import aborted: XML was not received;', true);
 		}
 
 		return $items;
+
+	}
+
+	private function getExternalImage($url) {
+
+		$url = trim((string)$url);
+		if ($url === '' || !filter_var($url, FILTER_VALIDATE_URL)) {
+			return false;
+		}
+
+		$file = CFile::MakeFileArray($url);
+		if (!is_array($file) || empty($file['tmp_name']) || !is_file($file['tmp_name'])) {
+			$this->tolog($this->logsError, 'Image download failed: '. $url .';', true);
+			return false;
+		}
+
+		return $file;
+
+	}
+
+	private function saveEdsStatistics($statistics) {
+
+		if (!\Bitrix\Main\Loader::includeModule('energosoft.utils') || !class_exists('ESUtils')) {
+			$this->tolog($this->logsError, 'EDS statistics module is unavailable;', true);
+			return;
+		}
+
+		$status = ESUtils::LoadOption('status');
+		if (!is_array($status)) {
+			$status = [];
+		}
+
+		$status['LOG_EDS'] = $statistics;
+		ESUtils::SaveOption('status', $status);
+		ESUtils::SaveOption('status-run', []);
 
 	}
 
@@ -2462,7 +2546,7 @@ class parserUS {
 		$domenCheck = str_replace(['http://', 'https://', 'www.'], '', $this->domen);
 
 		$dbItems = \Bitrix\Iblock\Elements\ElementCatalogTable::getList([
-			'select' => ['ID', 'NAME', 'IBLOCK_SECTION_ID', 'UPLOADED_FROM_PAGE_'=>'UPLOADED_FROM_PAGE', 'CML2_ARTICLE_'=>'CML2_ARTICLE', 'PRICE_FROZEN_'=>'PRICE_FROZEN', 'GUID_'=>'GUID', 'PARSER_PRODUCT_CODE_'=>'PARSER_PRODUCT_CODE'],
+			'select' => ['ID', 'NAME', 'IBLOCK_SECTION_ID', 'PREVIEW_PICTURE', 'DETAIL_PICTURE', 'UPLOADED_FROM_PAGE_'=>'UPLOADED_FROM_PAGE', 'CML2_ARTICLE_'=>'CML2_ARTICLE', 'PRICE_FROZEN_'=>'PRICE_FROZEN', 'GUID_'=>'GUID', 'PARSER_PRODUCT_CODE_'=>'PARSER_PRODUCT_CODE'],
 			'filter' => [
 				'IBLOCK_ID' => self::IBLOCK_ID,
 				'UPLOADED_FROM_PAGE.VALUE' => '%'. $domenCheck .'%',
@@ -2493,6 +2577,8 @@ class parserUS {
 							'SECTION' => $item['IBLOCK_SECTION_ID'],
 							'PAGE' => $item['UPLOADED_FROM_PAGE_VALUE'],
 							'PRICE_FROZEN' => $item['PRICE_FROZEN_VALUE'],
+							'PREVIEW_PICTURE' => $item['PREVIEW_PICTURE'],
+							'DETAIL_PICTURE' => $item['DETAIL_PICTURE'],
 						];
 
 						$this->productsToDeactivate[] = $item['ID'];
@@ -2507,6 +2593,8 @@ class parserUS {
 							'SECTION' => $item['IBLOCK_SECTION_ID'],
 							'PAGE' => $item['UPLOADED_FROM_PAGE_VALUE'],
 							'PRICE_FROZEN' => $item['PRICE_FROZEN_VALUE'],
+							'PREVIEW_PICTURE' => $item['PREVIEW_PICTURE'],
+							'DETAIL_PICTURE' => $item['DETAIL_PICTURE'],
 						];
 
 						$this->productsToDeactivate[] = $item['ID'];
