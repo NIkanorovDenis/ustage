@@ -161,6 +161,7 @@ class parserUS {
 			$filename = $this->parser .'_ostatki.xml';
 			$localFilename = __DIR__ .'/'. $filename;
 			$this->toFile($localFilename, $edsyData);
+			$this->repairTruncatedEdsXml($localFilename);
 
 			$xmlObj = $this->getsrcfileToObject($localFilename);
 			if (!$xmlObj || empty($xmlObj->catalog->products->product)) {
@@ -170,6 +171,7 @@ class parserUS {
 
 			$this->productsFromCatalog = $this->getProductsFromCatalog();
 			$el = new CIBlockElement;
+			$edsStatistics = [];
 
 			foreach ($xmlObj->catalog->products->product as $item) {
 
@@ -218,13 +220,32 @@ class parserUS {
 									"XML_ID" => (string)$item->xml_id
 								];
 
+								$previewPicture = $this->getExternalImage((string)$item->preview_picture);
+								$detailPicture = $this->getExternalImage((string)$item->detail_picture);
+								if ($previewPicture) {
+									$arLoadProductArray['PREVIEW_PICTURE'] = $previewPicture;
+								}
+								if ($detailPicture) {
+									$arLoadProductArray['DETAIL_PICTURE'] = $detailPicture;
+								}
+
 								$productID = $el->Add($arLoadProductArray);
 
 								if ($productID) {
 
+									$morePhotos = [];
+									foreach ($item->more_photos->photo as $photoUrl) {
+										$photo = $this->getExternalImage((string)$photoUrl);
+										if ($photo) {
+											$morePhotos[] = $photo;
+										}
+									}
+
 									CIBlockElement::SetPropertyValuesEx($productID, self::IBLOCK_ID, [
 										'UPLOADED_FROM_PAGE' => $this->domen . $item->url,
 										'CML2_ARTICLE' => $article,
+										'MORE_PHOTO' => $morePhotos,
+										'UPLOADED_PHOTO' => (string)$item->detail_picture,
 									]);
 									$this->tolog($this->logs, 'Add product - '. $productID .';', true);
 
@@ -239,12 +260,42 @@ class parserUS {
 						} else {
 
 							$productID = $this->productsFromCatalog[$article]['ID'];
+							$pictureFields = [];
+
+							if (empty($this->productsFromCatalog[$article]['PREVIEW_PICTURE'])) {
+								$previewPicture = $this->getExternalImage((string)$item->preview_picture);
+								if ($previewPicture) {
+									$pictureFields['PREVIEW_PICTURE'] = $previewPicture;
+								}
+							}
+
+							if (empty($this->productsFromCatalog[$article]['DETAIL_PICTURE'])) {
+								$detailPicture = $this->getExternalImage((string)$item->detail_picture);
+								if ($detailPicture) {
+									$pictureFields['DETAIL_PICTURE'] = $detailPicture;
+								}
+							}
+
+							if ($pictureFields) {
+								$el->Update($productID, $pictureFields);
+								$this->tolog($this->logs, 'Add missing pictures - '. $productID .';', true);
+							}
 
 						}
 
 						if (!empty($productID)) {
 
 							$this->updatePriceStore($productID, $article, $item->quantity, $item->price);
+							$edsStatistics[] = [
+								'DATE' => time(),
+								'URL' => $this->domen . $item->url,
+								'HTTP_CODE' => 200,
+								'STATUS' => 'Q:'. (int)$item->quantity .', P:'. (float)$item->price,
+								'OFFERS' => [],
+							];
+							if (count($edsStatistics) % 50 === 0) {
+								$this->saveEdsStatistics($edsStatistics);
+							}
 
 						}
 
@@ -252,11 +303,87 @@ class parserUS {
 
 			}
 
+			$this->saveEdsStatistics($edsStatistics);
+
 		} else {
 			$this->tolog($this->logsError, 'EDSy import aborted: XML was not received;', true);
 		}
 
 		return $items;
+
+	}
+
+	private function getExternalImage($url) {
+
+		$url = trim((string)$url);
+		if ($url === '' || !filter_var($url, FILTER_VALIDATE_URL)) {
+			return false;
+		}
+
+		$imageData = $this->getDataCurl($url);
+		if ($imageData === false || $imageData === '') {
+			$this->tolog($this->logsError, 'Image download failed: '. $url .';', true);
+			return false;
+		}
+
+		$path = parse_url($url, PHP_URL_PATH);
+		$extension = strtolower(pathinfo((string)$path, PATHINFO_EXTENSION));
+		if (!in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'webp'], true)) {
+			$extension = 'jpg';
+		}
+
+		$tempFile = tempnam(sys_get_temp_dir(), 'eds_image_');
+		if ($tempFile === false || file_put_contents($tempFile, $imageData) === false) {
+			$this->tolog($this->logsError, 'Image temporary file failed: '. $url .';', true);
+			return false;
+		}
+
+		$file = CFile::MakeFileArray($tempFile);
+		if (!is_array($file) || empty($file['tmp_name']) || !is_file($file['tmp_name'])) {
+			@unlink($tempFile);
+			$this->tolog($this->logsError, 'Image download failed: '. $url .';', true);
+			return false;
+		}
+		$file['name'] = pathinfo((string)$path, PATHINFO_FILENAME) .'.'. $extension;
+
+		return $file;
+
+	}
+
+	private function repairTruncatedEdsXml($filename) {
+
+		$contents = file_get_contents($filename);
+		if ($contents === false || strpos($contents, '</root>') !== false) {
+			return;
+		}
+
+		$lastProductEnd = strrpos($contents, '</product>');
+		if ($lastProductEnd === false) {
+			return;
+		}
+
+		$contents = substr($contents, 0, $lastProductEnd + strlen('</product>'));
+		$contents .= PHP_EOL .'</products>'. PHP_EOL .'</catalog>'. PHP_EOL .'</root>'. PHP_EOL;
+		$this->toFile($filename, $contents);
+		$this->tolog($this->logsError, 'EDSy XML had a truncated tail; complete products were recovered;', true);
+
+	}
+
+	private function saveEdsStatistics($statistics) {
+
+		if (!\Bitrix\Main\Loader::includeModule('energosoft.utils') || !class_exists('ESUtils')) {
+			$this->tolog($this->logsError, 'EDS statistics module is unavailable;', true);
+			return;
+		}
+
+		$status = ESUtils::LoadOption('status');
+		if (!is_array($status)) {
+			$status = [];
+		}
+
+		$status['LOG_EDS'] = $statistics;
+		ESUtils::SaveOption('status', $status);
+		ESUtils::SaveOption('status-run', []);
 
 	}
 
@@ -2462,7 +2589,7 @@ class parserUS {
 		$domenCheck = str_replace(['http://', 'https://', 'www.'], '', $this->domen);
 
 		$dbItems = \Bitrix\Iblock\Elements\ElementCatalogTable::getList([
-			'select' => ['ID', 'NAME', 'IBLOCK_SECTION_ID', 'UPLOADED_FROM_PAGE_'=>'UPLOADED_FROM_PAGE', 'CML2_ARTICLE_'=>'CML2_ARTICLE', 'PRICE_FROZEN_'=>'PRICE_FROZEN', 'GUID_'=>'GUID', 'PARSER_PRODUCT_CODE_'=>'PARSER_PRODUCT_CODE'],
+			'select' => ['ID', 'NAME', 'IBLOCK_SECTION_ID', 'PREVIEW_PICTURE', 'DETAIL_PICTURE', 'UPLOADED_FROM_PAGE_'=>'UPLOADED_FROM_PAGE', 'CML2_ARTICLE_'=>'CML2_ARTICLE', 'PRICE_FROZEN_'=>'PRICE_FROZEN', 'GUID_'=>'GUID', 'PARSER_PRODUCT_CODE_'=>'PARSER_PRODUCT_CODE'],
 			'filter' => [
 				'IBLOCK_ID' => self::IBLOCK_ID,
 				'UPLOADED_FROM_PAGE.VALUE' => '%'. $domenCheck .'%',
@@ -2493,6 +2620,8 @@ class parserUS {
 							'SECTION' => $item['IBLOCK_SECTION_ID'],
 							'PAGE' => $item['UPLOADED_FROM_PAGE_VALUE'],
 							'PRICE_FROZEN' => $item['PRICE_FROZEN_VALUE'],
+							'PREVIEW_PICTURE' => $item['PREVIEW_PICTURE'],
+							'DETAIL_PICTURE' => $item['DETAIL_PICTURE'],
 						];
 
 						$this->productsToDeactivate[] = $item['ID'];
@@ -2507,6 +2636,8 @@ class parserUS {
 							'SECTION' => $item['IBLOCK_SECTION_ID'],
 							'PAGE' => $item['UPLOADED_FROM_PAGE_VALUE'],
 							'PRICE_FROZEN' => $item['PRICE_FROZEN_VALUE'],
+							'PREVIEW_PICTURE' => $item['PREVIEW_PICTURE'],
+							'DETAIL_PICTURE' => $item['DETAIL_PICTURE'],
 						];
 
 						$this->productsToDeactivate[] = $item['ID'];
