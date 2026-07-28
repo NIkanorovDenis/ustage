@@ -161,6 +161,7 @@ class parserUS {
 			$filename = $this->parser .'_ostatki.xml';
 			$localFilename = __DIR__ .'/'. $filename;
 			$this->toFile($localFilename, $edsyData);
+			$this->repairTruncatedEdsXml($localFilename);
 
 			$xmlObj = $this->getsrcfileToObject($localFilename);
 			if (!$xmlObj || empty($xmlObj->catalog->products->product)) {
@@ -292,6 +293,9 @@ class parserUS {
 								'STATUS' => 'Q:'. (int)$item->quantity .', P:'. (float)$item->price,
 								'OFFERS' => [],
 							];
+							if (count($edsStatistics) % 50 === 0) {
+								$this->saveEdsStatistics($edsStatistics);
+							}
 
 						}
 
@@ -316,13 +320,52 @@ class parserUS {
 			return false;
 		}
 
-		$file = CFile::MakeFileArray($url);
-		if (!is_array($file) || empty($file['tmp_name']) || !is_file($file['tmp_name'])) {
+		$imageData = $this->getDataCurl($url);
+		if ($imageData === false || $imageData === '') {
 			$this->tolog($this->logsError, 'Image download failed: '. $url .';', true);
 			return false;
 		}
 
+		$path = parse_url($url, PHP_URL_PATH);
+		$extension = strtolower(pathinfo((string)$path, PATHINFO_EXTENSION));
+		if (!in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'webp'], true)) {
+			$extension = 'jpg';
+		}
+
+		$tempFile = tempnam(sys_get_temp_dir(), 'eds_image_');
+		if ($tempFile === false || file_put_contents($tempFile, $imageData) === false) {
+			$this->tolog($this->logsError, 'Image temporary file failed: '. $url .';', true);
+			return false;
+		}
+
+		$file = CFile::MakeFileArray($tempFile);
+		if (!is_array($file) || empty($file['tmp_name']) || !is_file($file['tmp_name'])) {
+			@unlink($tempFile);
+			$this->tolog($this->logsError, 'Image download failed: '. $url .';', true);
+			return false;
+		}
+		$file['name'] = pathinfo((string)$path, PATHINFO_FILENAME) .'.'. $extension;
+
 		return $file;
+
+	}
+
+	private function repairTruncatedEdsXml($filename) {
+
+		$contents = file_get_contents($filename);
+		if ($contents === false || strpos($contents, '</root>') !== false) {
+			return;
+		}
+
+		$lastProductEnd = strrpos($contents, '</product>');
+		if ($lastProductEnd === false) {
+			return;
+		}
+
+		$contents = substr($contents, 0, $lastProductEnd + strlen('</product>'));
+		$contents .= PHP_EOL .'</products>'. PHP_EOL .'</catalog>'. PHP_EOL .'</root>'. PHP_EOL;
+		$this->toFile($filename, $contents);
+		$this->tolog($this->logsError, 'EDSy XML had a truncated tail; complete products were recovered;', true);
 
 	}
 
