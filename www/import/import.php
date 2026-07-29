@@ -2191,10 +2191,22 @@ class parserUS {
 				$credentialsFile = dirname($_SERVER['DOCUMENT_ROOT']) .'/.parser_credentials.php';
 			}
 
-			if (is_file($credentialsFile)) {
-				$credentials = include $credentialsFile;
+			$credentialsFiles = [$credentialsFile];
+			if ($parser === 'imlight') {
+				$credentialsFiles[] = dirname($_SERVER['DOCUMENT_ROOT']) .'/.imlight_credentials.php';
+			}
+
+			foreach ($credentialsFiles as $currentCredentialsFile) {
+				if (!is_file($currentCredentialsFile)) {
+					continue;
+				}
+
+				$credentials = include $currentCredentialsFile;
 				if (is_array($credentials)) {
-					$this->parserCredentials = $credentials;
+					$this->parserCredentials = array_replace_recursive(
+						$this->parserCredentials,
+						$credentials
+					);
 				}
 			}
 		}
