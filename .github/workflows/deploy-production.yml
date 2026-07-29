@@ -66,6 +66,17 @@ jobs:
           PROD_HOST: ${{ secrets.PROD_HOST }}
           PROD_PORT: ${{ secrets.PROD_PORT }}
           PROD_USER: ${{ secrets.PROD_USER }}
+          PROD_IMLIGHT_LOGIN: ${{ secrets.PROD_IMLIGHT_LOGIN }}
+          PROD_IMLIGHT_PASSWORD: ${{ secrets.PROD_IMLIGHT_PASSWORD }}
         run: |
           PROD_PORT="${PROD_PORT:-22}"
-          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" migrate
+          test -n "$PROD_IMLIGHT_LOGIN"
+          test -n "$PROD_IMLIGHT_PASSWORD"
+          CREDENTIALS_PAYLOAD="$(
+            jq -nc \
+              --arg login "$PROD_IMLIGHT_LOGIN" \
+              --arg password "$PROD_IMLIGHT_PASSWORD" \
+              '{imlight: {login: $login, password: $password}}'
+          )"
+          printf '%s' "$CREDENTIALS_PAYLOAD" \
+            | ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" migrate
