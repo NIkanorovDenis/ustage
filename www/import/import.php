@@ -371,19 +371,22 @@ class parserUS {
 
 	private function saveEdsStatistics($statistics) {
 
-		if (!\Bitrix\Main\Loader::includeModule('energosoft.utils') || !class_exists('ESUtils')) {
-			$this->tolog($this->logsError, 'EDS statistics module is unavailable;', true);
+		$statisticsFile = __DIR__ .'/logs/edsy/statistics.json';
+		$temporaryFile = $statisticsFile .'.tmp.'. getmypid();
+		$encodedStatistics = json_encode($statistics, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+		if ($encodedStatistics === false) {
+			$this->tolog($this->logsError, 'EDS statistics JSON encoding failed;', true);
 			return;
 		}
 
-		$status = ESUtils::LoadOption('status');
-		if (!is_array($status)) {
-			$status = [];
+		if (
+			file_put_contents($temporaryFile, $encodedStatistics, LOCK_EX) === false
+			|| !rename($temporaryFile, $statisticsFile)
+		) {
+			@unlink($temporaryFile);
+			$this->tolog($this->logsError, 'EDS statistics file write failed;', true);
 		}
-
-		$status['LOG_EDS'] = $statistics;
-		ESUtils::SaveOption('status', $status);
-		ESUtils::SaveOption('status-run', []);
 
 	}
 
@@ -2188,10 +2191,22 @@ class parserUS {
 				$credentialsFile = dirname($_SERVER['DOCUMENT_ROOT']) .'/.parser_credentials.php';
 			}
 
-			if (is_file($credentialsFile)) {
-				$credentials = include $credentialsFile;
+			$credentialsFiles = [$credentialsFile];
+			if ($parser === 'imlight') {
+				$credentialsFiles[] = dirname($_SERVER['DOCUMENT_ROOT']) .'/.imlight_credentials.php';
+			}
+
+			foreach ($credentialsFiles as $currentCredentialsFile) {
+				if (!is_file($currentCredentialsFile)) {
+					continue;
+				}
+
+				$credentials = include $currentCredentialsFile;
 				if (is_array($credentials)) {
-					$this->parserCredentials = $credentials;
+					$this->parserCredentials = array_replace_recursive(
+						$this->parserCredentials,
+						$credentials
+					);
 				}
 			}
 		}
