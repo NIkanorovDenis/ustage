@@ -975,8 +975,17 @@ $(document).ready(function(){
         $('.info-panel').hide();
         logCookieConsent(decision);
 
-        if (decision === 'accepted' && typeof window.ustageLoadOptionalCookies === 'function') {
-            window.ustageLoadOptionalCookies();
+        if (decision === 'accepted') {
+            if (
+                typeof window.ustageEnableBehaviorAnalytics === 'function'
+                && window.ustageEnableBehaviorAnalytics()
+            ) {
+                return;
+            }
+
+            if (typeof window.ustageLoadOptionalCookies === 'function') {
+                window.ustageLoadOptionalCookies();
+            }
         }
     });
 	

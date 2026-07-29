@@ -1,3 +1,46 @@
+<!-- Yandex.Metrika counter -->
+<script>
+(function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+    m[i].l = 1 * new Date();
+    k = e.createElement(t);
+    a = e.getElementsByTagName(t)[0];
+    k.async = true;
+    k.src = r;
+    a.parentNode.insertBefore(k, a);
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+var ustageBehaviorAnalyticsConsent = false;
+try {
+    ustageBehaviorAnalyticsConsent =
+        window.localStorage.getItem("ustage_cookie_consent_v1") === "accepted";
+} catch (error) {
+    ustageBehaviorAnalyticsConsent = false;
+}
+
+window.ym(80012047, "init", {
+    clickmap: ustageBehaviorAnalyticsConsent,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: ustageBehaviorAnalyticsConsent,
+    ecommerce: "dataLayer"
+});
+window.ym(80012047, "reachGoal", "popup");
+
+window.ustageEnableBehaviorAnalytics = function () {
+    if (ustageBehaviorAnalyticsConsent) {
+        return false;
+    }
+
+    window.location.reload();
+    return true;
+};
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/80012047" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
 <script>
 window.ustageLoadOptionalCookies = window.ustageLoadOptionalCookies || function () {
     if (window.ustageOptionalCookiesLoaded) {
@@ -5,25 +48,6 @@ window.ustageLoadOptionalCookies = window.ustageLoadOptionalCookies || function 
     }
 
     window.ustageOptionalCookiesLoaded = true;
-
-    (function (m, e, t, r, i, k, a) {
-        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-        m[i].l = 1 * new Date();
-        k = e.createElement(t);
-        a = e.getElementsByTagName(t)[0];
-        k.async = true;
-        k.src = r;
-        a.parentNode.insertBefore(k, a);
-    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-    window.ym(80012047, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-        ecommerce: "dataLayer"
-    });
-    window.ym(80012047, "reachGoal", "popup");
 
     (function (w, d, s, l, i) {
         w[l] = w[l] || [];
