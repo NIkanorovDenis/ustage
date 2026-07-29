@@ -371,19 +371,22 @@ class parserUS {
 
 	private function saveEdsStatistics($statistics) {
 
-		if (!\Bitrix\Main\Loader::includeModule('energosoft.utils') || !class_exists('ESUtils')) {
-			$this->tolog($this->logsError, 'EDS statistics module is unavailable;', true);
+		$statisticsFile = __DIR__ .'/logs/edsy/statistics.json';
+		$temporaryFile = $statisticsFile .'.tmp.'. getmypid();
+		$encodedStatistics = json_encode($statistics, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+		if ($encodedStatistics === false) {
+			$this->tolog($this->logsError, 'EDS statistics JSON encoding failed;', true);
 			return;
 		}
 
-		$status = ESUtils::LoadOption('status');
-		if (!is_array($status)) {
-			$status = [];
+		if (
+			file_put_contents($temporaryFile, $encodedStatistics, LOCK_EX) === false
+			|| !rename($temporaryFile, $statisticsFile)
+		) {
+			@unlink($temporaryFile);
+			$this->tolog($this->logsError, 'EDS statistics file write failed;', true);
 		}
-
-		$status['LOG_EDS'] = $statistics;
-		ESUtils::SaveOption('status', $status);
-		ESUtils::SaveOption('status-run', []);
 
 	}
 

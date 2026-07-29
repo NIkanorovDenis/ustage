@@ -15,6 +15,14 @@ $arStatusRun = ESUtils::LoadOption("status-run");
 $arColumns = ESUtils::LoadOption("columns");
 $arColumnsUsd = ESUtils::LoadOption("columns_usd");
 
+$edsStatisticsFile = $_SERVER["DOCUMENT_ROOT"]."/import/logs/edsy/statistics.json";
+if (is_file($edsStatisticsFile) && is_readable($edsStatisticsFile)) {
+    $edsStatistics = json_decode(file_get_contents($edsStatisticsFile), true);
+    if (is_array($edsStatistics)) {
+        $arStatus["LOG_EDS"] = $edsStatistics;
+    }
+}
+
 if($_GET["action"] == "status_start")
 {
     define("STOP_STATISTICS", true);
