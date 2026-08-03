@@ -1406,7 +1406,10 @@ class parserUS {
 		$items = [];
 
 		$filenameAnzhee = 'https://backoffice24.ru:1010/anzhee-stock.csv';
-		$anzheePriceData = $this->getDataCurl($filenameAnzhee);
+		$anzheePriceData = $this->getDataCurl($filenameAnzhee, 'html', [
+			'allow_expired_certificate' => true,
+			'pinned_public_key' => 'sha256//m2v4dKgl5u4PdC6BgP2OL0f6SZeEnTsB/eqxWOXg9P0=',
+		]);
 
 		if ($anzheePriceData) {
 
@@ -2863,7 +2866,7 @@ class parserUS {
 	}
 
 
-	private function getDataCurl($url, $type='html') {
+	private function getDataCurl($url, $type='html', $options=[]) {
 
 		$ch = curl_init();
 
@@ -2875,14 +2878,21 @@ class parserUS {
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
 		curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
 
+		if (!empty($options['allow_expired_certificate']) && !empty($options['pinned_public_key'])) {
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($ch, CURLOPT_PINNEDPUBLICKEY, $options['pinned_public_key']);
+		}
+
 		$data = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$curlError = curl_error($ch);
 		curl_close($ch);
 
 		if ($httpcode != 200) {
 
 			$this->tolog($this->logsError, ' Curl status for '. $url .': '. $httpcode .';', true);
-			$this->tolog($this->logsError, ' Curl error for '. $url .': '. curl_error($ch) .';', true);
+			$this->tolog($this->logsError, ' Curl error for '. $url .': '. $curlError .';', true);
 
 			return false;
 		}
