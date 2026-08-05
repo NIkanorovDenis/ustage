@@ -11,6 +11,14 @@ const updateStickyHeader = function() {
         return;
     }
 
+    // Mobile devices use their own sticky navigation. Leaving the desktop
+    // header sticky here makes it overlap the opened mobile menu on scroll.
+    if (window.innerWidth < 992) {
+        header.classList.remove('sticky');
+        header.style.top = '';
+        return;
+    }
+
     if (headerTop) {
         offsetTop = headerTop.clientHeight;
     }
@@ -45,6 +53,10 @@ window.addEventListener('scroll', function() {
         updateStickyHeader();
         stickyHeaderTicking = false;
     });
+}, { passive: true });
+
+window.addEventListener('resize', function() {
+    updateStickyHeader();
 }, { passive: true });
 
 updateStickyHeader();
