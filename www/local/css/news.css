@@ -1,0 +1,12 @@
+.ustage-news-list .bxr-news-horizontal-v1 .bxr-element-date {
+    display: block;
+    line-height: 1.4;
+}
+
+.ustage-news-list .bxr-news-horizontal-v1 .bxr-element-date .bxr-date-gray {
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: #737373;
+}

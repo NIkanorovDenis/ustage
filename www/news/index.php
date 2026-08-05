@@ -3,7 +3,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Новости компании Ustage Group ");
 $APPLICATION->SetPageProperty("description", "Актуальные новости нашей компании");
 $APPLICATION->SetTitle("Новости");
-?><?$APPLICATION->IncludeComponent(
+$APPLICATION->SetAdditionalCSS('/local/css/news.css');
+?><div class="ustage-news-list"><?$APPLICATION->IncludeComponent(
 	"bxready.market2:block", 
 	".default", 
 	array(
@@ -298,4 +299,4 @@ $APPLICATION->SetTitle("Новости");
 	array(
 		"ACTIVE_COMPONENT" => "Y"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?></div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
