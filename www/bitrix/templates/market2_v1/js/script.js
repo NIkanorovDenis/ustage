@@ -1033,6 +1033,47 @@ $(document).ready(function(){
     */
 });
 
+$(document).ready(function () {
+    $('.bxr-show-filter-btn').each(function () {
+        var $filterButton = $(this);
+        var $filter = $filterButton.next('.bx_filter');
+        var $categories = $filter.find('.filter_categories').first();
+
+        if (!$filter.length || !$categories.length || $filterButton.prev('.bxr-mobile-categories-menu').length) {
+            return;
+        }
+
+        var $menu = $(
+            '<div class="bxr-mobile-categories-menu">' +
+                '<button type="button" class="bxr-show-categories-btn" aria-expanded="false">' +
+                    '<span>Категории</span><i class="fa fa-angle-down" aria-hidden="true"></i>' +
+                '</button>' +
+                '<div class="bxr-mobile-categories-content"></div>' +
+            '</div>'
+        );
+
+        $categories
+            .find('.bx_filter_parameters_box_container')
+            .first()
+            .children()
+            .clone(true, true)
+            .appendTo($menu.find('.bxr-mobile-categories-content'));
+
+        $menu.insertBefore($filterButton);
+        $filter.addClass('bxr-mobile-categories-separated');
+    });
+
+    $('body').on('click', '.bxr-show-categories-btn', function () {
+        var $button = $(this);
+        var isOpen = $button.attr('aria-expanded') === 'true';
+
+        $button.attr('aria-expanded', isOpen ? 'false' : 'true');
+        $button.toggleClass('bxr-opened', !isOpen);
+        $button.find('i').toggleClass('fa-angle-down', isOpen).toggleClass('fa-angle-up', !isOpen);
+        $button.next('.bxr-mobile-categories-content').stop(true, true).slideToggle(200);
+    });
+});
+
 
 function addScriptToHead(src) {
     var script = document.createElement('script');
