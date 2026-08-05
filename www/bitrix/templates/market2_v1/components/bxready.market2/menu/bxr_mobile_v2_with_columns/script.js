@@ -43,10 +43,23 @@
 
             BXReadyMenu.resize();
 
-            $('.bxr-mobile-push-menu-content').height($(document).height());
+            // The menu must follow the visible viewport, not the full document.
+            // This keeps its own scroll area usable in mobile Safari/Chrome.
+            BXReadyMenu.updateViewportHeight();
 
             //$('.bxr-mobile-push-menu ul').height($(document).height()).width(BXReadyMenu.menuLeft);
             $('.bxr-mobile-push-menu-content').css('margin-left', '-954px');
+        },
+
+        updateViewportHeight: function() {
+            var viewportHeight = window.visualViewport
+                ? window.visualViewport.height
+                : window.innerHeight;
+
+            $('.bxr-mobile-push-menu-content').css(
+                'height',
+                Math.max(0, viewportHeight - 52) + 'px'
+            );
         },
 
         showChildren: function (parentId) {
@@ -284,8 +297,17 @@
             function() {
                 if (BXReadyMenu.state == 'open') {
                     BXReadyMenu.resize();
+                    BXReadyMenu.updateViewportHeight();
                 }
             }
         );
+
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', function() {
+                if (BXReadyMenu.state == 'open') {
+                    BXReadyMenu.updateViewportHeight();
+                }
+            });
+        }
     });
 })( jQuery );
