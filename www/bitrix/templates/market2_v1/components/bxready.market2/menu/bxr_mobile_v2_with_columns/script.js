@@ -79,6 +79,8 @@
 
             BXReadyMenu.init();
 
+            $('html').addClass('bxr-mobile-menu-content');
+
             $('.bxr-mobile-push-menu-content').animate({'margin-left': '0px'}, 300, 'easeOutExpo');
             c = $('.bxr-mobile-push-menu-v2');
             c.find('.bxr-mobile-menu-button-menu').addClass(c.attr('data-hoverClass')).data("show", "Y");;
