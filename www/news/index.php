@@ -264,7 +264,8 @@ $APPLICATION->SetTitle("Новости");
 			0 => "NAME",
 			1 => "PREVIEW_TEXT",
 			2 => "PREVIEW_PICTURE",
-			3 => "",
+			3 => "DATE_ACTIVE_FROM",
+			4 => "",
 		),
 		"LIST_MAX_NEWS_COUNT" => "5",
 		"LIST_PROPERTY_CODE" => array(
