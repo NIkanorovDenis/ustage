@@ -3,7 +3,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Новости компании Ustage Group ");
 $APPLICATION->SetPageProperty("description", "Актуальные новости нашей компании");
 $APPLICATION->SetTitle("Новости");
-?><?$APPLICATION->IncludeComponent(
+$APPLICATION->SetAdditionalCSS('/local/css/news.css');
+?><div class="ustage-news-list"><?$APPLICATION->IncludeComponent(
 	"bxready.market2:block", 
 	".default", 
 	array(
@@ -218,13 +219,12 @@ $APPLICATION->SetTitle("Новости");
 		"DETAIL_ADD_SECTIONS_CHAIN" => "Y",
 		"DETAIL_FIELD_CODE" => array(
 			0 => "NAME",
-			1 => "PREVIEW_TEXT",
-			2 => "PREVIEW_PICTURE",
-			3 => "DETAIL_TEXT",
-			4 => "DETAIL_PICTURE",
-			5 => "DATE_ACTIVE_FROM",
-			6 => "DATE_ACTIVE_TO",
-			7 => "",
+			1 => "PREVIEW_PICTURE",
+			2 => "DETAIL_TEXT",
+			3 => "DETAIL_PICTURE",
+			4 => "DATE_ACTIVE_FROM",
+			5 => "DATE_ACTIVE_TO",
+			6 => "",
 		),
 		"DETAIL_PAGE_URL_CAPTION" => "",
 		"DETAIL_PROPERTY_CODE" => array(
@@ -264,7 +264,8 @@ $APPLICATION->SetTitle("Новости");
 			0 => "NAME",
 			1 => "PREVIEW_TEXT",
 			2 => "PREVIEW_PICTURE",
-			3 => "",
+			3 => "DATE_ACTIVE_FROM",
+			4 => "",
 		),
 		"LIST_MAX_NEWS_COUNT" => "5",
 		"LIST_PROPERTY_CODE" => array(
@@ -297,4 +298,4 @@ $APPLICATION->SetTitle("Новости");
 	array(
 		"ACTIVE_COMPONENT" => "Y"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?></div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
