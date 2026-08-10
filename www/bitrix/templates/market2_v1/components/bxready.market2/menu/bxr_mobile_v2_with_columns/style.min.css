@@ -1,5 +1,5 @@
 .bxr-mobile-menu-content {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .bxr-mobile-push-menu {
