@@ -118,6 +118,12 @@ div.title-search-result {
 	/* display: block !important; */
 }
 
+@media (max-width: 991px) {
+	div.title-search-result {
+		margin-top: 10px;
+	}
+}
+
 div.title-search-fader {
 	display:none;
 	background-image: url('images/fader.png');
