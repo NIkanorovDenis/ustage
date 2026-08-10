@@ -1319,3 +1319,49 @@ strong.filter-category {
 .bxr-m2-ecommerce-v1 .bxr-element-container .bxr-element-hover {
     top: 100%!important;
 }
+
+/* Separate catalog categories from product filters on collapsed/mobile layouts. */
+.bxr-mobile-categories-menu {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .bxr-mobile-categories-menu {
+        display: block;
+    }
+
+    .bxr-show-categories-btn {
+        display: block;
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        padding: 20px 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .bxr-show-categories-btn.bxr-opened {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .bxr-show-categories-btn > i {
+        float: right;
+        margin-right: 2px;
+        padding-top: 2px;
+    }
+
+    .bxr-mobile-categories-content {
+        display: none;
+        padding: 20px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .bx_filter.bxr-mobile-categories-separated .filter_categories {
+        display: none;
+    }
+}

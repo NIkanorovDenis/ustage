@@ -43,10 +43,23 @@
 
             BXReadyMenu.resize();
 
-            $('.bxr-mobile-push-menu-content').height($(document).height());
+            // The menu must follow the visible viewport, not the full document.
+            // This keeps its own scroll area usable in mobile Safari/Chrome.
+            BXReadyMenu.updateViewportHeight();
 
             //$('.bxr-mobile-push-menu ul').height($(document).height()).width(BXReadyMenu.menuLeft);
             $('.bxr-mobile-push-menu-content').css('margin-left', '-954px');
+        },
+
+        updateViewportHeight: function() {
+            var viewportHeight = window.visualViewport
+                ? window.visualViewport.height
+                : window.innerHeight;
+
+            $('.bxr-mobile-push-menu-content').css(
+                'height',
+                Math.max(0, viewportHeight - 52) + 'px'
+            );
         },
 
         showChildren: function (parentId) {
@@ -65,6 +78,8 @@
         openMenu: function() {
 
             BXReadyMenu.init();
+
+            $('html').addClass('bxr-mobile-menu-content');
 
             $('.bxr-mobile-push-menu-content').animate({'margin-left': '0px'}, 300, 'easeOutExpo');
             c = $('.bxr-mobile-push-menu-v2');
@@ -92,6 +107,10 @@
                     $(this).slideUp(100);
                 }
             });
+
+            if (elementID != 'bxr-mobile-search') {
+                $('html').removeClass('bxr-mobile-search-content');
+            }
 
             if (elementID != 'pull') {
                 BXReadyMenu.closeMenu();
@@ -125,6 +144,34 @@
     }
 
     $(document).ready(function() {
+
+        // Handle mobile search once even if Bitrix has included an old menu
+        // script in an optimized bundle as well. Two delegated handlers would
+        // otherwise toggle the same panel twice and leave it closed.
+        document.addEventListener('click', function(event) {
+            var button = event.target.closest('.bxr-mobile-menu-button-search');
+
+            if (!button) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            var searchId = 'bxr-mobile-search';
+            var search = $('#' + searchId);
+
+            if (!search.length) {
+                return;
+            }
+
+            var shouldOpen = !search.is(':visible');
+
+            BXReadyMenu.closeSlides(searchId);
+            $('html').toggleClass('bxr-mobile-search-content', shouldOpen);
+            search.stop(true, true)[shouldOpen ? 'slideDown' : 'slideUp'](250);
+            BXReadyMenu.activateButton(button);
+        }, true);
 
         //Табы в мобильном меню
         const mobileMenuTabs = document.querySelector('.bxr-mobile__tabs');
@@ -284,8 +331,17 @@
             function() {
                 if (BXReadyMenu.state == 'open') {
                     BXReadyMenu.resize();
+                    BXReadyMenu.updateViewportHeight();
                 }
             }
         );
+
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', function() {
+                if (BXReadyMenu.state == 'open') {
+                    BXReadyMenu.updateViewportHeight();
+                }
+            });
+        }
     });
 })( jQuery );

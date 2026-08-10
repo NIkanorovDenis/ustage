@@ -54,6 +54,8 @@
     right: -1px;
     width: calc(100% + 2px) !important;
     border: 1px solid #efeeee;
+    max-height: calc(100vh - 52px);
+    max-height: calc(100dvh - 52px);
 }
 
 .bxr-mobile-contact-form {
@@ -81,8 +83,15 @@
     width: 100%;
     position: relative;
     font-weight: bold;
-    max-height: calc(100vh - 96px);
+    height: calc(100vh - 52px);
+    height: calc(100dvh - 52px);
+    max-height: calc(100vh - 52px);
+    max-height: calc(100dvh - 52px);
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    touch-action: pan-y;
 }
 
 .bxr-mobile-push-menu-header .bxr-mobile-menu-button {
@@ -114,6 +123,7 @@
 #bxr-multilevel-menu {
     position: relative;
     width: 100%;
+    box-sizing: border-box;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -126,7 +136,9 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100% !important;
 }
 
 #bxr-multilevel-menu li.content-child ul {
@@ -147,11 +159,13 @@
     align-items: center;
     color: #323232;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 #mobile-catalog #bxr-multilevel-menu a.root-item,
 #mobile-catalog #bxr-multilevel-menu a.root-item-selected {
-    padding: 15px 0;
+    padding: 9px 12px;
 }
 
 #mobile-info #bxr-multilevel-menu a.root-item,
@@ -196,7 +210,7 @@ li.parent.active>.direction {
 
 .link-text {
     max-width: calc(100% - 64px);
-    padding: 15px 0 !important;
+    padding: 9px 0 !important;
     display: inline-block !important;
     border: 0 !important;
 }
@@ -205,6 +219,74 @@ li.parent.active>.direction {
     display: inline-block;
     margin-right: 5px;
     margin-left: -14px;
+}
+
+/* Keep a root category icon, label and arrow on one compact row. */
+#mobile-catalog #bxr-multilevel-menu > li[data-depth="1"] {
+    min-height: 52px;
+    padding: 5px 8px 5px 12px;
+    width: 100%;
+}
+
+#mobile-catalog #bxr-multilevel-menu > li[data-depth="1"] > .bxr-ico-left-hover-menu {
+    align-items: center;
+    display: flex;
+    flex: 0 0 32px;
+    height: 32px;
+    justify-content: center;
+    margin: 0 10px 0 0;
+    width: 32px;
+}
+
+#mobile-catalog #bxr-multilevel-menu > li[data-depth="1"] > .bxr-ico-left-hover-menu img {
+    display: block;
+    height: auto;
+    max-height: 32px;
+    max-width: 32px;
+    width: auto;
+}
+
+#mobile-catalog #bxr-multilevel-menu > li[data-depth="1"] > .link-text {
+    flex: 1 1 0;
+    line-height: 1.25;
+    max-width: none;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#mobile-catalog #bxr-multilevel-menu > li[data-depth="1"] > .direction {
+    flex: 0 0 36px;
+    height: 36px;
+    width: 36px;
+    margin-left: 4px;
+}
+
+#mobile-catalog #bxr-multilevel-menu > li[data-depth="1"] > .content-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100% !important;
+}
+
+@media (max-width: 991px) {
+    /* The desktop logo must not create a layer over an opened mobile menu. */
+    html.bxr-mobile-menu-content .header {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    /* Keep the expanded mobile search above the regular logo/header block. */
+    html.bxr-mobile-search-content .sticky-mobile-header {
+        z-index: 3001 !important;
+    }
+
+    html.bxr-mobile-search-content .header {
+        position: relative !important;
+        z-index: 0 !important;
+    }
+
+    html.bxr-mobile-search-content #bxr-mobile-search {
+        z-index: 3002;
+    }
 }
 
 #bxr-multilevel-menu a:hover:not(.bxr-color):not(.bxr-color-dark),
@@ -415,7 +497,7 @@ li.parent.active>.direction {
 .bxr-mobile__tab-content.active {
     opacity: 1;
     max-height: 6000px;
-    padding-bottom: 100px;
+    padding-bottom: 24px;
 }
 
 .sticky-mobile-header {
