@@ -29,6 +29,7 @@
 
         menuWidth: 240,
         menuLeft: "100%",
+        menuTop: 0,
         state: 'close',
 
         resize: function() {
@@ -45,7 +46,7 @@
 
             // The menu must follow the visible viewport, not the full document.
             // This keeps its own scroll area usable in mobile Safari/Chrome.
-            BXReadyMenu.updateViewportHeight();
+            BXReadyMenu.updateMenuPosition();
 
             //$('.bxr-mobile-push-menu ul').height($(document).height()).width(BXReadyMenu.menuLeft);
             $('.bxr-mobile-push-menu-content').css('margin-left', '-954px');
@@ -58,8 +59,32 @@
 
             $('.bxr-mobile-push-menu-content').css(
                 'height',
-                Math.max(0, viewportHeight - 52) + 'px'
+                Math.max(0, viewportHeight - BXReadyMenu.menuTop) + 'px'
             );
+        },
+
+        updateMenuPosition: function() {
+            var viewportHeight = window.visualViewport
+                ? window.visualViewport.height
+                : window.innerHeight;
+            var controls = document.querySelector('.bxr-mobile-push-menu-v2');
+            var controlsBottom = controls
+                ? controls.getBoundingClientRect().bottom
+                : 0;
+
+            BXReadyMenu.menuTop = Math.min(
+                viewportHeight,
+                Math.max(0, controlsBottom)
+            );
+
+            $('.bxr-mobile-push-menu-content').css({
+                position: 'fixed',
+                top: BXReadyMenu.menuTop + 'px',
+                left: '0',
+                right: '0'
+            });
+
+            BXReadyMenu.updateViewportHeight();
         },
 
         showChildren: function (parentId) {
@@ -94,6 +119,13 @@
             $('.bxr-mobile-push-menu-content').animate({'margin-left':'-954px'}, 300, 'easeOutExpo', function() {
                 $('html').removeClass('bxr-mobile-menu-content');
                 $('html').css({'width':'auto'});
+                $(this).css({
+                    position: '',
+                    top: '',
+                    left: '',
+                    right: '',
+                    height: ''
+                });
                 c = $('.bxr-mobile-push-menu-v2');
                 c.find('.bxr-mobile-menu-button-menu').removeClass(c.attr('data-hoverClass')).data("show", "N");;
             });
@@ -279,6 +311,7 @@
                         $(this).data("show", "N");
                     }
                     BXReadyMenu.activateButton(this);
+                    $('body').removeClass('overflow');
                 } else {
                     if ($(this).data("target") == "region") {
                         $('#myModalRegion').modal('toggle');
@@ -331,7 +364,7 @@
             function() {
                 if (BXReadyMenu.state == 'open') {
                     BXReadyMenu.resize();
-                    BXReadyMenu.updateViewportHeight();
+                    BXReadyMenu.updateMenuPosition();
                 }
             }
         );
@@ -339,7 +372,7 @@
         if (window.visualViewport) {
             window.visualViewport.addEventListener('resize', function() {
                 if (BXReadyMenu.state == 'open') {
-                    BXReadyMenu.updateViewportHeight();
+                    BXReadyMenu.updateMenuPosition();
                 }
             });
         }
