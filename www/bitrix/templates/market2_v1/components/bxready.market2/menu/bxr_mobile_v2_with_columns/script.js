@@ -141,6 +141,33 @@
 
     $(document).ready(function() {
 
+        // Handle mobile search once even if Bitrix has included an old menu
+        // script in an optimized bundle as well. Two delegated handlers would
+        // otherwise toggle the same panel twice and leave it closed.
+        document.addEventListener('click', function(event) {
+            var button = event.target.closest('.bxr-mobile-menu-button-search');
+
+            if (!button) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            var searchId = 'bxr-mobile-search';
+            var search = $('#' + searchId);
+
+            if (!search.length) {
+                return;
+            }
+
+            var shouldOpen = !search.is(':visible');
+
+            BXReadyMenu.closeSlides(searchId);
+            search.stop(true, true)[shouldOpen ? 'slideDown' : 'slideUp'](250);
+            BXReadyMenu.activateButton(button);
+        }, true);
+
         //Табы в мобильном меню
         const mobileMenuTabs = document.querySelector('.bxr-mobile__tabs');
 
