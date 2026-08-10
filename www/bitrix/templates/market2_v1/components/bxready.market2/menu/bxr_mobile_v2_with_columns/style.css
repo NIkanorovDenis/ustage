@@ -273,6 +273,20 @@ li.parent.active>.direction {
         pointer-events: none;
         visibility: hidden;
     }
+
+    /* Keep the expanded mobile search above the regular logo/header block. */
+    html.bxr-mobile-search-content .sticky-mobile-header {
+        z-index: 3001 !important;
+    }
+
+    html.bxr-mobile-search-content .header {
+        position: relative !important;
+        z-index: 0 !important;
+    }
+
+    html.bxr-mobile-search-content #bxr-mobile-search {
+        z-index: 3002;
+    }
 }
 
 #bxr-multilevel-menu a:hover:not(.bxr-color):not(.bxr-color-dark),

@@ -108,6 +108,10 @@
                 }
             });
 
+            if (elementID != 'bxr-mobile-search') {
+                $('html').removeClass('bxr-mobile-search-content');
+            }
+
             if (elementID != 'pull') {
                 BXReadyMenu.closeMenu();
             }
@@ -164,6 +168,7 @@
             var shouldOpen = !search.is(':visible');
 
             BXReadyMenu.closeSlides(searchId);
+            $('html').toggleClass('bxr-mobile-search-content', shouldOpen);
             search.stop(true, true)[shouldOpen ? 'slideDown' : 'slideUp'](250);
             BXReadyMenu.activateButton(button);
         }, true);
