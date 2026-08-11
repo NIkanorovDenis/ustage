@@ -1240,7 +1240,7 @@ class ESParser {
 
                                         $arFields = array(
                                             "MODIFIED_BY" => 1, // элемент изменен текущим пользователем
-                                            "IBLOCK_SECTION_ID" => 3577,          // элемент лежит в корне раздела
+                                            "IBLOCK_SECTION_ID" => Slami::getNewSectionId(32),
                                             "IBLOCK_ID" => 32,
                                             "PROPERTY_VALUES" => $PROPS,
                                             "NAME" => $name,

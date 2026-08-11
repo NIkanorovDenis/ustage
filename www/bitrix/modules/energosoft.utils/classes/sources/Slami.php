@@ -6,6 +6,46 @@ use Xbartes\PhpSimple\HtmlDomParser;
 class Slami {
   private static $url = 'https://slami.ru';
 
+  public static function getNewSectionIds($blockID = 32) {
+    // Keep historical IDs as fallbacks, but resolve the current section by
+    // name so moving/recreating SLAMI_новое does not publish pending goods.
+    $sectionIDs = [3577, 3612, 3724];
+    $sections = CIBlockSection::GetList(
+      [],
+      [
+        'IBLOCK_ID' => $blockID,
+        'NAME' => 'SLAMI_новое',
+      ],
+      false,
+      ['ID']
+    );
+
+    while ($section = $sections->Fetch()) {
+      $sectionIDs[] = (int) $section['ID'];
+    }
+
+    return array_values(array_unique(array_map('intval', $sectionIDs)));
+  }
+
+  public static function getNewSectionId($blockID = 32) {
+    $sectionIDs = static::getNewSectionIds($blockID);
+
+    // Prefer a section that currently exists in this iblock.
+    foreach (array_reverse($sectionIDs) as $sectionID) {
+      $section = CIBlockSection::GetList(
+        [],
+        ['IBLOCK_ID' => $blockID, 'ID' => $sectionID],
+        false,
+        ['ID']
+      )->Fetch();
+      if ($section) {
+        return (int) $section['ID'];
+      }
+    }
+
+    return 3724;
+  }
+
   static function update( &$arStatus = null, $blockID = 32, $sectionID = '', $itemID = '' ) {
     // $blockID = 32 товары
 
@@ -19,6 +59,7 @@ class Slami {
     $pricelist = static::slamiPriceList($priceListFileStream);
 
     $preEl = new CIBlockElement;
+    $newSectionIDs = static::getNewSectionIds($blockID);
 
     $obElement = CIBlockElement::GetList(
       array(),
@@ -145,7 +186,12 @@ class Slami {
         $arLog['PRICE_LIST'] = 'P:' . $price;
         $arStatus['LOG_SLAMI'][] = $arLog;
 		
-		if ($arItem['IBLOCK_SECTION_ID'] != 3577 && $arItem['IBLOCK_SECTION_ID'] != 3612) {
+		if (in_array((int) $arItem['IBLOCK_SECTION_ID'], $newSectionIDs, true)) {
+			// Products awaiting manual processing must never be public.
+			if ($arItem['ACTIVE'] !== 'N') {
+				$preEl->Update($arItem['ID'], ['ACTIVE' => 'N']);
+			}
+		} else {
 			$preEl->Update($arItem['ID'], ['ACTIVE' => 'Y']);	
 		}
 		
