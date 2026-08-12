@@ -2224,6 +2224,22 @@ class parserUS {
 
 		$el = new CIBlockElement;
 
+		// The supplier directory may contain a historical section ID. Resolve
+		// the current moderation section so price updates cannot publish goods
+		// that are still waiting in SLAMI_новое.
+		$currentNewSection = CIBlockSection::GetList(
+			[],
+			[
+				'IBLOCK_ID' => self::IBLOCK_ID,
+				'=NAME' => 'SLAMI_новое',
+			],
+			false,
+			['ID']
+		)->Fetch();
+		if ($currentNewSection) {
+			$this->sectionNew = (int)$currentNewSection['ID'];
+		}
+
 		$this->productsFromCatalog = $this->getProductsFromCatalog();
 		$this->productsFromUstage = $this->slamiGetProductsFromUstage();
 		$this->productsFromParser = $this->slamiGetPricelistFromSlami();
@@ -2491,7 +2507,10 @@ class parserUS {
 				$this->updatePrice($productID, $price, $offer);
 			}
 
-			if ($store>0 || $price>0) {
+			$isPendingModeration = isset($this->productsFromCatalog[$article])
+				&& (int)$this->productsFromCatalog[$article]['SECTION'] === (int)$this->sectionNew;
+
+			if (($store>0 || $price>0) && !$isPendingModeration) {
 				$el->Update($productID, ['ACTIVE' => 'Y']);
 			}
 
