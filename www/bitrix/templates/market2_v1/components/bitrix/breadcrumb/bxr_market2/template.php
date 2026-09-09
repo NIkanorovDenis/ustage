@@ -13,6 +13,39 @@ if(empty($arResult))
 
 $strReturn = '';
 
+// Bitrix uses the inherited SECTION_PAGE_TITLE in the navigation chain. If a
+// child section does not define its own value, it receives the parent's title
+// and breadcrumbs become duplicated or misleading. For catalog sections use
+// the section's actual name; SEO page titles and meta tags remain untouched.
+$catalogSectionCodes = array();
+foreach ($arResult as $chainItem)
+{
+	$linkPath = parse_url($chainItem['LINK'], PHP_URL_PATH);
+	if (is_string($linkPath) && preg_match('#^/catalog/([^/]+)/?$#', $linkPath, $matches))
+	{
+		$catalogSectionCodes[] = rawurldecode($matches[1]);
+	}
+}
+
+$catalogSectionNames = array();
+if (!empty($catalogSectionCodes) && CModule::IncludeModule('iblock'))
+{
+	$sections = CIBlockSection::GetList(
+		array(),
+		array(
+			'IBLOCK_ID' => 32,
+			'=CODE' => array_values(array_unique($catalogSectionCodes)),
+		),
+		false,
+		array('ID', 'NAME', 'CODE')
+	);
+
+	while ($section = $sections->Fetch())
+	{
+		$catalogSectionNames[$section['CODE']] = $section['NAME'];
+	}
+}
+
 //we can't use $APPLICATION->SetAdditionalCSS() here because we are inside the buffered function GetNavChain()
 $css = $APPLICATION->GetCSSArray();
 if(!is_array($css) || !in_array("/bitrix/css/main/font-awesome.css", $css))
@@ -25,7 +58,18 @@ $strReturn .= '<div class="bxr-breadcrumb" itemscope="" itemtype="http://schema.
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
 {
-	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
+	$itemTitle = $arResult[$index]["TITLE"];
+	$linkPath = parse_url($arResult[$index]['LINK'], PHP_URL_PATH);
+	if (is_string($linkPath) && preg_match('#^/catalog/([^/]+)/?$#', $linkPath, $matches))
+	{
+		$sectionCode = rawurldecode($matches[1]);
+		if (isset($catalogSectionNames[$sectionCode]))
+		{
+			$itemTitle = $catalogSectionNames[$sectionCode];
+		}
+	}
+
+	$title = htmlspecialcharsex($itemTitle);
 
 	//$nextRef = ($index < $itemSize-2 && $arResult[$index+1]["LINK"] <> ""? ' itemref="bx_breadcrumb_'.($index+1).'"' : '');
 	//$child = ($index > 0? ' itemprop="child"' : '');
