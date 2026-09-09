@@ -458,27 +458,6 @@
         }
     }
 
-    let dateStart2 = new Date('2026-05-08 00:00:00').getTime();
-    let dateEnd2 = new Date('2026-05-12 00:00:00').getTime();    
-
-    let triggerButton2 = $('[data-target="#bxr-dayoff-popup2"]');
-
-    if (triggerButton2.length > 0) {
-        let forceOpen = location.hash === '#announcement-demo';
-
-        if ((date >= dateStart2 && date < dateEnd2) || forceOpen) {
-          let isAnnouncementClosed = getCookie('is_announcement_closed');
-
-          if (!isAnnouncementClosed) {
-            triggerButton2.trigger('click');
-
-            if (!forceOpen) {
-             setCookie('is_announcement_closed', '1', null , null , 10);
-            }
-          }
-        }
-    }
-    
   });
 
   /*

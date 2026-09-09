@@ -68,47 +68,6 @@
 </div>
 
 
-<a class="screen-reader-only" data-toggle="modal" data-target="#bxr-dayoff-popup2" style="cursor: pointer;">
-    Информация об&nbsp;изменении графика работы
-</a>
-
-<div 
-    class="modal bxr-form-modal" 
-    id="bxr-dayoff-popup2" 
-    tabindex="-1" 
-    role="dialog"
-    aria-labelledby="bxr-dayoff-popupLabel"
->
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="announcement">
-                <div class="announcement__modal-header modal-header">
-                    <button type="button" class="announcement__close close" data-dismiss="modal"
-                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="h4 modal-title" id="bxr-dayoff-popupLabel"></div>
-                </div>
-
-                <div class="announcement__modal-body modal-body">
-                    <div class="bxr-form-body-container">
-                        <div class="announcement__title">ДОРОГИЕ ДРУЗЬЯ!</div>
-                        <div class="announcement__sub-title">Изменения в графике работы:</div>
-
-                        <div class="announcement__announcement-box announcement-box">
-                            <div class="announcement-box__title">С 9 ПО 11 МАЯ<br> У НАС НЕРАБОЧИЕ ДНИ.</div>
-                            <?/*<div class="announcement-box__text" style="font-size: 16px;">28 декабря работаем с 10:00 до 19:00 </div>*/?>
-
-                            <div class="announcement-box__text"> Оформленные заказы будут обрабатываться с 12 МАЯ.</div>
-                            
-                        </div>
-
-                        <div class="announcement__footer-title">С ДНЕМ ПОБЕДЫ!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <?php /*
 <a class="screen-reader-only" data-toggle="modal" data-target="#bxr-new-year-popup_2"
     style="cursor: pointer;">Информация о новогодних праздниках</a>
