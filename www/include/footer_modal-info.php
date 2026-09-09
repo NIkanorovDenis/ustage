@@ -56,14 +56,10 @@
                         <div class="announcement__sub-title">Изменения в графике работы:</div>
 
                         <div class="announcement__announcement-box announcement-box">
-                            <div class="announcement-box__title">12 ИЮНЯ У НАС НЕРАБОЧИЙ ДЕНЬ.</div>
-                            <?/*<div class="announcement-box__text" style="font-size: 16px;">28 декабря работаем с 10:00 до 19:00 </div>*/?>
-
-                            <div class="announcement-box__text"> Оформленные заказы будут обрабатываться с 15 ИЮНЯ.</div>
-                            
+                            <div class="announcement-box__title">11 сентября работаем до 14:00.</div>
                         </div>
 
-                        <div class="announcement__footer-title">С ДНЕМ РОССИИ!</div>
+                        <div class="announcement__footer-title">Оформленные заказы после указанного времени будут обрабатываться с 14 сентября.</div>
                     </div>
                 </div>
             </div>
