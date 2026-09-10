@@ -2418,31 +2418,74 @@ class parserUS {
 
 		$items = [];
 
-		$filenameSlami = 'https://dealer.slami.ru/info/pricelist.csv';
+		// The public pricelist URL redirects to an HTML login form. SLAMI's API
+		// endpoint returns the actual Windows-1251 encoded CSV file.
+		$filenameSlami = 'https://dealer.slami.ru/api/getcsv/?token=08e0c0203de54515a9e121dc001d90df';
 		$slamiPriceData = $this->getDataCurl($filenameSlami);
 
 		if ($slamiPriceData) {
+			if (strlen($slamiPriceData) < 10000 || preg_match('/^\s*</', $slamiPriceData)) {
+				$this->tolog($this->logsError, 'SLAMI pricelist download returned HTML or an unexpectedly small file;', true);
+				return $items;
+			}
 
 			$filename = __DIR__ .'/'. 'slami_pricelist.csv';
 			$slamiPriceData = iconv('Windows-1251', 'UTF-8', $slamiPriceData);
+			if ($slamiPriceData === false) {
+				$this->tolog($this->logsError, 'SLAMI pricelist encoding conversion failed;', true);
+				return $items;
+			}
 			$this->toFile($filename, $slamiPriceData);
 
 			if (($f = fopen($filename, 'r')) !== FALSE) {
-				while (($csvRow = fgetcsv($f, 10000, ';')) !== false) {
+				$header = fgetcsv($f, 10000, ';');
+				if (!is_array($header) || count($header) < 13) {
+					fclose($f);
+					$this->tolog($this->logsError, 'SLAMI pricelist has an unexpected CSV structure;', true);
+					return $items;
+				}
+				$columns = [];
+				foreach ($header as $columnIndex => $columnName) {
+					$columns[trim($columnName)] = $columnIndex;
+				}
+				$requiredColumns = ['Код', 'Наименование', 'Цена Розн', 'Цена Дил', 'Остаток', 'Артикул'];
+				foreach ($requiredColumns as $requiredColumn) {
+					if (!isset($columns[$requiredColumn])) {
+						fclose($f);
+						$this->tolog($this->logsError, 'SLAMI pricelist is missing column: '. $requiredColumn .';', true);
+						return $items;
+					}
+				}
 
-					$price = $this->slamiCheckPrice((int)$csvRow[8], (int)$csvRow[10]);
+				while (($csvRow = fgetcsv($f, 10000, ';')) !== false) {
+					$article = trim((string)($csvRow[$columns['Артикул']] ?? ''));
+					if ($article === '') {
+						continue;
+					}
+
+					$price = $this->slamiCheckPrice(
+						(int)($csvRow[$columns['Цена Розн']] ?? 0),
+						(int)($csvRow[$columns['Цена Дил']] ?? 0)
+					);
 
 					if ($price) {
-						$items[$csvRow[12]] = [
-							'NAME' => $csvRow[7],
-							'CODE' => $csvRow[5],
+						$items[$article] = [
+							'NAME' => $csvRow[$columns['Наименование']],
+							'CODE' => $csvRow[$columns['Код']],
 							'PRICE' => $price,
-							'STORE' => (int)$csvRow[11],
+							'STORE' => (int)($csvRow[$columns['Остаток']] ?? 0),
 						];
 					}
 
 				}
+				fclose($f);
 			}
+
+			if (empty($items)) {
+				$this->tolog($this->logsError, 'SLAMI pricelist contains no products matching import conditions;', true);
+			}
+		} else {
+			$this->tolog($this->logsError, 'SLAMI pricelist download failed;', true);
 
 		}
 
