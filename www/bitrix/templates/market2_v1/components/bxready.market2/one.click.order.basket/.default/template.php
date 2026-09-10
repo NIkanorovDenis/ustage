@@ -56,8 +56,12 @@ $this->setFrameMode(true);?>
                             </div>    
                             <div class="bxr-personal-accept bxr-checkbox">
                                 <input type="checkbox" name="accept_personal2" value="yes" id="accept_form_one_click_order2" <?=($arResult["ORDER_FIELDS"]["ACCEPT_PERSONAL2"] == "yes")? " checked" : ""?> required>
-                                <label class="bxr-label" for="accept_form_one_click_order2">Нажимая на кнопку, я соглашаюсь с  <a href="/privacy-policy/" target="_blank">политикой обработки персональных данных</a></label>
-                            </div>        
+                                <label class="bxr-label" for="accept_form_one_click_order2">Нажимая на кнопку, я ознакомлен(а) с <a href="/privacy-policy/" target="_blank">политикой обработки персональных данных</a></label>
+                            </div>
+                            <div class="bxr-personal-accept bxr-checkbox">
+                                <input type="checkbox" name="ORDER_FIELDS[MARKETING_CONSENT]" value="Y" id="marketing_consent_one_click">
+                                <label class="bxr-label" for="marketing_consent_one_click">Я соглашаюсь на получение информационных и рекламных материалов, в том числе приглашений на мероприятия, и обработку моих персональных данных для этой цели</label>
+                            </div>
 			<?endif;?>
                             
                         <div class="bxr-button-group text-left">

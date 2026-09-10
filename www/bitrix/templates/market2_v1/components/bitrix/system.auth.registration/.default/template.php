@@ -90,7 +90,11 @@ if (strlen($arResult["BACKURL"]) > 0)
         </div>
 		<div class="bxr-personal-accept bxr-checkbox">
             <input type="checkbox" name="accept_personal2" required value="yes" id="accept_form_register2">
-            <label class="bxr-label" for="accept_form_register2">Нажимая на кнопку, я соглашаюсь с  <a href="/privacy-policy/" target="_blank">политикой обработки персональных данных</a></label>
+            <label class="bxr-label" for="accept_form_register2">Нажимая на кнопку, я ознакомлен(а) с <a href="/privacy-policy/" target="_blank">политикой обработки персональных данных</a></label>
+        </div>
+        <div class="bxr-personal-accept bxr-checkbox">
+            <input type="checkbox" name="marketing_consent" value="Y" id="marketing_consent_register">
+            <label class="bxr-label" for="marketing_consent_register">Я соглашаюсь на получение информационных и рекламных материалов, в том числе приглашений на мероприятия, и обработку моих персональных данных для этой цели</label>
         </div>
             
         <div id="bxr-pers-reg"></div>

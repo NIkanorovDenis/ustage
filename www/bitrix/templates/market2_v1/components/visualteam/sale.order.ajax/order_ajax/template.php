@@ -511,9 +511,13 @@ else
 						</div>    
 						<div class="bxr-personal-accept bxr-checkbox">
 							<input type="checkbox" name="accept_personal2" value="yes" id="accept_form_one_click_order2"  required>
-							<label class="bxr-label" for="accept_form_one_click_order2">Нажимая на кнопку, я соглашаюсь с  <a href="/privacy-policy/" target="_blank">политикой обработки персональных данных</a></label>
+							<label class="bxr-label" for="accept_form_one_click_order2">Нажимая на кнопку, я ознакомлен(а) с <a href="/privacy-policy/" target="_blank">политикой обработки персональных данных</a></label>
 							<span class="error">Обработка вашей заявки без согласия на обработку персональных данных невозможна.</span>
 						</div> 
+						<div class="bxr-personal-accept bxr-checkbox">
+							<input type="checkbox" name="marketing_consent" value="Y" id="marketing_consent_order">
+							<label class="bxr-label" for="marketing_consent_order">Я соглашаюсь на получение информационных и рекламных материалов, в том числе приглашений на мероприятия, и обработку моих персональных данных для этой цели</label>
+						</div>
 						<?
 						/*if ($arParams['USER_CONSENT'] === 'Y')
 						{
