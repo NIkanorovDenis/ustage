@@ -2444,20 +2444,36 @@ class parserUS {
 					$this->tolog($this->logsError, 'SLAMI pricelist has an unexpected CSV structure;', true);
 					return $items;
 				}
+				$columns = [];
+				foreach ($header as $columnIndex => $columnName) {
+					$columns[trim($columnName)] = $columnIndex;
+				}
+				$requiredColumns = ['Код', 'Наименование', 'Цена Розн', 'Цена Дил', 'Остаток', 'Артикул'];
+				foreach ($requiredColumns as $requiredColumn) {
+					if (!isset($columns[$requiredColumn])) {
+						fclose($f);
+						$this->tolog($this->logsError, 'SLAMI pricelist is missing column: '. $requiredColumn .';', true);
+						return $items;
+					}
+				}
 
 				while (($csvRow = fgetcsv($f, 10000, ';')) !== false) {
-					if (count($csvRow) < 13) {
+					$article = trim((string)($csvRow[$columns['Артикул']] ?? ''));
+					if ($article === '') {
 						continue;
 					}
 
-					$price = $this->slamiCheckPrice((int)$csvRow[8], (int)$csvRow[10]);
+					$price = $this->slamiCheckPrice(
+						(int)($csvRow[$columns['Цена Розн']] ?? 0),
+						(int)($csvRow[$columns['Цена Дил']] ?? 0)
+					);
 
 					if ($price) {
-						$items[$csvRow[12]] = [
-							'NAME' => $csvRow[7],
-							'CODE' => $csvRow[5],
+						$items[$article] = [
+							'NAME' => $csvRow[$columns['Наименование']],
+							'CODE' => $csvRow[$columns['Код']],
 							'PRICE' => $price,
-							'STORE' => (int)$csvRow[11],
+							'STORE' => (int)($csvRow[$columns['Остаток']] ?? 0),
 						];
 					}
 
