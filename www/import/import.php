@@ -2417,6 +2417,8 @@ class parserUS {
 	private function slamiGetPricelistFromSlami() {
 
 		$items = [];
+		$filename = __DIR__ .'/'. 'slami_pricelist.csv';
+		$usingCachedPricelist = false;
 
 		// The public pricelist URL redirects to an HTML login form. SLAMI's API
 		// endpoint returns the actual Windows-1251 encoded CSV file.
@@ -2431,6 +2433,14 @@ class parserUS {
 				sleep(2);
 			}
 		}
+		if (!$slamiPriceData && is_file($filename) && filemtime($filename) >= time() - 26 * 60 * 60) {
+			$cachedPriceData = file_get_contents($filename);
+			if (strlen($cachedPriceData) >= 10000 && !preg_match('/^\s*</', $cachedPriceData)) {
+				$slamiPriceData = $cachedPriceData;
+				$usingCachedPricelist = true;
+				$this->tolog($this->logsError, 'SLAMI API is unavailable; using the last valid pricelist;', true);
+			}
+		}
 
 		if ($slamiPriceData) {
 			if (strlen($slamiPriceData) < 10000 || preg_match('/^\s*</', $slamiPriceData)) {
@@ -2438,13 +2448,14 @@ class parserUS {
 				return $items;
 			}
 
-			$filename = __DIR__ .'/'. 'slami_pricelist.csv';
-			$slamiPriceData = iconv('Windows-1251', 'UTF-8', $slamiPriceData);
-			if ($slamiPriceData === false) {
-				$this->tolog($this->logsError, 'SLAMI pricelist encoding conversion failed;', true);
-				return $items;
+			if (!$usingCachedPricelist) {
+				$slamiPriceData = iconv('Windows-1251', 'UTF-8', $slamiPriceData);
+				if ($slamiPriceData === false) {
+					$this->tolog($this->logsError, 'SLAMI pricelist encoding conversion failed;', true);
+					return $items;
+				}
+				$this->toFile($filename, $slamiPriceData);
 			}
-			$this->toFile($filename, $slamiPriceData);
 
 			if (($f = fopen($filename, 'r')) !== FALSE) {
 				$header = fgetcsv($f, 10000, ';');
