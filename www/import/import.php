@@ -2421,7 +2421,16 @@ class parserUS {
 		// The public pricelist URL redirects to an HTML login form. SLAMI's API
 		// endpoint returns the actual Windows-1251 encoded CSV file.
 		$filenameSlami = 'https://dealer.slami.ru/api/getcsv/?token=08e0c0203de54515a9e121dc001d90df';
-		$slamiPriceData = $this->getDataCurl($filenameSlami);
+		$slamiPriceData = false;
+		for ($attempt = 1; $attempt <= 3 && !$slamiPriceData; $attempt++) {
+			$slamiPriceData = $this->getDataCurl($filenameSlami, 'html', [
+				'timeout' => 120,
+				'connect_timeout' => 30,
+			]);
+			if (!$slamiPriceData && $attempt < 3) {
+				sleep(2);
+			}
+		}
 
 		if ($slamiPriceData) {
 			if (strlen($slamiPriceData) < 10000 || preg_match('/^\s*</', $slamiPriceData)) {
@@ -2936,8 +2945,8 @@ class parserUS {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
+		curl_setopt($ch, CURLOPT_TIMEOUT, (int)($options['timeout'] ?? 20));
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, (int)($options['connect_timeout'] ?? 20));
 		curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
 
 		if (!empty($options['allow_expired_certificate']) && !empty($options['pinned_public_key'])) {
