@@ -2418,17 +2418,37 @@ class parserUS {
 
 		$items = [];
 
-		$filenameSlami = 'https://dealer.slami.ru/info/pricelist.csv';
+		// The public pricelist URL redirects to an HTML login form. SLAMI's API
+		// endpoint returns the actual Windows-1251 encoded CSV file.
+		$filenameSlami = 'https://dealer.slami.ru/api/getcsv/?token=08e0c0203de54515a9e121dc001d90df';
 		$slamiPriceData = $this->getDataCurl($filenameSlami);
 
 		if ($slamiPriceData) {
+			if (strlen($slamiPriceData) < 10000 || preg_match('/^\s*</', $slamiPriceData)) {
+				$this->tolog($this->logsError, 'SLAMI pricelist download returned HTML or an unexpectedly small file;', true);
+				return $items;
+			}
 
 			$filename = __DIR__ .'/'. 'slami_pricelist.csv';
 			$slamiPriceData = iconv('Windows-1251', 'UTF-8', $slamiPriceData);
+			if ($slamiPriceData === false) {
+				$this->tolog($this->logsError, 'SLAMI pricelist encoding conversion failed;', true);
+				return $items;
+			}
 			$this->toFile($filename, $slamiPriceData);
 
 			if (($f = fopen($filename, 'r')) !== FALSE) {
+				$header = fgetcsv($f, 10000, ';');
+				if (!is_array($header) || count($header) < 13) {
+					fclose($f);
+					$this->tolog($this->logsError, 'SLAMI pricelist has an unexpected CSV structure;', true);
+					return $items;
+				}
+
 				while (($csvRow = fgetcsv($f, 10000, ';')) !== false) {
+					if (count($csvRow) < 13) {
+						continue;
+					}
 
 					$price = $this->slamiCheckPrice((int)$csvRow[8], (int)$csvRow[10]);
 
@@ -2442,7 +2462,14 @@ class parserUS {
 					}
 
 				}
+				fclose($f);
 			}
+
+			if (empty($items)) {
+				$this->tolog($this->logsError, 'SLAMI pricelist contains no products matching import conditions;', true);
+			}
+		} else {
+			$this->tolog($this->logsError, 'SLAMI pricelist download failed;', true);
 
 		}
 
