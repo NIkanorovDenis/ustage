@@ -863,7 +863,7 @@ label[data-name="accept_personal"] span[data-part="2"]:after {
 	content: 'Согласие на обработку персональных данных';
 }
 label[data-name="accept_personal2"] span[data-part="1"]:after {
-	content: 'Нажимая на кнопку, я соглашаюсь с';
+	content: 'Нажимая на кнопку, я ознакомлен(а) с';
 }
 label[data-name="accept_personal2"] span[data-part="2"]:after {
 	content: 'политикой обработки персональных данных';
