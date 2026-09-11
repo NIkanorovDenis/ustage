@@ -224,7 +224,7 @@ $dynamicAreaReg->finishDynamicArea();
                     <?endif;?>
 					
                     <div class="bxr-cloud-all bxr-cloud-padding bxr-b20">
-                        <?if($APPLICATION->GetCurPage(true) != SITE_DIR.'index.php'){
+                        <?if($APPLICATION->GetCurPage(true) != SITE_DIR.'index.php' && (!defined('ERROR_404') || ERROR_404 !== 'Y')){
                             $APPLICATION->IncludeComponent(
                                 "bitrix:breadcrumb", 
                                 "bxr_market2", 
@@ -291,7 +291,7 @@ $dynamicAreaReg->finishDynamicArea();
 						<div class="col-xl-<?=($bxmarket->getCoreData("xl_mode"))?10:12?> col-xs-12">
 					<?endif;?>
 
-					<?if ($APPLICATION->GetCurPage(true) != SITE_DIR.'index.php'):?>
+					<?if ($APPLICATION->GetCurPage(true) != SITE_DIR.'index.php' && (!defined('ERROR_404') || ERROR_404 !== 'Y')):?>
 						<div class="bxr-cloud-all bxr-cloud-padding bxr-b20">
 							<?$APPLICATION->IncludeComponent(
 									"bitrix:breadcrumb", 
