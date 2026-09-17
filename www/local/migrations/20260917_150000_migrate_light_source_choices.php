@@ -14,7 +14,7 @@ return static function (Connection $connection): void {
     $oldPropertyId = 2337;
     $listPropertyId = 8653;
     $csv = __DIR__ . '/data/light_source_choices_20260917.csv';
-    $expectedChecksum = '7067f98f5bb6bb39d217a1370bf1d27b4dd0462f19da1d38577e85665ca2a473';
+    $expectedChecksum = '0eecb3c0950c423771e96bc107d35396910001f5a87424d569706f65bc6073a5';
     $allowedEnums = [1994 => 'LED', 1995 => 'Ламповый', 1996 => 'Лазерный'];
 
     if (!is_file($csv) || !hash_equals($expectedChecksum, hash_file('sha256', $csv))) {
