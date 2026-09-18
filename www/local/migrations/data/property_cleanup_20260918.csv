@@ -1,0 +1,2043 @@
+property,product_id,value
+ip_rating,11093,IP 55
+ip_rating,11094,IP 55
+ip_rating,11102,IP 20
+ip_rating,17086,IP 55
+ip_rating,17087,IP 55
+ip_rating,17088,IP 55
+ip_rating,17089,IP 55
+ip_rating,17090,IP 55
+ip_rating,17091,IP 55
+ip_rating,17092,IP 55
+ip_rating,17093,IP 55
+ip_rating,17094,IP 55
+ip_rating,17095,IP 55
+ip_rating,17096,IP 55
+ip_rating,17097,IP 55
+ip_rating,17186,IP 65
+ip_rating,17187,IP 65
+ip_rating,17796,IP 67
+ip_rating,18136,IP 55
+ip_rating,18137,IP 55
+ip_rating,19626,IP 56
+ip_rating,19627,IP 56
+ip_rating,20219,IP 64
+ip_rating,20220,IP 64
+ip_rating,20306,IP 55
+ip_rating,20506,IP 64
+ip_rating,20508,IP 64
+ip_rating,20809,IP 55
+ip_rating,20844,IP 67
+ip_rating,20942,IP 55
+ip_rating,20945,IP 56
+ip_rating,20946,IP 55
+ip_rating,20947,IP 56
+ip_rating,20948,IP 55
+ip_rating,20952,IP 56
+ip_rating,20953,IP 56
+ip_rating,21199,IP 56
+ip_rating,21200,IP 56
+ip_rating,21201,IP 56
+ip_rating,21202,IP 56
+ip_rating,21203,IP 56
+ip_rating,21204,IP 56
+ip_rating,21206,IP 56
+ip_rating,25740,IP 66
+ip_rating,39224,IP 55
+ip_rating,39225,IP 55
+ip_rating,39232,IP 55
+ip_rating,39233,IP 55
+ip_rating,39234,IP 55
+ip_rating,39241,IP 55
+ip_rating,39289,IP 55
+ip_rating,39297,IP 55
+ip_rating,44673,IP 67
+ip_rating,44675,IP 67
+ip_rating,74645,IP 40
+ip_rating,74804,IP 55
+ip_rating,74805,IP 55
+ip_rating,74852,IP 20
+ip_rating,74853,IP 20
+ip_rating,74854,IP 55
+ip_rating,75289,IP 55
+ip_rating,75754,IP 35
+ip_rating,76038,IP 55
+ip_rating,76047,IP 55
+ip_rating,76156,IP 54
+ip_rating,76334,IP 20
+ip_rating,76370,IP 55
+ip_rating,76371,IP 55
+ip_rating,93252,IP 54
+ip_rating,93253,IP 54
+ip_rating,93255,IP 20
+ip_rating,93257,IP 20
+ip_rating,93277,IP 54
+ip_rating,93278,IP 66
+ip_rating,93279,IP 66
+ip_rating,93280,IP 66
+ip_rating,94401,IP 65
+ip_rating,94408,IP 65
+ip_rating,94409,IP 65
+ip_rating,94410,IP 65
+ip_rating,94411,IP 65
+ip_rating,94419,IP 65
+ip_rating,95498,IP 65
+ip_rating,102363,IP 55
+ip_rating,108585,IP 65
+ip_rating,109166,IP 65
+ip_rating,109216,IP 40
+ip_rating,203853,IP 65
+ip_rating,214000,IP 65
+ip_rating,217044,IP 31
+ip_rating,217171,IP 56
+ip_rating,217172,IP 56
+ip_rating,217176,IP 56
+ip_rating,217208,IP 56
+ip_rating,217646,IP 55
+ip_rating,217647,IP 55
+ip_rating,217774,IP 21
+ip_rating,217805,IP 31
+ip_rating,217807,IP 56
+ip_rating,217876,IP 44
+ip_rating,217879,IP 67
+ip_rating,217880,IP 67
+ip_rating,217881,IP 67
+ip_rating,217882,IP 67
+ip_rating,217883,IP 67
+ip_rating,217884,IP 67
+ip_rating,217885,IP 67
+ip_rating,217886,IP 67
+ip_rating,217887,IP 67
+ip_rating,217888,IP 67
+ip_rating,217889,IP 67
+ip_rating,217890,IP 67
+ip_rating,217891,IP 67
+ip_rating,217892,IP 67
+ip_rating,217893,IP 67
+ip_rating,217930,IP 54
+ip_rating,217932,IP 54
+ip_rating,217935,IP 67
+ip_rating,217936,IP 67
+ip_rating,217937,IP 67
+ip_rating,217938,IP 67
+ip_rating,217939,IP 67
+ip_rating,217940,IP 67
+ip_rating,217941,IP 67
+ip_rating,217942,IP 67
+ip_rating,217943,IP 67
+ip_rating,217944,IP 67
+ip_rating,217945,IP 67
+ip_rating,217946,IP 67
+ip_rating,218133,IP 67
+ip_rating,218134,IP 67
+ip_rating,218135,IP 67
+ip_rating,218139,IP 67
+ip_rating,218140,IP 67
+ip_rating,218141,IP 67
+ip_rating,218142,IP 67
+ip_rating,218143,IP 67
+ip_rating,218144,IP 67
+ip_rating,218145,IP 67
+ip_rating,218152,IP 67
+ip_rating,218153,IP 67
+ip_rating,218272,IP 56
+ip_rating,218273,IP 56
+ip_rating,218275,IP 66
+ip_rating,218438,IP 66
+ip_rating,218585,IP 66
+ip_rating,218586,IP 66
+ip_rating,218587,IP 66
+ip_rating,218588,IP 56
+ip_rating,218589,IP 56
+ip_rating,218590,IP 56
+ip_rating,218591,IP 56
+ip_rating,218698,IP 67
+ip_rating,218699,IP 67
+ip_rating,218700,IP 67
+ip_rating,218701,IP 67
+ip_rating,218702,IP 67
+ip_rating,218703,IP 67
+ip_rating,218906,IP 31
+ip_rating,218936,IP 31
+ip_rating,218937,IP 31
+ip_rating,219180,IP 44
+ip_rating,219181,IP 55
+ip_rating,219182,IP 55
+ip_rating,219187,IP 67
+ip_rating,219188,IP 67
+ip_rating,219190,IP 67
+ip_rating,219194,IP 67
+ip_rating,219198,IP 67
+ip_rating,219199,IP 67
+ip_rating,219201,IP 67
+ip_rating,219202,IP 67
+ip_rating,219204,IP 67
+ip_rating,219207,IP 67
+ip_rating,219209,IP 67
+ip_rating,219210,IP 67
+ip_rating,219212,IP 67
+ip_rating,219214,IP 67
+ip_rating,219215,IP 67
+ip_rating,219216,IP 67
+ip_rating,219217,IP 67
+ip_rating,219218,IP 67
+ip_rating,219219,IP 67
+ip_rating,219220,IP 67
+ip_rating,219221,IP 67
+ip_rating,219222,IP 67
+ip_rating,219223,IP 67
+ip_rating,219224,IP 67
+ip_rating,219225,IP 67
+ip_rating,219226,IP 67
+ip_rating,219227,IP 67
+ip_rating,219228,IP 67
+ip_rating,219229,IP 67
+ip_rating,219230,IP 67
+ip_rating,219231,IP 67
+ip_rating,219232,IP 67
+ip_rating,219233,IP 67
+ip_rating,219234,IP 67
+ip_rating,219235,IP 67
+ip_rating,219236,IP 67
+ip_rating,219237,IP 67
+ip_rating,219238,IP 67
+ip_rating,219239,IP 67
+ip_rating,219240,IP 67
+ip_rating,219241,IP 67
+ip_rating,219242,IP 67
+ip_rating,219323,IP 66
+ip_rating,219324,IP 66
+ip_rating,219374,IP 54
+ip_rating,219375,IP 54
+ip_rating,219376,IP 54
+ip_rating,219377,IP 54
+ip_rating,219378,IP 54
+ip_rating,219379,IP 54
+ip_rating,219380,IP 54
+ip_rating,219381,IP 56
+ip_rating,219382,IP 56
+ip_rating,219383,IP 56
+ip_rating,219384,IP 56
+ip_rating,219385,IP 66
+ip_rating,219391,IP 55
+ip_rating,219392,IP 55
+ip_rating,219393,IP 54
+ip_rating,219395,IP 54
+ip_rating,219396,IP 54
+ip_rating,219398,IP 54
+ip_rating,219420,IP 54
+ip_rating,219421,IP 54
+ip_rating,219422,IP 44
+ip_rating,219429,IP 67
+ip_rating,219461,IP 66
+ip_rating,219471,IP 56
+ip_rating,219472,IP 56
+ip_rating,219473,IP 56
+ip_rating,222559,IP 31
+ip_rating,222560,IP 31
+ip_rating,222561,IP 31
+ip_rating,222568,IP 31
+ip_rating,222569,IP 31
+ip_rating,223675,IP 65
+ip_rating,225938,IP 54
+ip_rating,236677,IP 56
+ip_rating,236678,IP 56
+ip_rating,237674,IP 65
+ip_rating,237675,IP 66
+ip_rating,237832,IP 34
+ip_rating,238019,IP 55
+ip_rating,238020,IP 55
+ip_rating,238021,IP 55
+ip_rating,238022,IP 55
+ip_rating,238023,IP 55
+ip_rating,240818,IP 55
+ip_rating,242924,IP 55
+ip_rating,242925,IP 55
+ip_rating,244673,IP 43
+ip_rating,244674,IP 43
+ip_rating,244675,IP 43
+ip_rating,246550,IP 68
+ip_rating,246551,IP 65
+ip_rating,246831,IP 40
+ip_rating,246832,IP 40
+ip_rating,260994,IP 65
+ip_rating,260996,IP 65
+ip_rating,260997,IP 65
+ip_rating,261012,IP 65
+ip_rating,261015,IP 65
+ip_rating,261017,IP 20
+ip_rating,261018,IP 20
+ip_rating,261399,IP 20
+ip_rating,265452,IP 65
+ip_rating,265456,IP 65
+ip_rating,265631,IP 67
+ip_rating,265632,IP 67
+ip_rating,265633,IP 67
+ip_rating,265646,IP 67
+ip_rating,265650,IP 65
+ip_rating,265672,IP 40
+ip_rating,265701,IP 40
+ip_rating,265702,IP 40
+ip_rating,265703,IP 40
+ip_rating,265704,IP 40
+ip_rating,265705,IP 40
+ip_rating,265706,IP 40
+ip_rating,265707,IP 40
+ip_rating,265708,IP 40
+ip_rating,265709,IP 40
+ip_rating,265710,IP 40
+ip_rating,265711,IP 40
+ip_rating,265712,IP 40
+ip_rating,265713,IP 40
+ip_rating,265714,IP 40
+ip_rating,265715,IP 40
+ip_rating,265716,IP 40
+ip_rating,265733,IP 40
+ip_rating,265734,IP 40
+ip_rating,265735,IP 40
+ip_rating,265736,IP 65
+ip_rating,265737,IP 40
+ip_rating,265738,IP 40
+ip_rating,265739,IP 65
+ip_rating,265750,IP 40
+ip_rating,265751,IP 65
+ip_rating,265752,IP 40
+ip_rating,265753,IP 65
+ip_rating,265754,IP 65
+ip_rating,265755,IP 65
+ip_rating,265756,IP 40
+ip_rating,265757,IP 40
+ip_rating,265758,IP 40
+ip_rating,265759,IP 40
+ip_rating,265760,IP 40
+ip_rating,265761,IP 40
+ip_rating,265762,IP 40
+ip_rating,265763,IP 40
+ip_rating,265764,IP 40
+ip_rating,265765,IP 40
+ip_rating,265766,IP 40
+ip_rating,265767,IP 40
+ip_rating,265768,IP 40
+ip_rating,265769,IP 40
+ip_rating,265770,IP 40
+ip_rating,265771,IP 40
+ip_rating,265772,IP 40
+ip_rating,265773,IP 40
+ip_rating,265774,IP 40
+ip_rating,265775,IP 40
+ip_rating,265798,IP 40
+ip_rating,265799,IP 40
+ip_rating,265800,IP 40
+ip_rating,265801,IP 40
+ip_rating,265802,IP 40
+ip_rating,265803,IP 40
+ip_rating,265804,IP 40
+ip_rating,265805,IP 40
+ip_rating,265806,IP 40
+ip_rating,265807,IP 40
+ip_rating,265808,IP 40
+ip_rating,265809,IP 40
+ip_rating,265810,IP 40
+ip_rating,265811,IP 40
+ip_rating,265812,IP 40
+ip_rating,265813,IP 40
+ip_rating,265814,IP 40
+ip_rating,265815,IP 40
+ip_rating,265816,IP 40
+ip_rating,265817,IP 40
+ip_rating,265818,IP 40
+ip_rating,265819,IP 40
+ip_rating,265820,IP 40
+ip_rating,265821,IP 40
+ip_rating,265822,IP 40
+ip_rating,265823,IP 40
+ip_rating,265824,IP 40
+ip_rating,265825,IP 40
+ip_rating,266780,IP 67
+ip_rating,266781,IP 67
+ip_rating,266782,IP 67
+ip_rating,266790,IP 20
+ip_rating,266791,IP 20
+ip_rating,266792,IP 20
+ip_rating,266793,IP 20
+ip_rating,266816,IP 20
+ip_rating,266817,IP 20
+ip_rating,266818,IP 20
+ip_rating,266819,IP 65
+ip_rating,266822,IP 20
+ip_rating,266823,IP 20
+ip_rating,266824,IP 20
+ip_rating,266826,IP 20
+ip_rating,266827,IP 20
+ip_rating,266828,IP 20
+ip_rating,266830,IP 20
+ip_rating,266833,IP 20
+ip_rating,266845,IP 20
+ip_rating,266846,IP 20
+ip_rating,266847,IP 20
+ip_rating,266848,IP 20
+ip_rating,266849,IP 20
+ip_rating,266850,IP 20
+ip_rating,266851,IP 20
+ip_rating,266852,IP 20
+ip_rating,266853,IP 20
+ip_rating,266854,IP 20
+ip_rating,266855,IP 20
+ip_rating,266856,IP 20
+ip_rating,266857,IP 20
+ip_rating,266858,IP 20
+ip_rating,266859,IP 20
+ip_rating,266860,IP 20
+ip_rating,266861,IP 20
+ip_rating,266862,IP 20
+ip_rating,266863,IP 20
+ip_rating,266864,IP 20
+ip_rating,266865,IP 20
+ip_rating,266866,IP 20
+ip_rating,266867,IP 20
+ip_rating,266868,IP 20
+ip_rating,266869,IP 20
+ip_rating,266877,IP 20
+ip_rating,266878,IP 20
+ip_rating,266879,IP 20
+ip_rating,266880,IP 20
+ip_rating,266881,IP 20
+ip_rating,272773,IP 65
+ip_rating,272790,IP 20
+ip_rating,272791,IP 20
+ip_rating,272792,IP 20
+ip_rating,272926,IP 65
+ip_rating,274045,IP 20
+source_power,108622,24
+source_power,260962,16
+max_power,11171,1.75
+max_power,197358,600
+max_power,202882,7.5
+max_power,216497,1936
+max_power,216498,1936
+max_power,231690,166
+light_count,10882,4
+light_count,10883,1
+light_count,10884,1
+light_count,10885,1
+light_count,11002,2
+light_count,11016,324
+light_count,11017,64
+light_count,11018,7
+light_count,11019,6
+light_count,11020,3
+light_count,11021,292
+light_count,11023,1
+light_count,11024,18
+light_count,11025,18
+light_count,11026,24
+light_count,11028,1
+light_count,11030,18
+light_count,11031,18
+light_count,11032,24
+light_count,11033,4
+light_count,11034,60
+light_count,11035,18
+light_count,11036,18
+light_count,11037,18
+light_count,11038,18
+light_count,11039,12
+light_count,11040,12
+light_count,11041,1
+light_count,11042,12
+light_count,11043,18
+light_count,11044,6
+light_count,11045,18
+light_count,11046,1
+light_count,11048,1
+light_count,11050,18
+light_count,11053,24
+light_count,11055,70
+light_count,11056,12
+light_count,11057,12
+light_count,11058,6
+light_count,11059,4
+light_count,11064,1
+light_count,11065,1
+light_count,11067,1
+light_count,11072,1
+light_count,11073,1
+light_count,11074,1
+light_count,11075,1
+light_count,11076,1
+light_count,11078,1
+light_count,11079,1
+light_count,11080,1
+light_count,11081,1
+light_count,11084,6
+light_count,11085,1
+light_count,11086,1
+light_count,11088,1
+light_count,11089,1
+light_count,11090,1
+light_count,11091,1
+light_count,11092,1
+light_count,11093,1
+light_count,11094,1
+light_count,11095,1
+light_count,11096,1
+light_count,11097,1
+light_count,11099,1
+light_count,11100,1
+light_count,11101,1
+light_count,11102,1
+light_count,11103,1
+light_count,11104,30
+light_count,11111,7
+light_count,11114,19
+light_count,11115,3
+light_count,11118,1
+light_count,11121,24
+light_count,11124,1
+light_count,11128,37
+light_count,11129,37
+light_count,11135,19
+light_count,11141,1
+light_count,11147,4
+light_count,11149,19
+light_count,11155,18
+light_count,11160,1
+light_count,11161,1
+light_count,11162,37
+light_count,11165,1
+light_count,11167,24
+light_count,11168,1
+light_count,11170,1
+light_count,11173,1
+light_count,11174,6
+light_count,11175,1
+light_count,11176,1
+light_count,11177,7
+light_count,11178,1
+light_count,11179,54
+light_count,11183,1
+light_count,11225,1
+light_count,11226,1
+light_count,11227,7
+light_count,12106,1
+light_count,16211,1
+light_count,23472,7
+light_count,23474,624
+light_count,23475,7
+light_count,23477,1
+light_count,23908,124
+light_count,23909,124
+light_count,23914,1
+light_count,23918,252
+light_count,23919,127
+light_count,23952,36
+light_count,24101,592
+light_count,24102,592
+light_count,24106,51
+light_count,24558,1
+light_count,24559,1
+light_count,24565,350
+light_count,24567,1
+light_count,24622,1
+light_count,24710,18
+light_count,25100,54
+light_count,25101,36
+light_count,25120,1
+light_count,25121,27
+light_count,25122,24
+light_count,25161,1
+light_count,25187,1
+light_count,25256,19
+light_count,25257,19
+light_count,25278,1
+light_count,25335,28
+light_count,25381,28
+light_count,25644,2
+light_count,25645,4
+light_count,25646,1092
+light_count,25651,1
+light_count,25669,7
+light_count,25670,1
+light_count,25671,1
+light_count,25672,1
+light_count,25673,1
+light_count,25674,49
+light_count,25675,1
+light_count,25677,1
+light_count,25678,1
+light_count,25679,1
+light_count,25680,14
+light_count,25681,1
+light_count,25689,1
+light_count,25690,1
+light_count,25694,1
+light_count,25697,1
+light_count,25698,1
+light_count,25699,1
+light_count,25701,1
+light_count,25702,1
+light_count,25704,1
+light_count,25705,1
+light_count,25734,1
+light_count,25735,1
+light_count,25736,1
+light_count,25737,1
+light_count,25738,1
+light_count,25739,36
+light_count,25740,1
+light_count,25741,12
+light_count,25742,36
+light_count,25743,1
+light_count,25744,1
+light_count,25745,1
+light_count,25746,1
+light_count,25747,1
+light_count,25758,1
+light_count,25759,1
+light_count,25760,1
+light_count,25761,1
+light_count,25762,1
+light_count,25763,1
+light_count,25764,1
+light_count,25765,1
+light_count,25766,1
+light_count,25767,1
+light_count,25768,1
+light_count,25769,1
+light_count,25770,1
+light_count,25771,1
+light_count,25772,1
+light_count,25773,1
+light_count,25774,1
+light_count,25775,1
+light_count,25776,1
+light_count,25777,1
+light_count,25778,7
+light_count,25779,7
+light_count,25782,19
+light_count,25783,37
+light_count,25784,37
+light_count,25785,9
+light_count,25786,18
+light_count,25787,18
+light_count,25788,36
+light_count,25789,1
+light_count,25790,1
+light_count,25791,1
+light_count,25792,1
+light_count,25793,1
+light_count,25794,1
+light_count,25795,1
+light_count,25796,1
+light_count,25797,1
+light_count,25798,1
+light_count,25799,1
+light_count,25800,1
+light_count,25806,1
+light_count,25807,7
+light_count,25808,7
+light_count,25810,1
+light_count,25811,1
+light_count,25812,1
+light_count,25814,1
+light_count,25815,7
+light_count,25816,7
+light_count,25817,7
+light_count,25818,7
+light_count,25819,7
+light_count,25820,7
+light_count,25821,7
+light_count,26322,12
+light_count,26323,12
+light_count,26358,1
+light_count,29505,60
+light_count,29508,54
+light_count,29509,54
+light_count,29511,18
+light_count,29513,1
+light_count,29516,36
+light_count,29521,9
+light_count,29532,120
+light_count,29555,1
+light_count,29556,2
+light_count,29557,4
+light_count,29581,1
+light_count,29635,1
+light_count,29958,91
+light_count,40676,1
+light_count,40745,84
+light_count,40746,133
+light_count,40801,1
+light_count,40839,1
+light_count,40840,1
+light_count,40841,27
+light_count,40842,42
+light_count,40843,42
+light_count,40844,42
+light_count,40850,1
+light_count,40888,1
+light_count,40889,6
+light_count,40890,14
+light_count,41094,12
+light_count,41095,1
+light_count,41096,1
+light_count,41185,7
+light_count,41186,19
+light_count,41233,19
+light_count,41234,7
+light_count,41237,7
+light_count,41238,1
+light_count,41239,36
+light_count,41849,19
+light_count,41881,1
+light_count,42228,1
+light_count,43122,1
+light_count,43123,1
+light_count,43124,1
+light_count,43125,1
+light_count,43146,1
+light_count,44678,1
+light_count,50659,1
+light_count,50660,1
+light_count,50689,1
+light_count,50704,1
+light_count,50705,91
+light_count,50706,91
+light_count,50725,1
+light_count,50726,1
+light_count,50731,1
+light_count,50732,1
+light_count,50740,36
+light_count,51264,37
+light_count,51265,37
+light_count,51752,1
+light_count,51753,1
+light_count,52244,1
+light_count,52745,1
+light_count,52747,1
+light_count,52749,1
+light_count,52751,1
+light_count,53290,1
+light_count,53293,1
+light_count,53315,1
+light_count,53859,7
+light_count,55823,1
+light_count,55824,1
+light_count,56314,1
+light_count,57787,1
+light_count,74018,1
+light_count,74259,1
+light_count,74262,1
+light_count,74284,1
+light_count,74287,12
+light_count,74288,7
+light_count,74289,37
+light_count,74420,1
+light_count,74507,12
+light_count,74508,7
+light_count,74556,3
+light_count,74557,3
+light_count,74570,1
+light_count,74598,792
+light_count,74599,19
+light_count,74600,9
+light_count,74601,4
+light_count,74607,1
+light_count,74608,7
+light_count,74619,1
+light_count,74620,5
+light_count,74621,1
+light_count,74622,1
+light_count,74625,1
+light_count,74811,1
+light_count,74827,1
+light_count,74850,1
+light_count,74851,1
+light_count,74891,50
+light_count,75014,70
+light_count,75017,4096
+light_count,75018,25
+light_count,75029,4
+light_count,75030,1
+light_count,75031,6
+light_count,75032,12
+light_count,75033,7
+light_count,75034,6
+light_count,75052,1
+light_count,75100,1
+light_count,75101,1
+light_count,75102,9
+light_count,75338,1
+light_count,75339,9
+light_count,75403,1
+light_count,75520,1
+light_count,75533,1
+light_count,75534,1
+light_count,75535,1
+light_count,75563,75
+light_count,75565,1
+light_count,75566,1
+light_count,75665,1
+light_count,75741,8
+light_count,75816,7
+light_count,75817,36
+light_count,75818,1
+light_count,75819,1
+light_count,75822,9
+light_count,75835,12
+light_count,75836,7
+light_count,75837,1
+light_count,75838,19
+light_count,75868,12
+light_count,75869,5
+light_count,75880,12
+light_count,75881,5
+light_count,75998,1
+light_count,76380,1
+light_count,76381,1
+light_count,76395,18
+light_count,76455,75
+light_count,76631,18
+light_count,76843,109
+light_count,76844,75
+light_count,76962,1024
+light_count,76981,181
+light_count,77031,109
+light_count,77032,75
+light_count,78034,1
+light_count,78035,1
+light_count,78079,1
+light_count,78112,1
+light_count,78118,1
+light_count,78120,1
+light_count,78125,37
+light_count,78126,37
+light_count,78127,19
+light_count,78129,36
+light_count,78130,9
+light_count,78132,1
+light_count,78133,1
+light_count,78134,1
+light_count,78135,1
+light_count,78136,4
+light_count,78137,8
+light_count,78138,1
+light_count,78147,1
+light_count,78149,1
+light_count,78150,1
+light_count,78151,37
+light_count,78152,19
+light_count,78153,1
+light_count,78154,1
+light_count,78155,1
+light_count,78156,1
+light_count,78157,1
+light_count,78158,1
+light_count,78165,7
+light_count,78166,6
+light_count,78327,1
+light_count,78328,1
+light_count,78329,1
+light_count,78343,6
+light_count,78344,12
+light_count,78345,12
+light_count,78346,24
+light_count,78347,24
+light_count,78355,7
+light_count,78364,7
+light_count,78385,19
+light_count,78386,25
+light_count,78387,601
+light_count,78408,24
+light_count,78409,18
+light_count,78410,24
+light_count,78412,9
+light_count,78414,5
+light_count,78416,9
+light_count,78417,18
+light_count,78419,6
+light_count,78420,12
+light_count,78422,18
+light_count,78423,7
+light_count,78424,24
+light_count,78470,44
+light_count,78471,44
+light_count,78472,960
+light_count,78480,7
+light_count,78481,6
+light_count,78482,240
+light_count,93783,10
+light_count,93784,7
+light_count,93791,1
+light_count,93792,1
+light_count,93918,60
+light_count,93919,18
+light_count,93920,18
+light_count,93921,18
+light_count,93922,24
+light_count,93923,24
+light_count,93929,24
+light_count,93932,1
+light_count,93933,11
+light_count,93934,13
+light_count,93936,6
+light_count,94058,1
+light_count,94401,4096
+light_count,94405,256
+light_count,94406,64
+light_count,94408,8
+light_count,94409,24
+light_count,94410,48
+light_count,94411,203
+light_count,94419,69
+light_count,94420,1
+light_count,94421,5
+light_count,94422,5
+light_count,94423,19
+light_count,94425,1
+light_count,94426,1
+light_count,94427,1
+light_count,94436,8
+light_count,94442,1
+light_count,94601,180
+light_count,94602,20
+light_count,94603,18
+light_count,94604,1296
+light_count,94605,5
+light_count,95498,19
+light_count,95523,1
+light_count,95981,36
+light_count,96133,42
+light_count,96139,1
+light_count,96140,1
+light_count,96141,1
+light_count,96142,1
+light_count,96306,9
+light_count,102425,1
+light_count,108564,18
+light_count,108570,6
+light_count,108575,1
+light_count,108576,24
+light_count,108577,24
+light_count,108578,2
+light_count,108579,18
+light_count,108583,1
+light_count,108584,24
+light_count,108585,32
+light_count,108586,24
+light_count,108587,24
+light_count,108588,1
+light_count,108589,5
+light_count,108590,5
+light_count,108592,5
+light_count,108593,16
+light_count,108596,1
+light_count,108597,1
+light_count,108600,18
+light_count,108601,18
+light_count,108605,19
+light_count,108606,1
+light_count,108607,9
+light_count,108608,48
+light_count,108609,75
+light_count,108610,18
+light_count,108611,18
+light_count,108612,18
+light_count,108613,18
+light_count,108614,1
+light_count,108615,54
+light_count,108616,24
+light_count,108617,1
+light_count,108619,20
+light_count,108622,4
+light_count,108623,1
+light_count,108624,1
+light_count,108625,1
+light_count,108626,1
+light_count,108627,1
+light_count,108628,1
+light_count,108635,1
+light_count,108715,960
+light_count,108735,1
+light_count,108736,1
+light_count,108737,1
+light_count,108738,1
+light_count,108741,1
+light_count,108742,1
+light_count,108743,1
+light_count,108744,1
+light_count,108750,1
+light_count,108751,1
+light_count,108752,1
+light_count,108753,1
+light_count,108754,1
+light_count,108755,1
+light_count,108756,1
+light_count,108757,1
+light_count,108758,1
+light_count,108759,1
+light_count,108766,1
+light_count,115457,7
+light_count,140108,1
+light_count,146876,1
+light_count,148024,1
+light_count,148025,19
+light_count,148027,7
+light_count,148028,10
+light_count,148029,1
+light_count,148030,1
+light_count,148031,1
+light_count,148032,1
+light_count,148033,1
+light_count,148034,1
+light_count,148035,1
+light_count,148036,1
+light_count,148037,1
+light_count,148038,1
+light_count,148039,1
+light_count,148040,1
+light_count,148041,1
+light_count,148042,1
+light_count,148043,1
+light_count,148044,1
+light_count,148045,1
+light_count,148046,1
+light_count,148047,1
+light_count,148048,1
+light_count,148049,1
+light_count,148050,1
+light_count,148051,1
+light_count,148052,1
+light_count,148053,1
+light_count,148054,1
+light_count,159475,96
+light_count,159476,144
+light_count,168235,1
+light_count,168838,1
+light_count,168839,1
+light_count,168840,1
+light_count,168841,1
+light_count,168842,1
+light_count,168843,1
+light_count,168844,1
+light_count,168845,1
+light_count,168846,1
+light_count,169447,252
+light_count,178077,9
+light_count,178078,24
+light_count,178079,12
+light_count,178080,74
+light_count,178081,624
+light_count,178082,7
+light_count,197351,1
+light_count,197352,1
+light_count,197355,42
+light_count,197356,42
+light_count,197358,4
+light_count,197359,1
+light_count,197360,1
+light_count,201043,1
+light_count,202879,1
+light_count,203203,1
+light_count,203204,1
+light_count,203205,19
+light_count,203206,1
+light_count,203207,1
+light_count,203209,9
+light_count,203852,18
+light_count,203853,54
+light_count,203953,177
+light_count,203954,4
+light_count,204374,1
+light_count,204375,18
+light_count,204379,37
+light_count,204778,1
+light_count,204779,42
+light_count,204781,42
+light_count,204786,1
+light_count,211994,6
+light_count,212317,1
+light_count,212318,1
+light_count,212319,1
+light_count,212320,1
+light_count,212321,1
+light_count,212322,1
+light_count,212323,1
+light_count,212324,1
+light_count,212869,1
+light_count,212870,7
+light_count,212871,7
+light_count,212992,19
+light_count,212993,19
+light_count,212994,1
+light_count,212995,1
+light_count,212996,1
+light_count,212997,12
+light_count,213036,1
+light_count,213037,1
+light_count,213038,1
+light_count,213039,1
+light_count,213040,1
+light_count,213041,1
+light_count,213042,217
+light_count,213164,1
+light_count,213485,1
+light_count,213820,7
+light_count,213822,1
+light_count,213823,1
+light_count,213897,1
+light_count,213998,1
+light_count,213999,1
+light_count,214000,1
+light_count,214001,1
+light_count,214002,1
+light_count,214005,1
+light_count,214047,1
+light_count,215495,1
+light_count,215634,19
+light_count,215635,19
+light_count,215674,37
+light_count,215677,37
+light_count,215714,91
+light_count,215750,40
+light_count,215785,1
+light_count,215786,1
+light_count,216184,130
+light_count,216243,1
+light_count,216274,42
+light_count,216423,600
+light_count,216434,1
+light_count,216435,1
+light_count,216436,1
+light_count,216437,1
+light_count,216438,1
+light_count,216439,1
+light_count,216441,1
+light_count,216479,1
+light_count,216480,1
+light_count,216482,1
+light_count,216483,1
+light_count,216691,7
+light_count,216692,32
+light_count,216693,17
+light_count,216694,7
+light_count,216695,7
+light_count,216704,1
+light_count,216705,1
+light_count,216720,1
+light_count,216731,1
+light_count,216733,1
+light_count,216734,14
+light_count,216736,1
+light_count,216737,1
+light_count,216738,1
+light_count,216741,1
+light_count,216743,14
+light_count,216744,1
+light_count,216745,1
+light_count,216746,61
+light_count,216913,1
+light_count,216914,1
+light_count,216915,1
+light_count,216916,1
+light_count,216920,1
+light_count,216926,1
+light_count,216930,1
+light_count,216950,16
+light_count,216951,8
+light_count,216952,16
+light_count,217009,1
+light_count,217010,24
+light_count,217011,12
+light_count,217013,1
+light_count,217014,16
+light_count,217015,8
+light_count,217016,1
+light_count,217072,1
+light_count,217073,1
+light_count,217075,1
+light_count,217103,1
+light_count,217174,1
+light_count,217175,1
+light_count,217203,1
+light_count,217204,1
+light_count,217205,1
+light_count,217206,1
+light_count,217207,1
+light_count,217209,5
+light_count,217210,1
+light_count,217213,1
+light_count,217214,1
+light_count,217215,1
+light_count,217216,1
+light_count,217218,1
+light_count,217219,1
+light_count,217220,1
+light_count,217221,1
+light_count,217222,1
+light_count,217223,14
+light_count,217224,1
+light_count,217225,1
+light_count,217229,1
+light_count,217230,1
+light_count,217231,1
+light_count,217232,1
+light_count,217233,1
+light_count,217234,1
+light_count,217235,1
+light_count,217237,1
+light_count,217239,1
+light_count,217240,1
+light_count,217241,1
+light_count,217243,1
+light_count,217244,1
+light_count,217246,1
+light_count,217248,1
+light_count,217249,1
+light_count,217251,1
+light_count,217253,1
+light_count,217254,1
+light_count,217255,1
+light_count,217256,1
+light_count,217258,1
+light_count,217259,1
+light_count,217260,1
+light_count,217261,1
+light_count,217263,1
+light_count,217282,64
+light_count,217285,2
+light_count,217286,1
+light_count,217287,18
+light_count,217288,1
+light_count,217290,5
+light_count,217291,1
+light_count,217293,2
+light_count,217294,3
+light_count,217295,1
+light_count,217319,1
+light_count,217642,1
+light_count,217643,1
+light_count,217644,1
+light_count,217649,1
+light_count,217650,1
+light_count,217651,1
+light_count,217652,1
+light_count,217654,1
+light_count,217655,1
+light_count,217656,1
+light_count,217668,12
+light_count,217768,10
+light_count,217770,336
+light_count,217771,12
+light_count,217786,14
+light_count,217787,14
+light_count,217788,1
+light_count,217789,1
+light_count,217791,7
+light_count,217842,1
+light_count,217846,54
+light_count,217847,16
+light_count,217852,1
+light_count,217879,7
+light_count,217880,7
+light_count,217881,7
+light_count,217882,19
+light_count,217883,19
+light_count,217884,19
+light_count,217885,37
+light_count,217886,37
+light_count,217887,37
+light_count,217888,61
+light_count,217889,61
+light_count,217890,61
+light_count,217891,91
+light_count,217892,91
+light_count,217893,91
+light_count,217926,1
+light_count,217927,1
+light_count,217928,6
+light_count,217935,9
+light_count,217936,9
+light_count,217937,9
+light_count,217938,1
+light_count,217939,1
+light_count,217940,1
+light_count,217941,18
+light_count,217942,1
+light_count,217943,27
+light_count,217944,1
+light_count,217945,1
+light_count,217946,36
+light_count,217947,1
+light_count,217948,1
+light_count,217949,1
+light_count,217950,1
+light_count,217951,1
+light_count,217952,1
+light_count,217953,1
+light_count,217954,1
+light_count,217955,1
+light_count,217956,1
+light_count,217957,1
+light_count,217958,1
+light_count,217959,1
+light_count,217960,1
+light_count,217961,1
+light_count,217962,1
+light_count,217963,1
+light_count,217964,1
+light_count,217965,1
+light_count,217994,1
+light_count,217995,1
+light_count,218029,1
+light_count,218030,1
+light_count,218031,1
+light_count,218047,1
+light_count,218048,1
+light_count,218067,1
+light_count,218068,37
+light_count,218069,37
+light_count,218070,1
+light_count,218071,37
+light_count,218072,1
+light_count,218073,1
+light_count,218074,1
+light_count,218075,1
+light_count,218076,1
+light_count,218077,7
+light_count,218078,1
+light_count,218079,7
+light_count,218080,1
+light_count,218081,1
+light_count,218082,1
+light_count,218083,1
+light_count,218084,1
+light_count,218085,1
+light_count,218086,10
+light_count,218087,37
+light_count,218088,19
+light_count,218089,37
+light_count,218090,19
+light_count,218091,1
+light_count,218092,1
+light_count,218093,1
+light_count,218095,1
+light_count,218096,1
+light_count,218097,1
+light_count,218133,18
+light_count,218134,36
+light_count,218135,75
+light_count,218136,90
+light_count,218137,138
+light_count,218138,90
+light_count,218139,138
+light_count,218140,18
+light_count,218141,18
+light_count,218142,36
+light_count,218143,36
+light_count,218144,75
+light_count,218145,75
+light_count,218146,90
+light_count,218147,90
+light_count,218148,138
+light_count,218149,138
+light_count,218150,90
+light_count,218151,90
+light_count,218152,138
+light_count,218153,138
+light_count,218154,1
+light_count,218155,3
+light_count,218156,1
+light_count,218157,7
+light_count,218158,1
+light_count,218159,1
+light_count,218294,1
+light_count,218414,1
+light_count,218415,1
+light_count,218416,1
+light_count,218417,1
+light_count,218418,1
+light_count,218419,1
+light_count,218420,1
+light_count,218436,1
+light_count,218437,1
+light_count,218482,1
+light_count,218483,1
+light_count,218485,1
+light_count,218581,1
+light_count,218582,1
+light_count,218583,1
+light_count,218593,1
+light_count,218607,1
+light_count,218608,1
+light_count,218610,1
+light_count,218640,1
+light_count,218641,1
+light_count,218642,1
+light_count,218643,1
+light_count,218644,1
+light_count,218698,12
+light_count,218699,12
+light_count,218700,12
+light_count,218701,12
+light_count,218702,3
+light_count,218703,3
+light_count,218734,1
+light_count,218735,1
+light_count,218738,1
+light_count,218739,1
+light_count,218810,1
+light_count,218811,1
+light_count,218812,1
+light_count,218813,144
+light_count,218814,12
+light_count,218815,4
+light_count,218816,9
+light_count,218817,12
+light_count,218818,1
+light_count,218831,1
+light_count,218832,1
+light_count,218833,1
+light_count,218834,1
+light_count,218835,1
+light_count,218836,1
+light_count,218837,1
+light_count,218838,1
+light_count,218839,23
+light_count,218840,1
+light_count,218841,1
+light_count,218842,1
+light_count,218844,7
+light_count,218845,19
+light_count,218846,19
+light_count,218847,12
+light_count,218848,18
+light_count,218849,12
+light_count,218850,7
+light_count,218851,1
+light_count,218852,1
+light_count,218853,6
+light_count,218854,19
+light_count,218855,28
+light_count,218856,18
+light_count,218857,7
+light_count,218858,1
+light_count,218859,19
+light_count,218860,18
+light_count,218861,12
+light_count,218862,6
+light_count,218863,12
+light_count,218883,24
+light_count,218892,1
+light_count,218932,19
+light_count,218961,12
+light_count,218973,1
+light_count,218974,1
+light_count,218975,1
+light_count,218976,1
+light_count,218977,1
+light_count,218978,1
+light_count,218979,1
+light_count,218980,1
+light_count,218981,1
+light_count,218982,37
+light_count,218983,7
+light_count,218984,3
+light_count,218985,6
+light_count,218986,1
+light_count,218987,5
+light_count,218988,6
+light_count,218989,1
+light_count,218990,6
+light_count,218991,1
+light_count,218992,7
+light_count,218993,7
+light_count,218994,1
+light_count,218995,60
+light_count,218996,1
+light_count,218997,28
+light_count,218998,4
+light_count,218999,1
+light_count,219000,1
+light_count,219001,1
+light_count,219002,1
+light_count,219003,1
+light_count,219004,1
+light_count,219005,1
+light_count,219006,1
+light_count,219007,1
+light_count,219008,1
+light_count,219009,7
+light_count,219010,12
+light_count,219011,1
+light_count,219012,1
+light_count,219013,1
+light_count,219014,1
+light_count,219015,1
+light_count,219016,1
+light_count,219017,1
+light_count,219018,1
+light_count,219019,1
+light_count,219054,1024
+light_count,219056,4
+light_count,219057,2
+light_count,219137,1
+light_count,219138,1
+light_count,219166,1
+light_count,219183,880
+light_count,219187,75
+light_count,219188,75
+light_count,219189,18
+light_count,219190,75
+light_count,219191,18
+light_count,219192,18
+light_count,219193,138
+light_count,219194,27
+light_count,219195,138
+light_count,219196,42
+light_count,219197,138
+light_count,219198,276
+light_count,219199,276
+light_count,219200,84
+light_count,219201,276
+light_count,219202,1
+light_count,219203,90
+light_count,219204,1
+light_count,219205,90
+light_count,219206,1
+light_count,219207,1
+light_count,219208,90
+light_count,219209,1
+light_count,219210,36
+light_count,219211,1
+light_count,219212,18
+light_count,219213,1
+light_count,219214,1
+light_count,219215,36
+light_count,219216,36
+light_count,219217,18
+light_count,219218,18
+light_count,219219,1
+light_count,219220,1
+light_count,219221,7
+light_count,219222,1
+light_count,219223,91
+light_count,219224,2
+light_count,219225,7
+light_count,219226,7
+light_count,219227,19
+light_count,219228,91
+light_count,219229,5
+light_count,219230,20
+light_count,219232,91
+light_count,219233,19
+light_count,219234,61
+light_count,219235,61
+light_count,219236,14
+light_count,219237,19
+light_count,219238,61
+light_count,219239,37
+light_count,219240,37
+light_count,219241,37
+light_count,219242,9
+light_count,219243,4
+light_count,219244,9
+light_count,219245,1
+light_count,219246,1
+light_count,219247,1
+light_count,219248,1
+light_count,219250,1
+light_count,219251,1
+light_count,219252,1
+light_count,219253,1
+light_count,219254,1
+light_count,219255,7
+light_count,219256,7
+light_count,219257,1
+light_count,219258,1
+light_count,219259,1
+light_count,219260,1
+light_count,219261,1
+light_count,219262,19
+light_count,219263,1
+light_count,219264,1
+light_count,219265,220
+light_count,219266,324
+light_count,219305,1
+light_count,219306,1
+light_count,219316,1
+light_count,219317,1
+light_count,219318,1
+light_count,219367,1
+light_count,219368,1
+light_count,219370,1
+light_count,219371,1
+light_count,219372,1
+light_count,219394,1
+light_count,219397,1
+light_count,219399,1
+light_count,219400,1
+light_count,219401,1
+light_count,219402,1
+light_count,219403,1
+light_count,219405,1
+light_count,219406,1
+light_count,219410,1
+light_count,219411,1
+light_count,219412,1
+light_count,219413,1
+light_count,219415,1
+light_count,219416,1
+light_count,219417,1
+light_count,219418,1
+light_count,219419,1
+light_count,219447,1
+light_count,219448,1
+light_count,219449,1
+light_count,219466,1
+light_count,219474,1
+light_count,219475,19
+light_count,219492,1
+light_count,219493,19
+light_count,219539,18
+light_count,219542,28
+light_count,219544,4
+light_count,219545,7
+light_count,219546,7
+light_count,219549,4
+light_count,219552,1
+light_count,219562,1
+light_count,219563,1
+light_count,219564,1
+light_count,219565,12
+light_count,219568,28
+light_count,219569,7
+light_count,221172,1
+light_count,221173,1
+light_count,221790,3
+light_count,221923,1
+light_count,221924,3
+light_count,221925,10
+light_count,221926,10
+light_count,221927,10
+light_count,222046,1
+light_count,222047,1
+light_count,222055,18
+light_count,222083,1
+light_count,222084,90
+light_count,223672,1
+light_count,223673,1
+light_count,223674,1
+light_count,223675,7
+light_count,223676,7
+light_count,223677,1
+light_count,223678,1
+light_count,223679,1
+light_count,223680,6
+light_count,223682,18
+light_count,223684,1
+light_count,223685,1
+light_count,223686,1
+light_count,223687,1
+light_count,223688,1
+light_count,223689,1
+light_count,223690,19
+light_count,223691,14
+light_count,223692,80
+light_count,223693,40
+light_count,224041,1
+light_count,224042,1
+light_count,224043,1
+light_count,224044,1
+light_count,224045,1
+light_count,224046,1
+light_count,224047,1
+light_count,224048,1
+light_count,224049,1
+light_count,224050,1
+light_count,224051,1
+light_count,224096,1
+light_count,224097,1
+light_count,224098,1
+light_count,224099,1
+light_count,224100,1
+light_count,224101,1
+light_count,224102,1
+light_count,224103,1
+light_count,224104,1
+light_count,224105,1
+light_count,224106,1
+light_count,225173,10
+light_count,225337,1
+light_count,225338,1
+light_count,225341,1
+light_count,225435,2
+light_count,225488,160
+light_count,225489,320
+light_count,225595,16
+light_count,226571,30
+light_count,226572,7
+light_count,226573,19
+light_count,226574,7
+light_count,226575,3
+light_count,226576,7
+light_count,226583,408
+light_count,226709,1
+light_count,226710,1
+light_count,226757,1
+light_count,226771,1
+light_count,226772,1
+light_count,226773,1
+light_count,226774,1
+light_count,226775,1
+light_count,226776,1
+light_count,226782,1
+light_count,226798,1
+light_count,226799,1
+light_count,226800,1
+light_count,226801,1
+light_count,226802,1
+light_count,226803,1
+light_count,226804,1
+light_count,226810,1
+light_count,226811,1
+light_count,226812,1
+light_count,226813,1
+light_count,226814,1
+light_count,226815,1
+light_count,226816,1
+light_count,226824,1
+light_count,226825,1
+light_count,226826,1
+light_count,226827,1
+light_count,226828,1
+light_count,226829,1
+light_count,226830,1
+light_count,226831,1
+light_count,226832,1
+light_count,226833,1
+light_count,227045,12
+light_count,228211,298
+light_count,228212,12
+light_count,228213,125
+light_count,230113,1
+light_count,230821,84
+light_count,231079,1
+light_count,231687,16
+light_count,231690,5
+light_count,231691,1
+light_count,231692,1
+light_count,231693,1
+light_count,231694,1
+light_count,231696,1
+light_count,231743,6
+light_count,231744,1000
+light_count,231745,96
+light_count,231746,20
+light_count,231747,896
+light_count,231748,178
+light_count,231749,10
+light_count,231981,12
+light_count,232205,624
+light_count,232208,624
+light_count,232209,624
+light_count,232210,712
+light_count,232724,1
+light_count,232980,1
+light_count,233029,1
+light_count,233030,1
+light_count,233209,15
+light_count,233612,24
+light_count,233907,7
+light_count,233908,19
+light_count,233909,1
+light_count,233910,1
+light_count,233951,1
+light_count,233952,1
+light_count,233953,1
+light_count,233954,1
+light_count,233955,1
+light_count,233956,1
+light_count,233957,1
+light_count,233958,1
+light_count,233962,1
+light_count,233964,1
+light_count,233965,16
+light_count,233977,1
+light_count,233978,1
+light_count,233979,1
+light_count,233980,1
+light_count,233981,1
+light_count,233982,1
+light_count,233983,1
+light_count,233984,1
+light_count,233985,1
+light_count,233986,1
+light_count,233987,1
+light_count,233988,1
+light_count,233989,1
+light_count,233990,1
+light_count,233991,1
+light_count,233993,7
+light_count,233995,12
+light_count,233998,1
+light_count,233999,1
+light_count,234000,1
+light_count,234004,54
+light_count,234009,1
+light_count,234173,1
+light_count,234175,1
+light_count,234176,1
+light_count,234178,1
+light_count,234179,1
+light_count,234180,91
+light_count,234181,91
+light_count,234182,1
+light_count,234183,1
+light_count,234184,1
+light_count,234227,1
+light_count,234228,1
+light_count,234229,1
+light_count,234230,1
+light_count,234231,1
+light_count,234232,1
+light_count,234233,1
+light_count,234365,1
+light_count,234366,1
+light_count,234375,1
+light_count,234855,1
+light_count,234856,1
+light_count,234861,60
+light_count,234872,1
+light_count,234873,1
+light_count,234959,60
+light_count,234960,60
+light_count,235005,1
+light_count,235047,12
+light_count,235048,744
+light_count,235107,1
+light_count,235224,1
+light_count,235356,1
+light_count,236328,16
+light_count,236685,1
+light_count,236981,1
+light_count,236982,1
+light_count,237607,1
+light_count,237608,1
+light_count,237609,1
+light_count,237610,1
+light_count,237611,1
+light_count,237612,1
+light_count,237614,1
+light_count,237615,1
+light_count,237616,1
+light_count,237617,1
+light_count,237666,24
+light_count,237672,44
+light_count,237894,1
+light_count,238600,37
+light_count,238948,1
+light_count,238949,1
+light_count,238950,1
+light_count,238951,1
+light_count,239123,3
+light_count,239251,1
+light_count,239757,1
+light_count,239758,7
+light_count,239942,1
+light_count,240527,1
+light_count,240528,1
+light_count,240820,19
+light_count,240825,91
+light_count,241275,7
+light_count,241292,1
+light_count,241293,1
+light_count,241294,1
+light_count,241295,35
+light_count,241296,1
+light_count,241297,7
+light_count,241298,42
+light_count,241529,1
+light_count,243913,4
+light_count,243975,1
+light_count,243976,1
+light_count,243978,1
+light_count,243980,1
+light_count,244023,37
+light_count,244446,19
+light_count,244539,1
+light_count,244540,1
+light_count,244541,1
+light_count,244544,1
+light_count,244545,1
+light_count,244546,1
+light_count,244547,1
+light_count,244548,1
+light_count,244549,1
+light_count,244550,1
+light_count,244811,19
+light_count,244812,43
+light_count,244813,7
+light_count,244814,19
+light_count,244815,19
+light_count,244816,19
+light_count,244817,19
+light_count,244818,1
+light_count,244819,1440
+light_count,244998,2
+light_count,245255,2
+light_count,245380,1
+light_count,246525,288
+light_count,246526,18
+light_count,246527,25
+light_count,246528,6
+light_count,246531,15
+light_count,246532,24
+light_count,246533,48
+light_count,246534,15
+light_count,246535,18
+light_count,246536,16
+light_count,246537,9
+light_count,246538,18
+light_count,246539,24
+light_count,246540,85
+light_count,246541,5
+light_count,246542,36
+light_count,246543,24
+light_count,246544,1
+light_count,246545,24
+light_count,246547,1
+light_count,246549,1
+light_count,246550,60
+light_count,246551,109
+light_count,246553,12
+light_count,246554,1
+light_count,246555,1
+light_count,246556,1
+light_count,246557,1
+light_count,246558,1
+light_count,246559,8
+light_count,246609,72
+light_count,246610,7
+light_count,246611,1
+light_count,246612,1
+light_count,246613,1
+light_count,246614,1
+light_count,246615,1
+light_count,246616,1
+light_count,246617,7
+light_count,246618,7
+light_count,246619,7
+light_count,246620,7
+light_count,246621,1
+light_count,246623,1
+light_count,246624,1
+light_count,246625,1
+light_count,246626,7
+light_count,246627,1
+light_count,246628,7
+light_count,246629,1
+light_count,252619,1
+light_count,252635,1
+light_count,252637,1
+light_count,252638,1
+light_count,252655,1
+light_count,252696,1
+light_count,252697,7
+light_count,252698,1
+light_count,252700,200
+light_count,252701,1
+light_count,252726,1
+light_count,256930,1
+light_count,256952,350
+light_count,257024,1
+light_count,257025,1
+light_count,257026,19
+light_count,257178,1
+light_count,257213,9
+light_count,257307,19
+light_count,260622,1
+light_count,260623,96
+light_count,260664,91
+light_count,260665,1
+light_count,260842,1
+light_count,260844,1
+light_count,260847,1
+light_count,260852,1
+light_count,260853,1
+light_count,260854,18
+light_count,260889,1
+light_count,260890,7
+light_count,260891,16
+light_count,260892,1
+light_count,260893,1
+light_count,260894,1
+light_count,260895,1
+light_count,260918,350
+light_count,260924,350
+light_count,260925,7
+light_count,260929,1
+light_count,260930,24
+light_count,260933,18
+light_count,260934,24
+light_count,260935,48
+light_count,260936,1
+light_count,260937,44
+light_count,260938,48
+light_count,260941,18
+light_count,260946,7
+light_count,260947,1
+light_count,260949,7
+light_count,260950,18
+light_count,260952,7
+light_count,260953,1
+light_count,260955,1
+light_count,260956,91
+light_count,260959,192
+light_count,260960,1
+light_count,260962,1
+light_count,260963,180
+light_count,260964,1
+light_count,260965,97
+light_count,260966,1
+light_count,260967,7
+light_count,260968,1
+light_count,260969,6
+light_count,260970,1
+light_count,260971,51
+light_count,260972,1
+light_count,260973,576
+light_count,260974,1
+light_count,260975,576
+light_count,260977,1
+light_count,260981,1
+light_count,260984,1
+light_count,260986,1
+light_count,260987,1
+light_count,260989,1
+light_count,260990,4
+light_count,260991,25
+light_count,260993,7
+light_count,260994,1
+light_count,260996,1
+light_count,260997,1
+light_count,260999,1
+light_count,261006,2000
+light_count,261007,1
+light_count,261009,18
+light_count,261010,864
+light_count,261011,432
+light_count,261012,1
+light_count,261015,7
+light_count,261016,5
+light_count,261017,1
+light_count,261018,1
+light_count,267978,144
+light_count,267979,64
+light_count,268084,1
+light_count,268085,1
+light_count,272773,1
+light_count,272790,1
+light_count,272791,1
+light_count,272792,1
+light_count,272926,1
