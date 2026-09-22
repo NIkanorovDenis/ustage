@@ -13,7 +13,7 @@
 	<div class="cooment-header">
  <small class="text-muted">для заказов</small>
 	</div>
- <a class="phone-email" href="mailto:office@ustage-group.ru "><small><i class="fa fa-envelope"></i>office@ustage-group.ru </small></a>
+ <a class="phone-email" href="mailto:office@ustage-group.ru"><small><i class="fa fa-envelope"></i>office@ustage-group.ru</small></a>
 	<div class="cooment-header">
  <small class="text-muted">для общих вопросов</small>
 	</div>

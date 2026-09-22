@@ -91,7 +91,7 @@ $APPLICATION->SetTitle("Наши контакты");
 		 Эл. почта:<br>
 	</td>
 	<td>
- <a href="mailto:mail@linksoneone.com" target="_blank">office@ustage-group.ru</a><br>
+ <a href="mailto:office@ustage-group.ru">office@ustage-group.ru</a><br>
 	</td>
 </tr>
 <tr>

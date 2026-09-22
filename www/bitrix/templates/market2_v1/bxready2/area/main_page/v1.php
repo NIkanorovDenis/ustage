@@ -119,6 +119,11 @@
 			0 => "SIZE",
 			1 => "COLOR",
 		),
+		"PRODUCT_DISPLAY_MODE" => "Y",
+		"OFFER_TREE_PROPS" => array(
+			0 => "SIZE",
+			1 => "COLOR",
+		),
 		"ELEMENT_SORT_FIELD" => "sort",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"PAGE_ELEMENT_COUNT" => "10",
@@ -329,6 +334,11 @@
 		"IBLOCK_TYPE" => "catalog_new",
 		"IBLOCK_ID" => "32",
 		"OFFERS_PROPERTY_CODE" => [
+			0 => "SIZE",
+			1 => "COLOR",
+		],
+		"PRODUCT_DISPLAY_MODE" => "Y",
+		"OFFER_TREE_PROPS" => [
 			0 => "SIZE",
 			1 => "COLOR",
 		],
