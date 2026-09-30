@@ -63,7 +63,32 @@ class Imlight {
 						false, 
 						['ID', 'NAME', 'ACTIVE', 'IBLOCK_ID', 'PROPERTY_UPLOADED_FROM_PAGE', 'PROPERTY_PRICE_FROZEN']
 					);*/
-					$num = $obElement->SelectedRowsCount();
+					$articleNode = $html->find('.product-interaction ._date', 0);
+					$article = $articleNode && $articleNode->last_child()
+						? trim(str_replace('Артикул: ', '', $articleNode->last_child()->innertext))
+						: '';
+
+					if (!$arItem && $article !== '') {
+						$arItem = CIBlockElement::GetList(
+							['ID' => 'ASC'],
+							[
+								'IBLOCK_ID' => static::$iblockID,
+								'SECTION_ID' => static::$sectionID,
+								'INCLUDE_SUBSECTIONS' => 'Y',
+								'PROPERTY_CML2_ARTICLE' => $article,
+							],
+							false,
+							['nTopCount' => 1],
+							['ID', 'NAME', 'ACTIVE', 'IBLOCK_ID', 'PROPERTY_UPLOADED_FROM_PAGE', 'PROPERTY_PRICE_FROZEN']
+						)->Fetch();
+					}
+
+					$num = $arItem ? 1 : 0;
+					if ($arItem && $arItem['PROPERTY_UPLOADED_FROM_PAGE_VALUE'] !== $arLink['loc']) {
+						CIBlockElement::SetPropertyValuesEx(
+							$arItem['ID'], static::$iblockID, ['UPLOADED_FROM_PAGE' => $arLink['loc']]
+						);
+					}
 					$name = trim(strip_tags( $html->find('.product_name_title', 0)->plaintext ));
 					$name2 = trim(strip_tags( $html->find('.product-specifications__right_block div[umi:field-name="short_description"]', 0)->plaintext ));
 					$detailText = $html->find('#description div[umi:field-name="description"]', 0)->innertext;
