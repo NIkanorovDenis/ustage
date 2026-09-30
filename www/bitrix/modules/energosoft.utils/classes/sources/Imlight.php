@@ -237,6 +237,26 @@ class Imlight {
 			
 		}	
 
+		// The Excel import used this deleted technical page as a placeholder.
+		// Keep real product URLs restored above and remove the placeholder from
+		// discontinued products for which Imlight no longer publishes a page.
+		$invalidSourceUrl = 'https://www.imlight.ru/check-url-from-site/';
+		$invalidLinks = CIBlockElement::GetList(
+			['ID' => 'ASC'],
+			[
+				'IBLOCK_ID' => static::$iblockID,
+				'SECTION_ID' => static::$sectionID,
+				'INCLUDE_SUBSECTIONS' => 'Y',
+				'PROPERTY_UPLOADED_FROM_PAGE' => $invalidSourceUrl,
+			],
+			false,
+			false,
+			['ID']
+		);
+		while ($invalidItem = $invalidLinks->Fetch()) {
+			CIBlockElement::SetPropertyValuesEx($invalidItem['ID'], static::$iblockID, ['UPLOADED_FROM_PAGE' => false]);
+		}
+
 		if (!empty($errorStatusElements)) {
 			
             ESUtils::SaveOption("errors-page", array(
