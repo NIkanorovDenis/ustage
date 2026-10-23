@@ -70,7 +70,11 @@
 				}
 				else
 				{
-					this.container.appendChild(this.showMoreContainer || this.showMoreButton);
+					var showMoreNode = this.showMoreContainer || this.showMoreButton;
+					if (this.container.parentNode && showMoreNode)
+					{
+						this.container.parentNode.insertBefore(showMoreNode, this.container.nextSibling);
+					}
 				}
 			}
 		},
