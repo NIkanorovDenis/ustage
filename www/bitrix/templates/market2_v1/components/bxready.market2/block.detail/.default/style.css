@@ -436,6 +436,17 @@
 }
 .products_staty{
     margin: 40px 0;
+    width: 100%;
+    min-width: 0;
+}
+.products_staty__list{
+    width: 100%;
+    min-width: 0;
+}
+.products_staty__list .bxr-slick-section,
+.products_staty__list .slick-list{
+    width: 100%;
+    min-width: 0;
 }
 /*-----------*/
 

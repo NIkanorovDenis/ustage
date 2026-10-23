@@ -24,6 +24,7 @@
 		this.bigData = params.bigData || {enabled: false};
 		this.container = document.querySelector('[data-entity="container-' + this.navParams.NavNum + '"]');
 		this.showMoreButton = null;
+		this.showMoreContainer = null;
 		this.showMoreButtonMessage = null;
 
 		if (this.bigData.enabled && BX.util.object_keys(this.bigData.rows).length > 0)
@@ -43,8 +44,12 @@
 		if (params.lazyLoad)
 		{
 			this.showMoreButton = document.querySelector('[data-use="show-more-' + this.navParams.NavNum + '"]');
-			this.showMoreButtonMessage = this.showMoreButton.innerHTML;
-			BX.bind(this.showMoreButton, 'click', BX.proxy(this.showMore, this));
+			if (this.showMoreButton)
+			{
+				this.showMoreContainer = this.showMoreButton.parentNode;
+				this.showMoreButtonMessage = this.showMoreButton.innerHTML;
+				BX.bind(this.showMoreButton, 'click', BX.proxy(this.showMore, this));
+			}
 		}
 
 		if (params.loadOnScroll)
@@ -61,11 +66,15 @@
 			{
 				if (this.navParams.NavPageNomer == this.navParams.NavPageCount)
 				{
-					BX.remove(this.showMoreButton);
+					BX.remove(this.showMoreContainer || this.showMoreButton);
 				}
 				else
 				{
-					this.container.appendChild(this.showMoreButton);
+					var showMoreNode = this.showMoreContainer || this.showMoreButton;
+					if (this.container.parentNode && showMoreNode)
+					{
+						this.container.parentNode.insertBefore(showMoreNode, this.container.nextSibling);
+					}
 				}
 			}
 		},
