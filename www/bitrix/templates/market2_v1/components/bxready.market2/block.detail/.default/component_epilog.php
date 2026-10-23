@@ -16,7 +16,7 @@ Loc::loadLanguageFile(__FILE__);?>
 <?if (is_array($arResult["PROPERTIES"]["PRODUCTS"]["VALUE"]) && !empty($arResult["PROPERTIES"]["PRODUCTS"]["VALUE"])): ?>
 	<div class="products_staty">
 		<h2>Товары по теме статьи</h2>
-		<div  class="bxr-carousel bxr-markers-list">
+		<div class="products_staty__list">
 		<? 
 				
 		global $arrFilter;
