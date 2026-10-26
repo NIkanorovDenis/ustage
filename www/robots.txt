@@ -31,6 +31,7 @@ Disallow: /*show_all=
 Disallow: /catalog/rigging/
 Disallow: */?PAGEN_*&
 Disallow: /landing/
+Disallow: /*/filter/clear/
 Allow: */?PAGEN_*
 Allow: /bitrix/images/
 Allow: /bitrix/fonts/
@@ -46,6 +47,9 @@ Allow: /upload/resize_cache/
 Allow: /upload/iblock/
 Allow: /upload/*.png
 Allow: /upload/*.jpg
+Allow: /upload/*.webp
+Allow: /upload/*.jpeg
+Allow: /upload/*.gif
 
 User-Agent: Yandex
 Disallow: /*?offer_id
@@ -80,6 +84,7 @@ Disallow: /*show_all=
 Disallow: /catalog/rigging/
 Disallow: */?PAGEN_*&
 Disallow: /landing/
+Disallow: /*/filter/clear/
 Allow: */?PAGEN_*
 Allow: /bitrix/images/
 Allow: /bitrix/fonts/
@@ -95,6 +100,9 @@ Allow: /upload/resize_cache/
 Allow: /upload/iblock/
 Allow: /upload/*.png
 Allow: /upload/*.jpg
+Allow: /upload/*.webp
+Allow: /upload/*.jpeg
+Allow: /upload/*.gif
 Clean-Param: utm_source&utm_medium&utm_campaign&openstat&offer_id&sort&order&num&view&lang&ysclid&page
 
 User-Agent: Googlebot
@@ -130,6 +138,7 @@ Disallow: /*show_all=
 Disallow: /catalog/rigging/
 Disallow: */?PAGEN_*&
 Disallow: /landing/
+Disallow: /*/filter/clear/
 Allow: */?PAGEN_*
 Allow: /bitrix/images/
 Allow: /bitrix/fonts/
@@ -145,6 +154,9 @@ Allow: /upload/resize_cache/
 Allow: /upload/iblock/
 Allow: /upload/*.png
 Allow: /upload/*.jpg
+Allow: /upload/*.webp
+Allow: /upload/*.jpeg
+Allow: /upload/*.gif
 Sitemap: https://ustage-group.ru/sitemap.xml
 Sitemap: https://ustage-group.ru/sitemap-brands.xml
 Sitemap: https://ustage-group.ru/sitemap-tags.xml
