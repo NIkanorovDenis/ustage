@@ -33,6 +33,48 @@ jobs:
           printf '%s\n' "$PROD_KNOWN_HOSTS" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
+      - name: Protect production SEO and content changes
+        env:
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_PORT: ${{ secrets.PROD_PORT }}
+          PROD_USER: ${{ secrets.PROD_USER }}
+          PROD_PATH: ${{ secrets.PROD_PATH }}
+        run: |
+          test -n "$PROD_HOST"
+          test -n "$PROD_USER"
+          test -n "$PROD_PATH"
+          PROD_PORT="${PROD_PORT:-22}"
+          scp -P "$PROD_PORT" .deploy-critical-files "$PROD_USER@$PROD_HOST:/tmp/ustage-deploy-critical-files"
+          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" \
+            "PROD_PATH='$PROD_PATH' bash -s" <<'REMOTE'
+          set -euo pipefail
+          manifest="${PROD_PATH%/}/../.ustage-critical-manifest.sha256"
+          current="$(mktemp)"
+          trap 'rm -f "$current" /tmp/ustage-deploy-critical-files' EXIT
+
+          while IFS= read -r file; do
+            [ -n "$file" ] || continue
+            if [ -f "${PROD_PATH%/}/$file" ]; then
+              hash="$(sha256sum "${PROD_PATH%/}/$file" | cut -d' ' -f1)"
+              printf '%s  %s\n' "$hash" "$file"
+            else
+              printf '%s  %s\n' MISSING "$file"
+            fi
+          done < /tmp/ustage-deploy-critical-files > "$current"
+
+          if [ ! -f "$manifest" ]; then
+            echo "Critical-file manifest is missing: $manifest" >&2
+            echo "Bootstrap it on production before deploying." >&2
+            exit 1
+          fi
+
+          if ! diff -u "$manifest" "$current"; then
+            echo "Production critical files changed outside Git." >&2
+            echo "Commit the approved production changes first; deployment was stopped without overwriting them." >&2
+            exit 1
+          fi
+          REMOTE
+
       - name: Deploy tracked site files
         env:
           PROD_HOST: ${{ secrets.PROD_HOST }}
@@ -80,3 +122,32 @@ jobs:
           )"
           printf '%s' "$CREDENTIALS_PAYLOAD" \
             | ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" migrate
+
+      - name: Record deployed critical files
+        env:
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_PORT: ${{ secrets.PROD_PORT }}
+          PROD_USER: ${{ secrets.PROD_USER }}
+          PROD_PATH: ${{ secrets.PROD_PATH }}
+        run: |
+          PROD_PORT="${PROD_PORT:-22}"
+          scp -P "$PROD_PORT" .deploy-critical-files "$PROD_USER@$PROD_HOST:/tmp/ustage-deploy-critical-files"
+          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" \
+            "PROD_PATH='$PROD_PATH' bash -s" <<'REMOTE'
+          set -euo pipefail
+          manifest="${PROD_PATH%/}/../.ustage-critical-manifest.sha256"
+          next="${manifest}.new"
+          trap 'rm -f "$next" /tmp/ustage-deploy-critical-files' EXIT
+
+          while IFS= read -r file; do
+            [ -n "$file" ] || continue
+            if [ -f "${PROD_PATH%/}/$file" ]; then
+              hash="$(sha256sum "${PROD_PATH%/}/$file" | cut -d' ' -f1)"
+              printf '%s  %s\n' "$hash" "$file"
+            else
+              printf '%s  %s\n' MISSING "$file"
+            fi
+          done < /tmp/ustage-deploy-critical-files > "$next"
+
+          mv "$next" "$manifest"
+          REMOTE

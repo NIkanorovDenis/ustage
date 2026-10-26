@@ -1,0 +1,10 @@
+robots.txt
+index.php
+.catalog_mobile.menu.php
+.footer_1.menu.php
+.footer_2.menu.php
+.footer_3.menu.php
+.top.menu.php
+.top_info.menu.php
+.topline.menu.php
+bitrix/templates/market2_v1/header.php
