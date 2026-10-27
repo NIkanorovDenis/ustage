@@ -42,39 +42,8 @@ jobs:
         run: |
           test -n "$PROD_HOST"
           test -n "$PROD_USER"
-          test -n "$PROD_PATH"
           PROD_PORT="${PROD_PORT:-22}"
-          REMOTE_LIST="/tmp/ustage-deploy-critical-files-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          scp -P "$PROD_PORT" .deploy-critical-files "$PROD_USER@$PROD_HOST:$REMOTE_LIST"
-          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" \
-            "PROD_PATH='$PROD_PATH' CRITICAL_FILE_LIST='$REMOTE_LIST' bash -s" <<'REMOTE'
-          set -euo pipefail
-          manifest="${PROD_PATH%/}/../.ustage-critical-manifest.sha256"
-          current="$(mktemp)"
-          trap 'rm -f "$current" "$CRITICAL_FILE_LIST"' EXIT
-
-          while IFS= read -r file; do
-            [ -n "$file" ] || continue
-            if [ -f "${PROD_PATH%/}/$file" ]; then
-              hash="$(sha256sum "${PROD_PATH%/}/$file" | cut -d' ' -f1)"
-              printf '%s  %s\n' "$hash" "$file"
-            else
-              printf '%s  %s\n' MISSING "$file"
-            fi
-          done < "$CRITICAL_FILE_LIST" > "$current"
-
-          if [ ! -f "$manifest" ]; then
-            echo "Critical-file manifest is missing: $manifest" >&2
-            echo "Bootstrap it on production before deploying." >&2
-            exit 1
-          fi
-
-          if ! diff -u "$manifest" "$current"; then
-            echo "Production critical files changed outside Git." >&2
-            echo "Commit the approved production changes first; deployment was stopped without overwriting them." >&2
-            exit 1
-          fi
-          REMOTE
+          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" guard
 
       - name: Deploy tracked site files
         env:
@@ -132,24 +101,4 @@ jobs:
           PROD_PATH: ${{ secrets.PROD_PATH }}
         run: |
           PROD_PORT="${PROD_PORT:-22}"
-          REMOTE_LIST="/tmp/ustage-deploy-critical-files-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          scp -P "$PROD_PORT" .deploy-critical-files "$PROD_USER@$PROD_HOST:$REMOTE_LIST"
-          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" \
-            "PROD_PATH='$PROD_PATH' CRITICAL_FILE_LIST='$REMOTE_LIST' bash -s" <<'REMOTE'
-          set -euo pipefail
-          manifest="${PROD_PATH%/}/../.ustage-critical-manifest.sha256"
-          next="${manifest}.new"
-          trap 'rm -f "$next" "$CRITICAL_FILE_LIST"' EXIT
-
-          while IFS= read -r file; do
-            [ -n "$file" ] || continue
-            if [ -f "${PROD_PATH%/}/$file" ]; then
-              hash="$(sha256sum "${PROD_PATH%/}/$file" | cut -d' ' -f1)"
-              printf '%s  %s\n' "$hash" "$file"
-            else
-              printf '%s  %s\n' MISSING "$file"
-            fi
-          done < "$CRITICAL_FILE_LIST" > "$next"
-
-          mv "$next" "$manifest"
-          REMOTE
+          ssh -p "$PROD_PORT" "$PROD_USER@$PROD_HOST" record-manifest
