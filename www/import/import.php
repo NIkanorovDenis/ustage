@@ -2002,7 +2002,12 @@ class parserUS {
 
 						CIBlockElement::SetPropertyValuesEx($productID, self::IBLOCK_ID, [
 							'UPLOADED_FROM_PAGE' => $this->domen .'check-url-from-site/',
-							'CML2_ARTICLE' => $item['product_code_vendor'],
+							// Imlight displays product_code as the public article on its product pages.
+							// product_code_vendor is an internal manufacturer code and is not the SKU
+							// customers use to identify the product in the supplier catalogue.
+							'CML2_ARTICLE' => !empty($item['product_code'])
+								? $item['product_code']
+								: $item['product_code_vendor'],
 							'UPLOADED_PHOTO' => isset($photo) ? $photo : '',
 							'COUNTRY' => $item['product_country'],
 							'PARSER_PRODUCT_CODE' => $item['product_code'],
