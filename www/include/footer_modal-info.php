@@ -56,10 +56,11 @@
                         <div class="announcement__sub-title">Изменения в графике работы:</div>
 
                         <div class="announcement__announcement-box announcement-box">
-                            <div class="announcement-box__title">11 сентября работаем до 14:00.</div>
+                            <div class="announcement-box__title">4 ноября у нас нерабочий день.</div>
+                            <div class="announcement-box__text">Оформленные заказы будут обрабатываться с 5 ноября.</div>
                         </div>
 
-                        <div class="announcement__footer-title">Оформленные заказы после указанного времени будут обрабатываться с 14 сентября.</div>
+                        <div class="announcement__footer-title">С Днём народного единства!</div>
                     </div>
                 </div>
             </div>

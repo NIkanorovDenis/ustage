@@ -434,9 +434,9 @@
 
   $(document).ready(function() {
     // См. также footer
-    // Show from 10 September through 11 September 2026 (local browser time).
-    let dateStart = new Date(2026, 8, 10, 0, 0, 0).getTime();
-    let dateEnd = new Date(2026, 8, 12, 0, 0, 0).getTime();
+    // Show only on 4 November 2026 (local browser time).
+    let dateStart = new Date(2026, 10, 4, 0, 0, 0).getTime();
+    let dateEnd = new Date(2026, 10, 5, 0, 0, 0).getTime();
 
     let date = new Date().getTime();
 
@@ -446,13 +446,13 @@
         let forceOpen = location.hash === '#announcement-demo';
 
         if ((date >= dateStart && date < dateEnd) || forceOpen) {
-          let isAnnouncementClosed = getCookie('is_announcement_closed_2026_09_11');
+          let isAnnouncementClosed = getCookie('is_announcement_closed_2026_11_04');
 
           if (!isAnnouncementClosed) {
             triggerButton.trigger('click');
 
             if (!forceOpen) {
-             setCookie('is_announcement_closed_2026_09_11', '1', null , null , 10);
+             setCookie('is_announcement_closed_2026_11_04', '1', null , null , 10);
             }
           }
         }
