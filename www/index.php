@@ -1,10 +1,9 @@
 <? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Музыкальное оборудование купить в Санкт Петербурге - Ustage Group");
-$APPLICATION->SetPageProperty("description", "Купить шоу-оборудование в магазин шоу-техники ustage-group.ru. Музыкальное оборудование Санкт Петербург для концерта, show-техника с доставкой по СПб.");
+$APPLICATION->SetPageProperty("title", "Световое, звуковое и проекционное оборудование - Ustage Group");
+$APPLICATION->SetPageProperty("description", "Профессиональное световое, звуковое и проекционное оборудование с доставкой по всей России. Все для оснащения концертных площадок, театральных залов, ночных клубов и ресторанов.");
 $APPLICATION->SetTitle("USTAGE GROUP - поставщик шоу-техники");
 
-?>
-<div class="row">
+?><div class="row">
 	<div class="col-sm-3 col-xs-12">
  <img src="/logo.svg" align="left" class="company-logo">
 	</div>
@@ -33,7 +32,7 @@ display: none;
 		<p>
 			 Купить музыкальное оборудование в Санкт-Петербурге в любой комплектации и сложности можно в магазине шоу-техники Ustage Grpup. Наш магазин музыкального оборудования уже более 10 лет занимается оснащением, сценическим, <a href="/catalog/zvukovoe-oborudovanie/">звуковым</a> и <a href="/catalog/svetovoe-oborudovanie/">световым оборудованием</a> открытых концертных площадок, театральных залов, ночных клубов и ресторанов.
 		</p>
-		<h2><a href="/services/">Услуги</a> компании USTAGE GROUP</h2>
+		<h2>Услуги компании USTAGE GROUP</h2>
 		<p>
 			 Наша компания занимается техническим оснащением любых концертных и театральных площадок в Санкт-Петербурге, Ленинградской области и по всей России.
 		</p>

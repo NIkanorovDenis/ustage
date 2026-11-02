@@ -1,13 +1,6 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Караоке \"ПОД КЛЮЧ\"", 
-		"/services/Karaoke/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Поставка", 
 		"/services/prodaza-oborudovania/", 
 		Array(), 
