@@ -20,7 +20,7 @@ return static function (Connection $connection): void {
 
     $fileId = (int) $connection->queryScalar(
         "SELECT ID FROM b_file WHERE ORIGINAL_NAME = 'ds-proaudio.png' "
-        . "AND CONTENT_TYPE = 'image/png' ORDER BY ID DESC LIMIT 1"
+        . "AND CONTENT_TYPE = 'image/png' ORDER BY ID DESC"
     );
 
     if ($fileId <= 0) {
