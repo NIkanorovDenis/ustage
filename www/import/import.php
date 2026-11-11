@@ -2425,9 +2425,10 @@ class parserUS {
 		$filename = __DIR__ .'/'. 'slami_pricelist.csv';
 		$usingCachedPricelist = false;
 
-		// The public pricelist URL redirects to an HTML login form. SLAMI's API
-		// endpoint returns the actual Windows-1251 encoded CSV file.
-		$filenameSlami = 'https://dealer.slami.ru/api/getcsv/?token=08e0c0203de54515a9e121dc001d90df';
+		// SLAMI currently publishes the actual Windows-1251 encoded CSV at the
+		// public pricelist URL. The former token endpoint now returns a short
+		// HTML response with HTTP 200, so it must not be used as import data.
+		$filenameSlami = 'https://dealer.slami.ru/info/pricelist.csv';
 		$slamiPriceData = false;
 		for ($attempt = 1; $attempt <= 3 && !$slamiPriceData; $attempt++) {
 			$slamiPriceData = $this->getDataCurl($filenameSlami, 'html', [
