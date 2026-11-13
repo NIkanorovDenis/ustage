@@ -1002,7 +1002,7 @@
 .bxr-element-slider > .bxr-gisp-corner--detail {
     position: absolute;
     left: 0;
-    bottom: 10px;
+    bottom: 0;
     z-index: 900;
     width: 118px;
     height: 118px;
@@ -1014,10 +1014,10 @@
     position: absolute;
     left: 13px;
     bottom: 13px;
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     border-radius: 5px;
-    background: #fff url('/local/assets/gisp/logo.svg') center / 40px 40px no-repeat;
+    background: #fff url('/local/assets/gisp/logo.svg') center / 34px 34px no-repeat;
 }
 .bxr-one-image-detail-wrap {
 	height: 100%;

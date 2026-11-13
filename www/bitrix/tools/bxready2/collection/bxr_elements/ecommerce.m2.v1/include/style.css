@@ -925,10 +925,10 @@
     position: absolute;
     left: 8px;
     bottom: 8px;
-    width: 31px;
-    height: 31px;
+    width: 26px;
+    height: 26px;
     border-radius: 3px;
-    background: #fff url('/local/assets/gisp/logo.svg') center / 25px 25px no-repeat;
+    background: #fff url('/local/assets/gisp/logo.svg') center / 20px 20px no-repeat;
 }
 
 /*start slick slider*/
