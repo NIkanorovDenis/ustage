@@ -84,7 +84,8 @@ $APPLICATION->IncludeComponent(
 		"DETAIL_PRODUCT_PAY_BLOCK_ORDER" => "price,quantity,rating,priceRanges,quantityLimit,buttons",
 		"DETAIL_PROPERTY_CODE" => array(
 			0 => "PRICE_LIMIT",
-			1 => "",
+			1 => "GISP",
+			2 => "",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DETAIL_SET_VIEWED_IN_COMPONENT" => "Y",
@@ -187,7 +188,7 @@ $APPLICATION->IncludeComponent(
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons,compare",
 		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array(
-			0 => "",
+			0 => "GISP",
 			1 => "COLOR",
 			2 => "",
 		),
