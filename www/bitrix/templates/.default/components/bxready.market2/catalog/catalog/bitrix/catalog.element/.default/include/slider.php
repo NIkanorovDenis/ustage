@@ -28,6 +28,7 @@ $markerParams = array(
 ?>
 <div id="<?=$arItemIDs["SLIDER_WRAP_ID"]?>" class="bxr-element-slider">
     <?$elementDraw->showMarkerGroup($markerGroup, false, $markerParams);?>
+    <div class="bxr-element-slider-main-wrap">
     <?if ($arResult["PROPERTIES"]["GISP"]["VALUE_XML_ID"] === "Y"):?>
         <span class="bxr-gisp-corner bxr-gisp-corner--detail" title="ГИСП" aria-label="ГИСП"><span class="bxr-gisp-corner__logo"></span></span>
     <?endif;?>
@@ -55,6 +56,7 @@ $markerParams = array(
                 <img src="<?=$elementDraw->getDefaultImage()?>" alt="No photo">
             </div>
         <?endif;?>
+    </div>
     </div>
 
     <?if (count($arResult["MORE_PHOTO"]) > 1) :?>

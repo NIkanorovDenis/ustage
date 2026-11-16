@@ -35,7 +35,8 @@ $title = ($arElement["IPROPERTY_VALUES"]["ELEMENT_PREVIEW_PICTURE_FILE_TITLE"]) 
 $alt = ($arElement["IPROPERTY_VALUES"]["ELEMENT_PREVIEW_PICTURE_FILE_ALT"]) ? $arElement["IPROPERTY_VALUES"]["ELEMENT_PREVIEW_PICTURE_FILE_ALT"] : $arElement["NAME"];
 if ($showSlider && isset($morePhoto[$arElement["ID"]]) && count($morePhoto[$arElement["ID"]]) > 1) {
     $isImgSlider = 'true';
-?><div class="bxr-slider slide bxr-img-container" id="<?=$arItemIDs['PICT_SLIDER']?>" title="<?=$title?>"><?
+?><div class="bxr-img-container bxr-gisp-preview-wrap">
+    <div class="bxr-slider slide" id="<?=$arItemIDs['PICT_SLIDER']?>" title="<?=$title?>"><?
     if(is_array($morePhoto[$arElement["ID"]])) {
         foreach ($morePhoto[$arElement["ID"]] as $key => $photo) {
             ?>
@@ -50,9 +51,11 @@ if ($showSlider && isset($morePhoto[$arElement["ID"]]) && count($morePhoto[$arEl
         }
     }
     unset($morePhoto[$arElement["ID"]]);
-    ?><?if ($arElement["PROPERTIES"]["GISP"]["VALUE_XML_ID"] === "Y"):?>
+    ?></div>
+    <?if ($arElement["PROPERTIES"]["GISP"]["VALUE_XML_ID"] === "Y"):?>
         <span class="bxr-gisp-corner" title="ГИСП" aria-label="ГИСП"><span class="bxr-gisp-corner__logo"></span></span>
-    <?endif;?></div><?
+    <?endif;?>
+</div><?
 } else {
     ?><div class="bxr-element-image bxr-img-container">
         <a class="bxr-item-image-wrap" href="<?=$arElement['DETAIL_PAGE_URL']?>">

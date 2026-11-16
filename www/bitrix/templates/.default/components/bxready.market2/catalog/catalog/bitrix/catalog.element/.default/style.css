@@ -999,7 +999,11 @@
     /*display: none;*/
 }
 
-.bxr-element-slider > .bxr-gisp-corner--detail {
+.bxr-element-slider-main-wrap {
+    position: relative;
+}
+
+.bxr-element-slider-main-wrap > .bxr-gisp-corner--detail {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1010,7 +1014,7 @@
     background: url('/local/assets/gisp/corner.svg') left bottom / contain no-repeat;
 }
 
-.bxr-element-slider > .bxr-gisp-corner--detail .bxr-gisp-corner__logo {
+.bxr-element-slider-main-wrap > .bxr-gisp-corner--detail .bxr-gisp-corner__logo {
     position: absolute;
     left: 13px;
     bottom: 13px;
