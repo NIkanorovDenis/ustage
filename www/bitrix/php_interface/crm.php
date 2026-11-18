@@ -171,7 +171,11 @@ function OnSaleOrderSavedHandler($orderID, &$eventName, &$arFields)
 
 
     $arFields['order'] = 'y';
-	
+
+    if (function_exists('ustageUtmApplyToCrmFields')) {
+        ustageUtmApplyToCrmFields($arFields);
+    }
+
     \Bitrix\Main\Diag\Debug::writeToFile($arFields, '', '_orderData.log');   
 	\Bitrix\Main\Diag\Debug::writeToFile('start send data to b24 - '.$orderID, '', '_orderData.log');
 	
@@ -321,7 +325,11 @@ function crmDeals(&$arFields){
     if (in_array($arFields['IBLOCK_ID'], $forms)) {
 		
         initData($arFields);
-        
+
+        if (function_exists('ustageUtmApplyToCrmFields')) {
+            ustageUtmApplyToCrmFields($arFields);
+        }
+
 		//sendRequests($arFields);
 		\Bitrix\Main\Diag\Debug::writeToFile($arFields, '', '_orderData.log');   
 		\Bitrix\Main\Diag\Debug::writeToFile('start send data to b24 - form'.$arFields['IBLOCK_ID'], '', '_orderData.log');
