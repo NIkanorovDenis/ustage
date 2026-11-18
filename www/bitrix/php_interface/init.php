@@ -3,6 +3,9 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/cookie_consent.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/last_modified.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/marketing_consent.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/utm.php';
+
+ustageUtmCapture();
 
 include $_SERVER["DOCUMENT_ROOT"] . "/bitrix/php_interface/include/b24/b24.php";
 
