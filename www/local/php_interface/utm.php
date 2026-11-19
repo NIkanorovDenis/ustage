@@ -18,6 +18,11 @@ if (!defined('USTAGE_UTM_TTL')) {
     define('USTAGE_UTM_TTL', 90 * 24 * 60 * 60);
 }
 
+if (!defined('USTAGE_UTM_FIELDS_FILE')) {
+    // Карта «метка → код пользовательского поля сделки» (UF_CRM_...).
+    define('USTAGE_UTM_FIELDS_FILE', __DIR__ . '/utm_fields.php');
+}
+
 /**
  * Список поддерживаемых меток.
  *
@@ -26,6 +31,68 @@ if (!defined('USTAGE_UTM_TTL')) {
 function ustageUtmKeys()
 {
     return ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+}
+
+/**
+ * Карта соответствия UTM-меток кодам пользовательских полей сделки.
+ *
+ * Приёмник CRM записывает значения в поля по коду (UF_CRM_...), поэтому
+ * одних ключей utm_source недостаточно. Коды по умолчанию рассчитаны на
+ * поля, созданные через API с читаемыми кодами; если в Битрикс24 коды
+ * числовые (UF_CRM_1690000000), их нужно указать в
+ * local/php_interface/utm_fields.php.
+ *
+ * @return array<string,string>
+ */
+function ustageUtmCrmFieldMap()
+{
+    static $map = null;
+
+    if ($map !== null) {
+        return $map;
+    }
+
+    $map = [
+        'utm_source' => 'UF_CRM_UTM_SOURCE',
+        'utm_medium' => 'UF_CRM_UTM_MEDIUM',
+        'utm_campaign' => 'UF_CRM_UTM_CAMPAIGN',
+        'utm_content' => 'UF_CRM_UTM_CONTENT',
+        'utm_term' => 'UF_CRM_UTM_TERM',
+    ];
+
+    if (!is_file(USTAGE_UTM_FIELDS_FILE)) {
+        return $map;
+    }
+
+    $custom = include USTAGE_UTM_FIELDS_FILE;
+    if (!is_array($custom)) {
+        return $map;
+    }
+
+    foreach ($custom as $key => $code) {
+        if (!is_string($key) || !in_array($key, ustageUtmKeys(), true)) {
+            continue;
+        }
+
+        // null или пустая строка отключают передачу конкретной метки.
+        if ($code === null || $code === '') {
+            unset($map[$key]);
+            continue;
+        }
+
+        if (!is_string($code)) {
+            continue;
+        }
+
+        $code = trim($code);
+        if (!preg_match('/^UF_CRM_[A-Za-z0-9_]+$/', $code)) {
+            continue;
+        }
+
+        $map[$key] = $code;
+    }
+
+    return $map;
 }
 
 /**
@@ -199,7 +266,8 @@ function ustageUtmCapture()
  * которое приходит из свойства инфоблока/заказа. Реальные метки передаём
  * отдельными ключами:
  *  - utm_source, utm_medium, ... — для полей CRM, созданных под эти метки;
- *  - UTM_MEDIUM, UTM_CAMPAIGN, UTM_CONTENT, UTM_TERM — стандартные поля сделки.
+ *  - UTM_MEDIUM, UTM_CAMPAIGN, UTM_CONTENT, UTM_TERM — стандартные поля сделки;
+ *  - UF_CRM_... — коды пользовательских полей сделки из ustageUtmCrmFieldMap().
  *
  * @param array $fields
  * @return void
@@ -227,6 +295,13 @@ function ustageUtmApplyToCrmFields(&$fields)
     ];
 
     foreach ($standardFields as $key => $crmKey) {
+        if (!empty($utm[$key])) {
+            $fields[$crmKey] = $utm[$key];
+        }
+    }
+
+    // Пользовательские поля сделки: Битрикс24 заполняет их только по коду UF_CRM_*.
+    foreach (ustageUtmCrmFieldMap() as $key => $crmKey) {
         if (!empty($utm[$key])) {
             $fields[$crmKey] = $utm[$key];
         }
