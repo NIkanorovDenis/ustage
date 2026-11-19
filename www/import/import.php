@@ -1799,6 +1799,12 @@ class parserUS {
 		$this->productsFromCatalog = $this->getProductsFromCatalog();
 		$this->productsFromParser = $this->invaskGetProductsFromSource();
 
+		// productsToDeactivate is filled from the catalogue, so an empty feed
+		// would otherwise mark every supplier product as gone.
+		if (empty($this->productsFromParser)) {
+			$this->productsToDeactivate = [];
+		}
+
 	}
 
 	private function invaskGetDataFromInvask() {
@@ -1806,6 +1812,7 @@ class parserUS {
         $ch = curl_init();
         $array = [];
         $array['goods'] = [];
+        $array['total'] = 0;
         $i = 0;
         $invaskToken = $this->getParserCredential('invask', 'token');
 
@@ -1815,28 +1822,55 @@ class parserUS {
         }
 
         while (true) {
-		//while ($i<3000) {
             curl_setopt_array($ch, [
                 CURLOPT_URL => 'https://invask.ru/api/client/v1/products?offset='.$i,
                 CURLOPT_ENCODING => "",
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "GET",
                 CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CONNECTTIMEOUT => 30,
+                CURLOPT_TIMEOUT => 120,
                 CURLOPT_HTTPHEADER => array(
                     "authorization: Bearer ". $invaskToken,
                     "content-type: application/json"
                 ),
             ]);
 
-            $response = curl_exec($ch);
-            $response = json_decode($response, true);
+            $responseBody = curl_exec($ch);
+            $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-            if (!$response) break;
+            if ($responseBody === false) {
+                $this->tolog($this->logsError, 'Invask API request failed: '. curl_error($ch) .';', true);
+                break;
+            }
 
-            $array['total'] = $response['total'];
+            $response = json_decode($responseBody, true);
+
+            // An expired or revoked token answers 401 {"message":"Unauthenticated."}.
+            // Without this check $response['products'] is null and array_merge() throws
+            // a TypeError, so the run dies with only the log header written (parser
+            // status then shows "-1" updated products).
+            if ($httpCode !== 200 || !is_array($response) || !isset($response['products']) || !is_array($response['products'])) {
+                $errorBody = trim(preg_replace('/\s+/', ' ', (string)$responseBody));
+                $this->tolog($this->logsError, 'Invask API error: HTTP '. $httpCode .'; '. substr($errorBody, 0, 300) .';', true);
+                break;
+            }
+
+            $array['total'] = isset($response['total']) ? (int)$response['total'] : $array['total'];
+
+            if (empty($response['products'])) {
+                break;
+            }
+
             $array['goods'] = array_merge($array['goods'], $response['products']);
 
             $i += 3000;
+
+            // Guard against an API that ignores offset and always returns the same page.
+            if ($i > 3000000) {
+                $this->tolog($this->logsError, 'Invask API pagination limit reached at offset '. $i .';', true);
+                break;
+            }
         }
 
         curl_close($ch);
@@ -1850,7 +1884,7 @@ class parserUS {
 
 		$invaskData = $this->invaskGetDataFromInvask();
 
-		if (!empty($invaskData)) {
+		if (!empty($invaskData['goods'])) {
 
 			$filename = $this->location .'/'. $this->parser .'/check_'. date('Ymd') .'.txt';
 			//$this->toFile(__DIR__ .'/'. $filename, $invaskData['goods']);
@@ -1927,6 +1961,10 @@ class parserUS {
 				}
 
 			}
+
+		} else {
+
+			$this->tolog($this->logsError, 'Invask import aborted: API returned no products;', true);
 
 		}
 
