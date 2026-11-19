@@ -2085,7 +2085,33 @@ class ESParser {
         $ch = curl_init();
         $array = [];
         $array['goods'] = [];
+        $array['total'] = 0;
         $i = 0;
+
+        /*
+         * The API token lives outside the document root and is shared with
+         * /import/import.php. Keeping it in one place means a renewed Invask
+         * token only has to be written to /home/bitrix/.parser_credentials.php.
+         */
+        $invaskToken = '';
+        $credentialsFile = getenv('USTAGE_PARSER_CREDENTIALS_FILE');
+        if (empty($credentialsFile)) {
+            $documentRoot = !empty($_SERVER['DOCUMENT_ROOT'])
+                ? rtrim($_SERVER['DOCUMENT_ROOT'], '/')
+                : dirname(__DIR__, 5);
+            $credentialsFile = dirname($documentRoot) .'/.parser_credentials.php';
+        }
+        if (is_file($credentialsFile)) {
+            $credentials = include $credentialsFile;
+            if (is_array($credentials) && !empty($credentials['invask']['token'])) {
+                $invaskToken = $credentials['invask']['token'];
+            }
+        }
+
+        if (empty($invaskToken)) {
+            sendAlarmTG('❌ Invask: API token is not configured ('. $credentialsFile .')');
+            return $array;
+        }
 
         while (true) {
             curl_setopt_array($ch, [
@@ -2094,21 +2120,44 @@ class ESParser {
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "GET",
                 CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CONNECTTIMEOUT => 30,
+                CURLOPT_TIMEOUT => 120,
                 CURLOPT_HTTPHEADER => array(
-                    "authorization: Bearer PJqhIazH50G90P3djFYawuMWjXvk60FOSrFUAFWrBHwFxH65dRH2qjhYZf9WVe3m9nrcF0gueZfEex5Z",
+                    "authorization: Bearer ". $invaskToken,
                     "content-type: application/json"
                 ),
             ]);
 
-            $response = curl_exec($ch);
-            $response = json_decode($response, true);
+            $responseBody = curl_exec($ch);
+            $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-            if (!$response) break;
+            if ($responseBody === false) {
+                sendAlarmTG('❌ Invask API request failed: '. curl_error($ch));
+                break;
+            }
 
-            $array['total'] = $response['total'];
+            $response = json_decode($responseBody, true);
+
+            // Expired/revoked token: 401 {"message":"Unauthenticated."}.
+            // Without this check the loop hits array_merge() with null and dies.
+            if ($httpCode !== 200 || !is_array($response) || !isset($response['products']) || !is_array($response['products'])) {
+                $errorBody = trim(preg_replace('/\s+/', ' ', (string)$responseBody));
+                sendAlarmTG('❌ Invask API error: HTTP '. $httpCode .'; '. substr($errorBody, 0, 300));
+                break;
+            }
+
+            $array['total'] = isset($response['total']) ? (int)$response['total'] : $array['total'];
+
+            if (empty($response['products'])) break;
+
             $array['goods'] = array_merge($array['goods'], $response['products']);
 
             $i += 3000;
+
+            if ($i > 3000000) {
+                sendAlarmTG('❌ Invask API pagination limit reached at offset '. $i);
+                break;
+            }
         }
 
         curl_close($ch);
@@ -2127,6 +2176,11 @@ class ESParser {
         //ESUtils::d($array); exit;
 
         if (!$array) return;
+
+        if (empty($array['goods'])) {
+            sendAlarmTG('❌ Invask: API returned no products, update skipped');
+            return;
+        }
 
         $categories = self::InvaskCategory();
 
